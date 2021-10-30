@@ -25,6 +25,7 @@ This is the starter for the Flask React project.
    ```bash
    pipenv shell
    ```
+   flask db migrate
 
    ```bash
    flask db upgrade
