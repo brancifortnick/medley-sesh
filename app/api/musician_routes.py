@@ -23,8 +23,8 @@ def get_artist_id(id):
 
 
 
-@musician_routes.route('/<int:id>/songs', methods=['GET'])
-@login_required
-def get_musicians_songs(id):
-    songs = Song.query.filter(Song.musician_id == id).all()
-    return {'songs': [song.to_dict() for song in songs]}
+# @musician_routes.route('/<int:id>/songs', methods=['GET'])
+# @login_required
+# def get_musicians_songs(id):
+#     songs = Song.query.filter(Song.musician_id == id).all()
+#     return {'songs': [song.to_dict() for song in songs]}
