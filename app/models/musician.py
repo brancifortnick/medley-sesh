@@ -1,6 +1,6 @@
-import datetime
+# import datetime
 from .db import db
-from sqlalchemy import DateTime
+# from sqlalchemy import DateTime
 
 class Musician(db.Model):
 
@@ -11,8 +11,8 @@ class Musician(db.Model):
     musician_name = db.Column(db.String(30), nullable=False, unique=True)
     profile_img = db.Column(db.String(255))
     biography = db.Column(db.String(255))
-    created_at = DateTime(default=datetime.datetime.utcnow)
-    updated_at = DateTime(default=datetime.datetime.utcnow)
+    # created_at = DateTime(default=datetime.datetime.utcnow)
+    # updated_at = DateTime(default=datetime.datetime.utcnow)
 
 
     users = db.relationship('User', back_populates='musicians')
@@ -25,7 +25,7 @@ class Musician(db.Model):
             'musician_name': self.musician_name,
             'profile_img': self.profile_img,
             'biography' : self.biography,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at,
+            # 'created_at': self.created_at,
+            # 'updated_at': self.updated_at,
             'songs': [song.id for song in self.songs]
         }

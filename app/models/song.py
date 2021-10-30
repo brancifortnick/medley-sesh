@@ -1,6 +1,6 @@
-import datetime
+# import datetime
 from .db import db
-from sqlalchemy import DateTime
+# from sqlalchemy import DateTime
 
 
 class Song(db.Model):
@@ -12,8 +12,8 @@ class Song(db.Model):
     song_img = db.Column(db.String(255))
     file_url = db.Column(db.String(500), nullable=False)
     musician_id = db.Column(db.Integer, db.ForeignKey('musicians.id'))
-    created_at = DateTime(default=datetime.datetime.utcnow)
-    updated_at = DateTime(default=datetime.datetime.utcnow)
+    # created_at = DateTime(default=datetime.datetime.utcnow)
+    # updated_at = DateTime(default=datetime.datetime.utcnow)
 
     musicians = db.relationship('Musician', back_populates='songs')
     comments = db.relationship('Comment', back_populates='songs')
