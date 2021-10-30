@@ -10,7 +10,10 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import AllMusicians from './components/AllMusicians';
 
+
+
 function App() {
+
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
