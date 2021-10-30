@@ -9,22 +9,22 @@ from app.s3 import (
 musician_routes = Blueprint('musicians', __name__)
 
 
+@musician_routes.route('/')
+@login_required
+def get_musicians():
+    musicians = Musician.query.all()
+    return {'musicians': [musician.to_dict() for musician in musicians]}
+
 @musician_routes.route('/<int:id>', methods=['GET'])
 @login_required
 def get_artist_id(id):
     musician = Musician.query.get(id)
     return musician.to_dict()
 
-@musician_routes.route('/') #<====try empty string possibly
-@login_required
-def get_musicians():
-    musicians = Musician.query.all()
-    return {'musicians': [musician.to_dict() for musician in musicians]}
 
 
-
-@musician_routes.route('/<int:id>/songs', methods=['GET'])
-@login_required
-def get_musicians_songs(id):
-    songs = Song.query.filter(Song.musician_id == id).all()
-    return {'songs': [song.to_dict() for song in songs]}
+# @musician_routes.route('/<int:id>/songs', methods=['GET'])
+# @login_required
+# def get_musicians_songs(id):
+#     songs = Song.query.filter(Song.musician_id == id).all()
+#     return {'songs': [song.to_dict() for song in songs]}
