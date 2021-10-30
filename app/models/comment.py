@@ -1,6 +1,6 @@
+import datetime
 from .db import db
-from sqlalchemy import func
-
+from sqlalchemy import DateTime
 class Comment(db.Model):
 
     __tablename__ = 'comments'
@@ -9,8 +9,8 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     song_id= db.Column(db.Integer, db.ForeignKey("songs.id"))
     comment = db.Column(db.String(255), nullable=True)
-    created_at = db.Column(db.DateTime(timezone=True),nullable=False, server_default=func.now())
-    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, server_default=func.now())
+    created_at = DateTime(default=datetime.datetime.utcnow)
+    updated_at = DateTime(default=datetime.datetime.utcnow)
 
     songs = db.relationship('Song', back_populates='comments')
     users = db.relationship('User', back_populates='comments')

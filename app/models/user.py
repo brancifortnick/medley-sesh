@@ -1,8 +1,8 @@
+import datetime
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from sqlalchemy import func
-
+from sqlalchemy import DateTime
 
 class User(db.Model, UserMixin):
 
@@ -12,10 +12,8 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    created_at = db.Column(db.DateTime(timezone=True),
-                           nullable=False, server_default=func.now())
-    updated_at = db.Column(db.DateTime(timezone=True),
-                           nullable=False, server_default=func.now())
+    created_at = DateTime(default=datetime.datetime.utcnow)
+    updated_at = DateTime(default=datetime.datetime.utcnow)
 
     musicians = db.relationship('Musician', back_populates='users')
     comments = db.relationship('Comment', back_populates='users')
