@@ -1,14 +1,13 @@
+import React from "react";
+import { NavLink, useHistory } from "react-router-dom";
+import LogoutButton from "./auth/LogoutButton";
 
-import React from 'react';
-import { NavLink, useHistory} from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
 const NavBar = () => {
   // const dispatch = useDispatch()
   // const history = useHistory();
-  const user = useSelector(state => state.session.user)
+  const user = useSelector((state) => state.session.user);
 
   return (
     <nav>
@@ -33,17 +32,15 @@ const NavBar = () => {
             Users
           </NavLink>
         </li>
-        <li>
-          <NavLink to={`/users/${user.id}`} exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li>
+        <NavLink to="/musicians" exact={true} activeClassName="active">
+          Musicians
+        </NavLink>
         <li>
           <LogoutButton />
         </li>
       </ul>
     </nav>
   );
-}
+};
 
 export default NavBar;
