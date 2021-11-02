@@ -7,6 +7,7 @@ import './AllMusicians.css';
 
 const AllMusicians = () => {
   const dispatch = useDispatch();
+
   const musicians = useSelector((state) => Object.values(state.musician));
 
   useEffect(() => {

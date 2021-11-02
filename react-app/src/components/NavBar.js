@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import LogoutButton from "../auth/LogoutButton";
+import LogoutButton from './auth/LogoutButton'
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../store/session";
-import "./NavBar.css";
+import { login } from "../store/session";
+// import "./NavBar.css";
 
 const NavBar = () => {
   const loggedInUser = useSelector((state) => state.session.user);

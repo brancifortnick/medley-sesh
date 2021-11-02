@@ -1,8 +1,9 @@
+
 const GET_MUSICIANS = 'musician/GET_MUSICIANS';
 
 const getAllArtists = (musicians) => ({
     type: GET_MUSICIANS,
-    payload: musicians,
+    musicians,
 })
 
 export const getAllMusicians = () => async (dispatch) => {
@@ -10,6 +11,7 @@ export const getAllMusicians = () => async (dispatch) => {
     if(res.ok){
         const data = await res.json();
         dispatch(getAllArtists(data));
+        return data;
     }
 };
 
@@ -21,8 +23,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_MUSICIANS:{
       const newState = {}
-      action.payload.forEach((musician)=> {
-        newState[action.payload.id] = musician;
+      action.musicians.forEach((musician)=> {
+        newState[musician.id] = musician;
       })
     return newState;
   }
