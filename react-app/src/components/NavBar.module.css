@@ -1,5 +1,14 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
 
+}
 .activeStyle{
     font-weight: bolder;
     color:red;
+    text-decoration: none;
 }

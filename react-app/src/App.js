@@ -53,13 +53,9 @@ function App() {
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <Musician />
         </ProtectedRoute>
-        {user ? (
-          <ProtectedRoute path="/" exact={true}></ProtectedRoute>
-        ) : (
           <ProtectedRoute path="/" exact={true}>
             <h1>My Home Page</h1>
           </ProtectedRoute>
-        )}
       </Switch>
     </BrowserRouter>
   );
