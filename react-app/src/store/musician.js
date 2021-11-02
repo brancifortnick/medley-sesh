@@ -1,4 +1,4 @@
-import {csrfFetch} from './csrf'
+
 
 const GET_MUSICIANS = 'musician/GET_MUSICIANS';
 
@@ -8,7 +8,7 @@ const getAllArtists = (musicians) => ({
 })
 
 export const getAllMusicians = () => async (dispatch) => {
-    const res = await csrfFetch(`/api/musicians`);
+    const res = await fetch(`/api/musicians`);
     if(res.ok){
         const data = await res.json();
         dispatch(getAllArtists(data));
