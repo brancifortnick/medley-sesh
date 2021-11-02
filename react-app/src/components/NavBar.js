@@ -1,44 +1,81 @@
 import React from "react";
-import { NavLink, useHistory } from "react-router-dom";
-import LogoutButton from "./auth/LogoutButton";
-
-import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import LogoutButton from "../auth/LogoutButton";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../store/session";
+import "./NavBar.css";
 
 const NavBar = () => {
-  // const dispatch = useDispatch()
-  // const history = useHistory();
-  const user = useSelector((state) => state.session.user);
+  const loggedInUser = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
+  const DemoLogin = () => {
+    dispatch(login("demo@aa.io", "password"));
+  };
 
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li>
-        <NavLink to="/musicians" exact={true} activeClassName="active">
-          Musicians
-        </NavLink>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul>
+    <nav className="nav_container">
+      <div className="inner_container">
+        <div className="nav_bar_buttons">
+          <button id="home">
+            <NavLink to="/" exact={true} activeClassName="active">
+              Home
+            </NavLink>
+          </button>
+        </div>
+        {!loggedInUser ? (
+          <div className="nav_bar_buttons">
+            <div id="login">
+              <button id="login_nav">
+                <NavLink to="/login" exact={true} activeClassName="active">
+                  Login
+                </NavLink>
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        {!loggedInUser ? (
+          <div className="nav_bar_buttons">
+            <div id="sign_up">
+              <button id="sign_up">
+                <NavLink to="/sign-up" exact={true} activeClassName="active">
+                  Sign Up
+                </NavLink>
+              </button>
+            </div>
+          </div>
+        ) : null}
+        {!loggedInUser ? (
+          <div>
+            <button className="nav_bar_buttons" onClick={DemoLogin}>
+              Demo
+            </button>
+          </div>
+        ) : null}
+        {loggedInUser ? (
+          <div id="users_info">
+            <div className="nav_bar_buttons">
+              <NavLink to="/users" exact={true} activeClassName="active">
+                Users
+              </NavLink>
+            </div>
+          </div>
+        ) : null}
+        {loggedInUser ? (
+          <div className="nav_bar_buttons">
+            <NavLink to="/musicians" exact={true} activeClassName="active">
+              Musicians
+            </NavLink>
+          </div>
+        ) : null}
+        {loggedInUser ? (
+          <div className="nav_bar_buttons">
+            <div className="nav_bar_buttons">
+              <LogoutButton />
+            </div>
+          </div>
+        ) : null}
+      </div>
     </nav>
   );
 };
