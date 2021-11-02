@@ -84,7 +84,7 @@ const NavBar = () => {
       ) : null}
       {loggedInUser ? (
         <div id='musicians-form'>
-          <NavLink to='/musicians/new'
+          <NavLink to='/musicians/new/:musicianName'
           exact={true}
           activeClassName='active'
           style={{textDecoration: "none"}}

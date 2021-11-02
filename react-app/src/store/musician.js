@@ -6,7 +6,7 @@ const ADD_MUSICIAN = 'musician/ADD_MUSICIAN';
 
 const getAllArtists = (musicians) => ({
   type: GET_MUSICIANS,
-  musicians,
+  payload: musicians,
 });
 
 const getOne = (musician) => ({
@@ -20,7 +20,7 @@ const addMusician = (musician) => ({
 })
 
 export const getAllMusicians = () => async (dispatch) => {
-  const res = await fetch(`/api/musicians`);
+  const res = await fetch(`/api/musicians/`);
   if (res.ok) {
     const data = await res.json();
     dispatch(getAllArtists(data));
@@ -36,24 +36,14 @@ export const getOneMusician = (id) => async (dispatch) => {
   }
 };
 
-export const postNewMusician = (musician) => async (dispatch) => {
-  const{user_id, musician_name, profile_img, biography} = musician;
-  const res = await fetch(`/api/musicians/new`, {
+export const postNewMusician = (musicianName) => async (dispatch) => {
+  // const{user_id, musician_name, profile_img, biography} = musicianName;
+  const res = await fetch(`/api/musicians/new/${musicianName}`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      user_id,
-      musician_name,
-      profile_img,
-      biography,
-    }),
   });
    if(res.ok){
     const data = await res.json();
-    dispatch(addMusician(data))
-    return data;
+    dispatch(addMusician(data['musician']))
   }
 };
 
@@ -67,7 +57,7 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_MUSICIANS: {
       const newState = {};
-      action.musicians.forEach((musician) => {
+      action.payload.musicians.forEach((musician) => {
         newState[musician.id] = musician;
       });
       return newState;

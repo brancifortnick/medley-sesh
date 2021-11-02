@@ -52,9 +52,9 @@ function App() {
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <Musician />
         </ProtectedRoute>
-        <ProtectedRoute path='/musicians/new' exact={true}>
+        <ProtectedRoute path='/musicians/new/:musicianName' exact={true}>
           <MusicianForm />
-        </ProtectedRoute>
+          </ProtectedRoute>
           <ProtectedRoute path="/" exact={true}>
             <h1>My Home Page</h1>
           </ProtectedRoute>
