@@ -9,7 +9,7 @@ from app.s3 import (
 musician_routes = Blueprint('musicians', __name__)
 
 
-@musician_routes.route('/')
+@musician_routes.route('/', methods=['GET'])
 @login_required
 def get_musicians():
     musicians = Musician.query.all()
