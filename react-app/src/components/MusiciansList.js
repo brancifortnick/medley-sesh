@@ -17,6 +17,7 @@ function MusiciansList() {
     return (
       <div key={musician.id}>
         <NavLink to={`/musicians/${musician.id}`}>{musician.musician_name}</NavLink>
+        {/* <img src={musician.profile_img} alt=''></img> */}
       </div>
     );
   });
