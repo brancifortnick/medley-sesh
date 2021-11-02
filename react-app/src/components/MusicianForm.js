@@ -22,7 +22,7 @@ const MusicianForm = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("user_id", user.id);
-    formData.append("musician_name".musician_name);
+    formData.append("musician_name", musician_name);
     formData.append("profile_img", profile_img);
     formData.append("biography", biography);
     dispatch(postNewMusician(formData));
