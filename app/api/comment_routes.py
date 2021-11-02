@@ -6,7 +6,7 @@ from app.s3 import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
 
-comment_routes = Blueprint('comment', __name__)
+comment_routes = Blueprint('comments', __name__)
 
 
 @comment_routes.route('/')
