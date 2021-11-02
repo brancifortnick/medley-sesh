@@ -40,6 +40,9 @@ function Musician() {
       <li>
         <strong>Biography</strong> {musician.biography}
       </li>
+      <li>
+        <strong>Songs</strong> {musician.songs}
+      </li>
     </ul>
   );
 }
