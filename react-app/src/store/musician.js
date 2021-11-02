@@ -1,5 +1,5 @@
 
-const GET_MUSICIANS = 'musicians/GET_MUSICIANS';
+const GET_MUSICIANS = 'musician/GET_MUSICIANS';
 
 const getAllArtists = (musicians) => ({
     type: GET_MUSICIANS,
