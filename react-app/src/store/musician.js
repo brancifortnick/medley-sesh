@@ -1,10 +1,9 @@
 
-
-const GET_MUSICIANS = 'musician/GET_MUSICIANS';
+const GET_MUSICIANS = 'musicians/GET_MUSICIANS';
 
 const getAllArtists = (musicians) => ({
     type: GET_MUSICIANS,
-    payload: musicians,
+    musicians,
 })
 
 export const getAllMusicians = () => async (dispatch) => {
@@ -12,6 +11,7 @@ export const getAllMusicians = () => async (dispatch) => {
     if(res.ok){
         const data = await res.json();
         dispatch(getAllArtists(data));
+        return data;
     }
 };
 
