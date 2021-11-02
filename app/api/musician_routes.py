@@ -15,7 +15,7 @@ def get_musicians():
     musicians = Musician.query.all()
     return {'musicians': [musician.to_dict() for musician in musicians]}
 
-@musician_routes.route('/<int:id>', methods=['GET'])
+@musician_routes.route('/<int:id>')
 @login_required
 def get_artist_id(id):
     musician = Musician.query.get(id)

@@ -47,7 +47,6 @@ function App() {
         </ProtectedRoute>
         {user ? (
         <ProtectedRoute path='/' exact={true}>
-          <NavBar />
           <AllMusicians />
         </ProtectedRoute>
         ) : (
