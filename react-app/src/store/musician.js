@@ -1,3 +1,5 @@
+import {csrfFetch} from './csrf'
+
 const GET_MUSICIANS = 'musician/GET_MUSICIANS';
 
 const getAllArtists = (musicians) => ({
@@ -6,7 +8,7 @@ const getAllArtists = (musicians) => ({
 })
 
 export const getAllMusicians = () => async (dispatch) => {
-    const res = await fetch(`/api/musicians`);
+    const res = await csrfFetch(`/api/musicians`);
     if(res.ok){
         const data = await res.json();
         dispatch(getAllArtists(data));
@@ -21,8 +23,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_MUSICIANS:{
       const newState = {}
-      action.payload.forEach((musician)=> {
-        newState[action.payload.id] = musician;
+      action.musicians.forEach((musician)=> {
+        newState[musician.id] = musician;
       })
     return newState;
   }
