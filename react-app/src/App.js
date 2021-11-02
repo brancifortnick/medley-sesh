@@ -10,7 +10,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import Musician from './components/Musician';
 import MusiciansList from './components/MusiciansList';
-
+import MusicianForm from './components/MusicianForm';
 
 
 
@@ -40,7 +40,6 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
-
         <ProtectedRoute path="/users" exact={true}>
           <UsersList />
         </ProtectedRoute>
@@ -52,6 +51,9 @@ function App() {
           </ProtectedRoute>
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <Musician />
+        </ProtectedRoute>
+        <ProtectedRoute path='/musicians/new' exact={true}>
+          <MusicianForm />
         </ProtectedRoute>
           <ProtectedRoute path="/" exact={true}>
             <h1>My Home Page</h1>
