@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask.helpers import flash, url_for
 from werkzeug.utils import redirect
-from app.forms.musician_form import MusicianForm
+# from app.forms import MusicianForm
 from app.models import Musician, Song, db
 from flask_login import current_user, login_required
 from app.s3 import (
@@ -28,19 +28,20 @@ def get_artist_id(id):
 @musician_routes.route('/new', methods=['POST'])
 @login_required
 def add_musician():
-    form = MusicianForm()
-    if form.validate_on_submit():
-        new_musician = Musician(
-            user_id=current_user.id,
-            musician_name=request.form['musician_name'],
-            profile_img=request.form['profile_img'],
-            biography=request.form['biography']
-        )
-        db.session.add(new_musician)
-        db.session.commit()
-        return new_musician.to_dict()
-    flash(f"Musician Added Successfully")
-    return {'errors': 'Validation Error from BackEnd Route'}, 401
+
+    new_musician = Musician(
+        musician_name=request.form['musician_name'],
+        profile_img=request.form['profile_img'],
+        biography=request.form['biography'],
+        user_id=current_user.id,
+    )
+    db.session.add(new_musician)
+    db.session.commit()
+    print("are we erroring out in backend")
+    return new_musician.to_dict()
+
+
+# flash(f"Musician Added Successfully")
 
 # @musician_routes.route('/<int:id>/songs', methods=['GET'])
 # @login_required

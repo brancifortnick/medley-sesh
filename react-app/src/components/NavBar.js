@@ -66,6 +66,8 @@ const NavBar = () => {
           </button>
         </div>
       ) : null}
+
+
       {loggedInUser ? (
         <div id="users_info">
           <div className="nav_bar_buttons">
@@ -78,6 +80,15 @@ const NavBar = () => {
               Users
             </NavLink>
           </div>
+        </div>
+      ) : null}
+      {loggedInUser ? (
+        <div id='musicians-form'>
+          <NavLink to='/musicians/new'
+          exact={true}
+          activeClassName='active'
+          style={{textDecoration: "none"}}
+          >Upload</NavLink>
         </div>
       ) : null}
       {loggedInUser ? (
