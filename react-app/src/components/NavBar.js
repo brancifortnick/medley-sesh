@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from './auth/LogoutButton'
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../store/session";
-// import "./NavBar.css";
+import "./NavBar.module.css";
 
 const NavBar = () => {
   const loggedInUser = useSelector((state) => state.session.user);
@@ -14,7 +14,6 @@ const NavBar = () => {
 
   return (
     <nav className="nav_container">
-      <div className="inner_container">
         <div className="nav_bar_buttons">
           <button id="home">
             <NavLink to="/" exact={true} activeClassName="active">
@@ -75,7 +74,6 @@ const NavBar = () => {
             </div>
           </div>
         ) : null}
-      </div>
     </nav>
   );
 };
