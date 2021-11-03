@@ -38,9 +38,9 @@ export const postNewMusician = (formData) => async (dispatch) => {
   const{user_id, musician_name, profile_img, biography} = formData;
   const res = await fetch(`/api/musicians/new/${musician_name}`, {
     method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    // headers: {
+    //   'Content-Type': 'application/json',
+    // },
     body: JSON.stringify({
       user_id,
       musician_name,
@@ -72,11 +72,11 @@ export default function reducer(state = initialState, action) {
     case GET_ONE:
       return {
         ...action.payload
-    }
+      }
     case ADD_MUSICIAN:
       return {
         ...action.payload
-      };
+      }
     default:
       return state;
   }

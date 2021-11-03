@@ -1,12 +1,11 @@
 from flask import Blueprint, jsonify, request
 from flask.helpers import flash, url_for
 from werkzeug.utils import redirect
-from app.forms.musician_form import MusicianForm
-# from app.forms import MusicianForm
+from app.forms import MusicianForm
 from app.models import Musician, Song, db
 from flask_login import current_user, login_required
-from app.s3 import (
-    upload_file_to_s3, allowed_file, get_unique_filename)
+# from app.s3 import (
+#     upload_file_to_s3, allowed_file, get_unique_filename)
 
 
 musician_routes = Blueprint('musicians', __name__)
@@ -19,25 +18,25 @@ def get_musicians():
     return {'musicians': [musician.to_dict() for musician in musicians]}
 
 
-@musician_routes.route('/<int:id>')
+@musician_routes.route('/<int:id>', methods=['GET'])
 @login_required
 def get_artist_id(id):
     musician = Musician.query.get(id)
     return musician.to_dict()
 
 
-@musician_routes.route('/new/<musician_name>', methods=['POST', 'DELETE'])
+@musician_routes.route('/new/<musician_name>', methods=['GET', 'POST', 'DELETE'])
 @login_required
 def add_musician(musician_name):
-    if request.method == 'DELETE':
-        deleted_musician = Musician.query.filter(
-            Musician.user_id == current_user.id,
-            Musician.musician_name == musician_name).one_or_none()
-        db.session.delete(deleted_musician)
-        db.session.commit()
-        return deleted_musician.to_dict()
 
-    elif request.method == 'POST':
+    if request.method == 'GET':
+        musician = Musician.query.filter(
+            Musician.user_id == current_user.id).one_or_none()
+        if musician:
+            return {'musicians': [musician.to_dict() for musician in musician]}
+        else:
+            return {}
+    if request.method == 'POST':
         form = MusicianForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
@@ -45,13 +44,20 @@ def add_musician(musician_name):
                 musician_name=request.form['musician_name'],
                 profile_img=request.form['profile_img'],
                 biography=request.form['biography'],
-                user_id=current_user.id)
-
+                user_id=current_user.id,
+            )
+        print('<<<<<====We erroring out in backend-post method===<<<<<')
         db.session.add(musician)
         db.session.commit()
-        print("are we erroring out in backend")
         return musician.to_dict()
 
+    elif request.method == 'DELETE':
+        deleted_musician = Musician.query.filter(
+            Musician.user_id == current_user.id,
+            Musician.musician_name == musician_name).one_or_none()
+        db.session.delete(deleted_musician)
+        db.session.commit()
+        return deleted_musician.to_dict()
 
 # flash(f"Musician Added Successfully")
 
