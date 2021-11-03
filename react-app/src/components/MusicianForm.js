@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Redirect } from "react-router-dom";
 import { getAllMusicians, postNewMusician } from "../store/musician";
+import { getOneUser } from "../store/user";
 
 const MusicianForm = () => {
   const history = useHistory();
@@ -14,18 +15,15 @@ const MusicianForm = () => {
   const [profile_img, setProfileImg] = useState("");
   const [biography, setBiography] = useState("");
 
-  useEffect(() => {
-    dispatch(getAllMusicians());
-  }, [dispatch]);
-
   const submitForm = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("user_id", user.id);
+    // formData.append("user_id", user.id);
     formData.append("musician_name", musician_name);
     formData.append("profile_img", profile_img);
     formData.append("biography", biography);
     dispatch(postNewMusician(formData));
+    dispatch(getAllMusicians());
     history.push(`/users/${user.id}`);
   };
   return (

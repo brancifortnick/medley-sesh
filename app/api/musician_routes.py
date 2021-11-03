@@ -30,26 +30,29 @@ def get_artist_id(id):
 def add_musician(musician_name):
 
     if request.method == 'GET':
-        musician = Musician.query.filter(
+        musicians = Musician.query.filter(
             Musician.user_id == current_user.id).one_or_none()
-        if musician:
-            return {'musicians': [musician.to_dict() for musician in musician]}
+        if musicians:
+            return {'musicians': [musician.to_dict() for musician in musicians]}
         else:
+            print('<<<<<====We erroring out in backend-GET method===<<<<<')
             return {}
     if request.method == 'POST':
         form = MusicianForm()
+        print('<<<<<====We erroring out in backend-FORM-ROUTE===<<<<<')
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
+            print('We erroring out in backend-POST-VALIDATION method')
             musician = Musician(
                 musician_name=request.form['musician_name'],
                 profile_img=request.form['profile_img'],
                 biography=request.form['biography'],
                 user_id=current_user.id,
             )
-        print('<<<<<====We erroring out in backend-post method===<<<<<')
-        db.session.add(musician)
-        db.session.commit()
-        return musician.to_dict()
+            db.session.add(musician)
+            print('////////////////////////////////////backend-POST-DB>SESSION>add')
+            db.session.commit()
+            return musician.to_dict()
 
     elif request.method == 'DELETE':
         deleted_musician = Musician.query.filter(
