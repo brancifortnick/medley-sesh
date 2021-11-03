@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 function Musician() {
-  const user = useSelector(state=> state.session.user)
+  const currentUser = useSelector(state=> state.session.user)
+
   const [musician, setMusician] = useState({});
   const { musicianId} = useParams();
-  user.id = musician.user_id
+
 
   useEffect(() => {
     if (!musicianId) {

@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask.helpers import flash, url_for
 from werkzeug.utils import redirect
+from app.forms.musician_form import MusicianForm
 # from app.forms import MusicianForm
 from app.models import Musician, Song, db
 from flask_login import current_user, login_required
@@ -25,38 +26,31 @@ def get_artist_id(id):
     return musician.to_dict()
 
 
-@musician_routes.route('/new/<musicianName>', methods=['POST', 'DELETE'])
+@musician_routes.route('/new/<musician_name>', methods=['POST', 'DELETE'])
 @login_required
-def add_musician(musicianName):
+def add_musician(musician_name):
     if request.method == 'DELETE':
         deleted_musician = Musician.query.filter(
             Musician.user_id == current_user.id,
-            Musician.musician_name == musicianName).one_or_none()
+            Musician.musician_name == musician_name).one_or_none()
         db.session.delete(deleted_musician)
         db.session.commit()
         return deleted_musician.to_dict()
 
     elif request.method == 'POST':
-        new_musician_exists = Musician.query.filter(
-            musicianName=request.form['musician_name'],
-            profile_img=request.form['profile_img'],
-            biography=request.form['biography'],
-            user_id=current_user.id,
-        ).one_or_none()
-
-        if new_musician_exists:
-            return new_musician_exists.to_dict()
-        else:
-            new_musician = Musician(
-                user_id = current_user.id,
-                musicianName=request.form['musician_name'],
+        form = MusicianForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            musician = Musician(
+                musician_name=request.form['musician_name'],
                 profile_img=request.form['profile_img'],
-                biography=request.form['biography']
-            )
-            db.session.add(new_musician)
-            db.session.commit()
-            print("are we erroring out in backend")
-            return new_musician.to_dict()
+                biography=request.form['biography'],
+                user_id=current_user.id)
+
+        db.session.add(musician)
+        db.session.commit()
+        print("are we erroring out in backend")
+        return musician.to_dict()
 
 
 # flash(f"Musician Added Successfully")

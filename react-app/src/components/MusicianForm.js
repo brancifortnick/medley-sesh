@@ -26,7 +26,6 @@ const MusicianForm = () => {
     formData.append("profile_img", profile_img);
     formData.append("biography", biography);
     dispatch(postNewMusician(formData));
-    dispatch(getAllMusicians());
     history.push(`/users/${user.id}`);
   };
   return (
@@ -50,8 +49,8 @@ const MusicianForm = () => {
         />
         <label htmlFor="Profile_img">Musician Portrait</label>
         <input
-          type="file"
-          accept="image/*"
+          type="text"
+          // accept="image/*"
           placeholder="Profile Picture"
           name="profile_img"
           value={profile_img}

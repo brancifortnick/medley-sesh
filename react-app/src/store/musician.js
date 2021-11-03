@@ -2,8 +2,6 @@ const GET_MUSICIANS = "musician/GET_MUSICIANS";
 const GET_ONE = "musician/GET_ONE";
 const ADD_MUSICIAN = 'musician/ADD_MUSICIAN';
 
-
-
 const getAllArtists = (musicians) => ({
   type: GET_MUSICIANS,
   payload: musicians,
@@ -36,14 +34,23 @@ export const getOneMusician = (id) => async (dispatch) => {
   }
 };
 
-export const postNewMusician = (musicianName) => async (dispatch) => {
-  // const{user_id, musician_name, profile_img, biography} = musicianName;
-  const res = await fetch(`/api/musicians/new/${musicianName}`, {
+export const postNewMusician = (formData) => async (dispatch) => {
+  const{user_id, musician_name, profile_img, biography} = formData;
+  const res = await fetch(`/api/musicians/new/${musician_name}`, {
     method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      user_id,
+      musician_name,
+      profile_img,
+      biography,
+    })
   });
    if(res.ok){
     const data = await res.json();
-    dispatch(addMusician(data['musician']))
+    dispatch(addMusician(data))
   }
 };
 
