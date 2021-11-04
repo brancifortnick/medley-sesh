@@ -1,23 +1,27 @@
 const GET_MUSICIANS = "musician/GET_MUSICIANS";
-const GET_ONE = "musician/GET_ONE";
-const ADD_MUSICIAN = 'musician/ADD_MUSICIAN';
-
-
+// const GET_ONE = "musician/GET_ONE";
+const ADD_MUSICIAN = "musician/ADD_MUSICIAN";
+const DELETE_MUSICIAN = "musician/DELETE_MUSICIAN";
 
 const getAllArtists = (musicians) => ({
   type: GET_MUSICIANS,
   payload: musicians,
 });
 
-const getOne = (musician) => ({
-  type: GET_ONE,
-  payload: musician,
-});
+// const getOne = (musician) => ({
+//   type: GET_ONE,
+//   payload: musician,
+// });
 
 const addMusician = (musician) => ({
   type: ADD_MUSICIAN,
-  payload: musician,
-})
+  musician,
+});
+
+const deleteMusician = (musician) => ({
+  type: DELETE_MUSICIAN,
+  musician,
+});
 
 export const getAllMusicians = () => async (dispatch) => {
   const res = await fetch(`/api/musicians/`);
@@ -27,49 +31,66 @@ export const getAllMusicians = () => async (dispatch) => {
     return data;
   }
 };
-export const getOneMusician = (id) => async (dispatch) => {
-  const res = await fetch(`/api/musicians/${id}`);
+// export const getOneMusician = (id) => async (dispatch) => {
+//   const res = await fetch(`/api/musicians/${id}`);
+//   if (res.ok) {
+//     const data = await res.json();
+//     dispatch(getOne(data));
+//     return data;
+//   }
+// };
+
+export const postNewMusician = (musician) => async (dispatch) => {
+  const { user_id, musician_name, profile_img, biography } = musician;
+  const res = await fetch(`/api/musicians/new`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user_id,
+      musician_name,
+      profile_img,
+      biography,
+    }),
+  });
+  console.log(res, "<<<res>>>");
   if (res.ok) {
     const data = await res.json();
-    dispatch(getOne(data));
-    return data;
+    dispatch(addMusician(data));
   }
 };
 
-export const postNewMusician = (musicianName) => async (dispatch) => {
-  // const{user_id, musician_name, profile_img, biography} = musicianName;
-  const res = await fetch(`/api/musicians/new/${musicianName}`, {
-    method: "POST",
+export const deleteOneMusician = (musicianId) => async (dispatch) => {
+  const res = await fetch(`/api/musicians/${musicianId}`, {
+    method: "DELETE",
   });
-   if(res.ok){
-    const data = await res.json();
-    dispatch(addMusician(data['musician']))
+  console.log(`musicianid`, musicianId);
+  if (res.ok) {
+    dispatch(deleteMusician(musicianId));
   }
 };
-
-
-
 
 const initialState = {};
 
-
 export default function reducer(state = initialState, action) {
+  let newState = {};
   switch (action.type) {
     case GET_MUSICIANS: {
-      const newState = {};
       action.payload.musicians.forEach((musician) => {
         newState[musician.id] = musician;
       });
       return newState;
     }
-    case GET_ONE:
-      return {
-        ...action.payload
-    }
     case ADD_MUSICIAN:
-      return {
-        ...action.payload
-      };
+      newState = Object.assign({}, state);
+      newState[action.musician.id] = action.musician;
+      return newState;
+    case DELETE_MUSICIAN:
+      const oldState = { ...state };
+      delete oldState[action.musician];
+      return oldState;
+
     default:
       return state;
   }

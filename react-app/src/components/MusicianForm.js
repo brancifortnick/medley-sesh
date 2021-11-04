@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Redirect } from "react-router-dom";
 import { getAllMusicians, postNewMusician } from "../store/musician";
 
-const MusicianForm = () => {
+const MusicianForm = ({musicianId}) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -14,23 +14,27 @@ const MusicianForm = () => {
   const [profile_img, setProfileImg] = useState("");
   const [biography, setBiography] = useState("");
 
-  useEffect(() => {
-    dispatch(getAllMusicians());
-  }, [dispatch]);
-
-  const submitForm = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("user_id", user.id);
-    formData.append("musician_name", musician_name);
-    formData.append("profile_img", profile_img);
-    formData.append("biography", biography);
-    dispatch(postNewMusician(formData));
-    dispatch(getAllMusicians());
-    history.push(`/users/${user.id}`);
-  };
+    const musician = {user_id: user.id, musician_name: musician_name, profile_img: profile_img, biography: biography};
+    await dispatch(postNewMusician(musician));
+    history.push('/musicians')
+    };
+
+
+  // const onEdit= async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   // formData.append("user_id", user.id);
+  //   formData.append("musician_name", musician_name);
+  //   formData.append("profile_img", profile_img);
+  //   formData.append("biography", biography);
+  //   dispatch(postNewMusician(formData));
+  //   dispatch(getAllMusicians());
+  //   history.push(`/users/${user.id}`);
+  // };
   return (
-    <form onSubmit={submitForm}>
+    <form onSubmit={onSubmit}>
       <div>
         <label htmlFor="musician_name">Musician Name</label>
         <input
@@ -50,8 +54,8 @@ const MusicianForm = () => {
         />
         <label htmlFor="Profile_img">Musician Portrait</label>
         <input
-          type="file"
-          accept="image/*"
+          type="text"
+          // accept="image/*"
           placeholder="Profile Picture"
           name="profile_img"
           value={profile_img}

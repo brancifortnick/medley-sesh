@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams, useHistory } from "react-router-dom";
+import { deleteOneMusician } from "../store/musician";
 
 function Musician() {
-  const user = useSelector(state=> state.session.user)
+  const currentUser = useSelector(state=> state.session.user)
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [musician, setMusician] = useState({});
   const { musicianId} = useParams();
-  user.id = musician.user_id
+
+  let num = musicianId
+
+  const deleteMusician = () => {
+    console.log(num)
+    dispatch(deleteOneMusician(num))
+    history.push(`/musicians`)
+  }
+
 
   useEffect(() => {
     if (!musicianId) {
@@ -26,9 +37,6 @@ function Musician() {
   return (
     <ul>
       <li>
-        <strong>User Id </strong> {musician.user_id}
-      </li>
-      <li>
         <strong>Musician Id</strong> {musicianId}
       </li>
       <li>
@@ -43,6 +51,7 @@ function Musician() {
       <li>
         <strong>Songs</strong> {musician.songs}
       </li>
+      <button className='delete-btn' onClick={deleteMusician}>Delete</button>
     </ul>
   );
 }
