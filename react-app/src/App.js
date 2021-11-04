@@ -8,10 +8,12 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import Musician from './components/Musician';
+// import Musician from './components/Musician';
 import MusiciansList from './components/MusiciansList';
 import MusicianForm from './components/MusicianForm';
 import ImageUpload from './components/ImageUpload';
+import MusicianRefactor from './components/MusicianRefactor';
+import MusiciansListRefactor from './components/MusiciansListReFactor';
 
 
 function App() {
@@ -47,15 +49,16 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/musicians" exact={true}>
-          <MusiciansList />
+          <MusiciansListRefactor />
           </ProtectedRoute>
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
-          <Musician />
+          {/* <Musician /> */}
+          <MusicianRefactor />
         </ProtectedRoute>
         <ProtectedRoute path='/musicians/new/musician' exact={true}>
           <MusicianForm />
           </ProtectedRoute>
-          <ProtectedRoute path='/musicians/upload' exact={true}>
+          <ProtectedRoute path='/musicians/<int:id>/image' exact={true}>
             <ImageUpload />
             </ProtectedRoute>
           <ProtectedRoute path="/" exact={true}>
