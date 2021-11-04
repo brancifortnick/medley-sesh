@@ -13,7 +13,7 @@ from app.s3 import (
 musician_routes = Blueprint('musicians', __name__)
 
 
-@musician_routes.route('', methods=['GET'])
+@musician_routes.route('/', methods=['GET'])
 @login_required
 def get_musicians():
     musicians = Musician.query.all()
@@ -57,40 +57,41 @@ def delete_musician(id):
         db.session.delete(musician)
         db.session.commit()
         return {'id', id}
-# @musician_routes.route('/<int:id>/songs', methods=['GET'])
-# @login_required
-# def get_musicians_songs(id):
-#     songs = Song.query.filter(Song.musician_id == id).all()
-#     return {'songs': [song.to_dict() for song in songs]}
+
+@musician_routes.route('/<int:id>/image', methods=['PUT'])
+@login_required
+def upload_image_test(id):
+
+    if 'profile_img' not in request.files:
+            return {"errors": "image required"}, 400
+
+    profile_img = request.files["profile_img"]
+
+    if not allowed_file(profile_img.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    profile_img.filename = get_unique_filename(profile_img.filename)
+
+    upload = upload_file_to_s3(profile_img)
+
+    if "url" not in upload:
+        print('we are erroring out at url in upload<<<>>>>>><<<<>>>')
+        return upload, 400
+
+    url = upload['url']
+
+    musician = Musician.query.get(id)
+    musician.profile_img = url
+    db.session.add(musician)
+    db.session.commit()
+    return musician.to_dict()
 
 
-# @musician_routes.route('')
-# @login_required
-# def upload_image_test():
-
-#     if 'profile_img' not in request.files:
-#             return {"errors": "image required"}, 400
-
-#     profile_img = request.files["profile_img"]
-
-#     if not allowed_file(profile_img.filename):
-#         return {"errors": "file type not permitted"}, 400
-
-#     profile_img.filename = get_unique_filename(profile_img.filename)
-
-#     upload = upload_file_to_s3(profile_img)
-
-#     if "url" not in upload:
-#         print('we are erroring out at url in upload<<<>>>>>><<<<>>>')
-#         return upload, 400
-#     url = upload['url']
-
-#     updated_image = Musician(
-#         user_id=current_user.id,
-#         profile_img=url,
-#         musician_name=request.form['musician_name'],
-#         biography=request.form['biography'],
-#     )
-#     db.session.add(updated_image)
-#     db.session.commit()
-#     return {'profile_img': profile_img}
+@musician_routes.route("/<int:id>/biography", methods=["PUT"])
+@login_required
+def update_bio(id):
+    musician = Musician.query.get(id)
+    musician.bio = request.form["biography"]
+    db.session.add(musician)
+    db.session.commit()
+    return musician.to_dict()

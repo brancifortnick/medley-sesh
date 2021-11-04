@@ -45,8 +45,8 @@ const NavBar = () => {
       {loggedInUser ? (
         <div className='s3-test'>
           <button id='s3'>
-          <NavLink to='/musicians' exact={true} activeClassName='active'>
-            Musicians Picture
+          <NavLink to={`/api/musicians/${loggedInUser.id}/image`} exact={true} activeClassName='active'>
+            Musicians Profile
           </NavLink>
           </button>
         </div>
