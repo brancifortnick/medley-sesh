@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Redirect } from "react-router-dom";
 import { getAllMusicians, postNewMusician } from "../store/musician";
-import { getOneUser } from "../store/user";
 
-const MusicianForm = () => {
+const MusicianForm = ({musicianId}) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -15,19 +14,28 @@ const MusicianForm = () => {
   const [profile_img, setProfileImg] = useState("");
   const [biography, setBiography] = useState("");
 
-  const submitForm = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    // formData.append("user_id", user.id);
-    formData.append("musician_name", musician_name);
-    formData.append("profile_img", profile_img);
-    formData.append("biography", biography);
-    dispatch(postNewMusician(formData));
-    dispatch(getAllMusicians());
-    history.push(`/users/${user.id}`);
+    const musician = {id: user.id, user_id: musicianId, musician_name: musician_name, profile_img: profile_img, biography: biography };
+    const data = await dispatch(postNewMusician(musician));
+    if (data) {
+      console.log("data from front end", data);
+    }
   };
+
+  // const onEdit= async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   // formData.append("user_id", user.id);
+  //   formData.append("musician_name", musician_name);
+  //   formData.append("profile_img", profile_img);
+  //   formData.append("biography", biography);
+  //   dispatch(postNewMusician(formData));
+  //   dispatch(getAllMusicians());
+  //   history.push(`/users/${user.id}`);
+  // };
   return (
-    <form onSubmit={submitForm}>
+    <form onSubmit={onSubmit}>
       <div>
         <label htmlFor="musician_name">Musician Name</label>
         <input

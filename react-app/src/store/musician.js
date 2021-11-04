@@ -14,7 +14,7 @@ const getAllArtists = (musicians) => ({
 
 const addMusician = (musician) => ({
   type: ADD_MUSICIAN,
-  payload: musician,
+  musician,
 })
 
 export const getAllMusicians = () => async (dispatch) => {
@@ -34,9 +34,9 @@ export const getAllMusicians = () => async (dispatch) => {
 //   }
 // };
 
-export const postNewMusician = (formData) => async (dispatch) => {
-  const{user_id, musician_name, profile_img, biography} = formData;
-  const res = await fetch(`/api/musicians/new/${musician_name}`, {
+export const postNewMusician = (musician) => async (dispatch) => {
+  const{user_id, musician_name, profile_img, biography} = musician;
+  const res = await fetch(`/api/musicians/new`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
@@ -61,18 +61,19 @@ const initialState = {};
 
 
 export default function reducer(state = initialState, action) {
+  let newState = {}
   switch (action.type) {
     case GET_MUSICIANS: {
-      const newState = {};
       action.payload.musicians.forEach((musician) => {
         newState[musician.id] = musician;
       });
       return newState;
     }
     case ADD_MUSICIAN:
-      return {
-        ...action.payload
-      }
+      newState = Object.assign({}, state);
+      newState[action.musician.id] = action.musician
+      return newState
+
     // case GET_ONE:
     //   return {
     //     ...action.payload

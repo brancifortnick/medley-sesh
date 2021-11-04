@@ -25,42 +25,43 @@ def get_artist_id(id):
     return musician.to_dict()
 
 
-@musician_routes.route('/new/<musician_name>', methods=['GET', 'POST', 'DELETE'])
+@musician_routes.route('/', methods=['GET', 'POST', 'DELETE'])
 @login_required
-def add_musician(musician_name):
+def add_musician():
 
-    if request.method == 'GET':
-        musicians = Musician.query.filter(
-            Musician.user_id == current_user.id).one_or_none()
-        if musicians:
-            return {'musicians': [musician.to_dict() for musician in musicians]}
-        else:
-            print('<<<<<====We erroring out in backend-GET method===<<<<<')
-            return {}
     if request.method == 'POST':
+
         form = MusicianForm()
-        print('<<<<<====We erroring out in backend-FORM-ROUTE===<<<<<')
+        print('<<<<<====Were erroring out in backend-FORM-ROUTE===<<<<<')
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             print('We erroring out in backend-POST-VALIDATION method')
             musician = Musician(
-                musician_name=request.form['musician_name'],
-                profile_img=request.form['profile_img'],
-                biography=request.form['biography'],
+                musician_name=form.data['musician_name'],
+                profile_img=form.data['profile_img'],
+                biography=form.data['biography'],
                 user_id=current_user.id,
             )
             db.session.add(musician)
             print('////////////////////////////////////backend-POST-DB>SESSION>add')
             db.session.commit()
             return musician.to_dict()
+ # if request.method == 'GET':
+    #     musicians = Musician.query.filter(
+    #         Musician.user_id == current_user.id).all()
+    #     if musicians:
+    #         return {'musicians': [musician.to_dict() for musician in musicians]}
+    #     else:
+    #         print('<<<<<====We erroring out in backend-GET method===<<<<<')
+    #         return {}
 
-    elif request.method == 'DELETE':
-        deleted_musician = Musician.query.filter(
-            Musician.user_id == current_user.id,
-            Musician.musician_name == musician_name).one_or_none()
-        db.session.delete(deleted_musician)
-        db.session.commit()
-        return deleted_musician.to_dict()
+    # elif request.method == 'DELETE':
+    #     deleted_musician = Musician.query.filter(
+    #         Musician.user_id == current_user.id,
+    #         Musician.musician_name == musician_name).one_or_none()
+    #     db.session.delete(deleted_musician)
+    #     db.session.commit()
+    #     return deleted_musician.to_dict()
 
 # flash(f"Musician Added Successfully")
 
