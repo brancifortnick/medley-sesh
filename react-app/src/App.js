@@ -11,7 +11,7 @@ import User from './components/User';
 import Musician from './components/Musician';
 import MusiciansList from './components/MusiciansList';
 import MusicianForm from './components/MusicianForm';
-
+import ImageUpload from './components/ImageUpload';
 
 
 function App() {
@@ -55,6 +55,9 @@ function App() {
         <ProtectedRoute path='/musicians/new/musician' exact={true}>
           <MusicianForm />
           </ProtectedRoute>
+          <ProtectedRoute path='/musicians/upload' exact={true}>
+            <ImageUpload />
+            </ProtectedRoute>
           <ProtectedRoute path="/" exact={true}>
             <h1>My Home Page</h1>
           </ProtectedRoute>

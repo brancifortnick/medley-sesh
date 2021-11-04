@@ -2,6 +2,8 @@ const GET_MUSICIANS = "musician/GET_MUSICIANS";
 // const GET_ONE = "musician/GET_ONE";
 const ADD_MUSICIAN = "musician/ADD_MUSICIAN";
 const DELETE_MUSICIAN = "musician/DELETE_MUSICIAN";
+const ADD_IMAGE = 'musician/ADD_IMAGE';
+
 
 const getAllArtists = (musicians) => ({
   type: GET_MUSICIANS,
@@ -22,6 +24,11 @@ const deleteMusician = (musician) => ({
   type: DELETE_MUSICIAN,
   musician,
 });
+
+const addImage = (musician) => ({
+  type: ADD_IMAGE,
+  musician,
+})
 
 export const getAllMusicians = () => async (dispatch) => {
   const res = await fetch(`/api/musicians/`);
@@ -54,12 +61,25 @@ export const postNewMusician = (musician) => async (dispatch) => {
       biography,
     }),
   });
-  console.log(res, "<<<res>>>");
   if (res.ok) {
     const data = await res.json();
     dispatch(addMusician(data));
   }
 };
+
+// export const uploadImageTos3 = (formData) => async (dispatch) => {
+//   const data = await fetch(`/api/musicians/upload`, {
+//    method: 'PUT',
+//    body: formData,
+//   })
+//   if(data.ok){
+//     dispatch(addImage(data))
+//   }
+// };
+
+
+
+
 
 export const deleteOneMusician = (musicianId) => async (dispatch) => {
   const res = await fetch(`/api/musicians/${musicianId}`, {
@@ -90,7 +110,10 @@ export default function reducer(state = initialState, action) {
       const oldState = { ...state };
       delete oldState[action.musician];
       return oldState;
-
+    case ADD_IMAGE: {
+        newState = Object.assign({}, state);
+        newState[action.musician] = action.musician;
+        }
     default:
       return state;
   }
