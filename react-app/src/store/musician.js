@@ -110,7 +110,8 @@ export default function reducer(state = initialState, action) {
       const oldState = { ...state };
       delete oldState[action.musician];
       return oldState;
-
+    case ADD_IMAGE:
+      newState[action.musician] = action.musician;
     default:
       return state;
   }
