@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from './auth/LogoutButton'
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../store/session";
-// import "./NavBar.css";
+import "./NavBar.module.css";
 
 const NavBar = () => {
   const loggedInUser = useSelector((state) => state.session.user);
@@ -14,68 +14,109 @@ const NavBar = () => {
 
   return (
     <nav className="nav_container">
-      <div className="inner_container">
+      <div className="nav_bar_buttons">
+        <button id="home">
+          <NavLink
+            to="/"
+            exact={true}
+            activeClassName="active"
+            style={{ textDecoration: "none" }}
+          >
+            Home
+          </NavLink>
+        </button>
+      </div>
+      {!loggedInUser ? (
         <div className="nav_bar_buttons">
-          <button id="home">
-            <NavLink to="/" exact={true} activeClassName="active">
-              Home
-            </NavLink>
-          </button>
-        </div>
-        {!loggedInUser ? (
-          <div className="nav_bar_buttons">
-            <div id="login">
-              <button id="login_nav">
-                <NavLink to="/login" exact={true} activeClassName="active">
-                  Login
-                </NavLink>
-              </button>
-            </div>
-          </div>
-        ) : null}
-
-        {!loggedInUser ? (
-          <div className="nav_bar_buttons">
-            <div id="sign_up">
-              <button id="sign_up">
-                <NavLink to="/sign-up" exact={true} activeClassName="active">
-                  Sign Up
-                </NavLink>
-              </button>
-            </div>
-          </div>
-        ) : null}
-        {!loggedInUser ? (
-          <div>
-            <button className="nav_bar_buttons" onClick={DemoLogin}>
-              Demo
+          <div id="login">
+            <button id="login_nav">
+              <NavLink
+                to="/login"
+                exact={true}
+                activeClassName="active"
+                style={{ textDecoration: "none" }}
+              >
+                Login
+              </NavLink>
             </button>
           </div>
-        ) : null}
-        {loggedInUser ? (
-          <div id="users_info">
-            <div className="nav_bar_buttons">
-              <NavLink to="/users" exact={true} activeClassName="active">
-                Users
+        </div>
+      ) : null}
+      {loggedInUser ? (
+        <div className='s3-test'>
+          <button id='s3'>
+          <NavLink to='/musicians' exact={true} activeClassName='active'>
+            Musicians Picture
+          </NavLink>
+          </button>
+        </div>
+
+      ) : null}
+      {!loggedInUser ? (
+        <div className="nav_bar_buttons">
+          <div id="sign_up">
+            <button id="sign_up">
+              <NavLink
+                to="/sign-up"
+                exact={true}
+                activeClassName="active"
+                style={{ textDecoration: "none" }}
+              >
+                Sign Up
               </NavLink>
-            </div>
+            </button>
           </div>
-        ) : null}
-        {loggedInUser ? (
+        </div>
+      ) : null}
+      {!loggedInUser ? (
+        <div>
+          <button className="nav_bar_buttons" onClick={DemoLogin}>
+            Demo
+          </button>
+        </div>
+      ) : null}
+
+
+      {loggedInUser ? (
+        <div id="users_info">
           <div className="nav_bar_buttons">
-            <NavLink to="/musicians" exact={true} activeClassName="active">
-              Musicians
+            <NavLink
+              to="/users"
+              exact={true}
+              activeClassName="active"
+              style={{ textDecoration: "none" }}
+            >
+              Users
             </NavLink>
           </div>
-        ) : null}
-        {loggedInUser ? (
+        </div>
+      ) : null}
+      {loggedInUser ? (
+        <div id='musicians-form'>
+          <NavLink to='/musicians/new/musician'
+          exact={true}
+          activeClassName='active'
+          style={{textDecoration: "none"}}
+          >Upload</NavLink>
+        </div>
+      ) : null}
+      {loggedInUser ? (
+        <div className="nav_bar_buttons">
+          <NavLink
+            to="/musicians"
+            exact={true}
+            activeClassName="active"
+            style={{ textDecoration: "none" }}
+          >
+            Musicians
+          </NavLink>
+        </div>
+      ) : null}
+      {loggedInUser ? (
           <div className="nav_bar_buttons">
-            <div className="nav_bar_buttons">
-              <LogoutButton />
-            </div>
+            <LogoutButton />
           </div>
-        ) : null}
-      </div>
+      ) : null}
     </nav>
   );
 };
