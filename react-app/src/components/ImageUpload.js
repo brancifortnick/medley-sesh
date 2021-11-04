@@ -1,24 +1,21 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getAllMusicians } from "../store/musician";
-
 
 const ImageUpload = () => {
   const history = useHistory();
-  const [profile_img, setImage] = useState(null);
+  const [image, setImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
-
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("profile_img", profile_img);
+    formData.append("image", image);
+
+    // aws uploads can be a bit slow—displaying
+    // some sort of loading message is a good idea
     setImageLoading(true);
 
-    const res = await fetch("/api/musicians/upload", {
+    const res = await fetch("/api/musicians", {
       method: "POST",
       body: formData,
     });
@@ -28,7 +25,9 @@ const ImageUpload = () => {
       history.push("/musicians");
     } else {
       setImageLoading(false);
-      console.log("error in loading phase");
+      // a real app would probably use more advanced
+      // error handling
+      console.log("error");
     }
   };
 

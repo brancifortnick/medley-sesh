@@ -67,15 +67,15 @@ export const postNewMusician = (musician) => async (dispatch) => {
   }
 };
 
-export const uploadImageTos3 = (formData) => async (dispatch) => {
-  const data = await fetch(`/api/musicians/upload`, {
-   method: 'POST',
-   body: formData,
-  })
-  if(data.ok){
-    dispatch(addImage(data))
-  }
-};
+// export const uploadImageTos3 = (formData) => async (dispatch) => {
+//   const data = await fetch(`/api/musicians/upload`, {
+//    method: 'PUT',
+//    body: formData,
+//   })
+//   if(data.ok){
+//     dispatch(addImage(data))
+//   }
+// };
 
 
 
@@ -110,8 +110,10 @@ export default function reducer(state = initialState, action) {
       const oldState = { ...state };
       delete oldState[action.musician];
       return oldState;
-    case ADD_IMAGE:
-      newState[action.musician] = action.musician;
+    case ADD_IMAGE: {
+        newState = Object.assign({}, state);
+        newState[action.musician] = action.musician;
+        }
     default:
       return state;
   }

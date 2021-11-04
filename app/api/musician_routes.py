@@ -1,3 +1,4 @@
+from functools import update_wrapper
 from re import L
 from flask import Blueprint, jsonify, request
 from flask.helpers import flash, url_for
@@ -63,34 +64,33 @@ def delete_musician(id):
 #     return {'songs': [song.to_dict() for song in songs]}
 
 
-@musician_routes.route('/upload', methods=['POST'])
-@login_required
-def upload_image_test():
+# @musician_routes.route('')
+# @login_required
+# def upload_image_test():
 
-    if 'profile_img' not in request.files:
-       return {"errors": "image required"}, 400
+#     if 'profile_img' not in request.files:
+#             return {"errors": "image required"}, 400
 
-    profile_img = request.files["profile_img"]
+#     profile_img = request.files["profile_img"]
 
+#     if not allowed_file(profile_img.filename):
+#         return {"errors": "file type not permitted"}, 400
 
-    if not allowed_file(profile_img.filename):
-        return {"errors": "file type not permitted"}, 400
+#     profile_img.filename = get_unique_filename(profile_img.filename)
 
-    profile_img.filename = get_unique_filename(profile_img.filename)
+#     upload = upload_file_to_s3(profile_img)
 
-    upload = upload_file_to_s3(profile_img)
+#     if "url" not in upload:
+#         print('we are erroring out at url in upload<<<>>>>>><<<<>>>')
+#         return upload, 400
+#     url = upload['url']
 
-    if "url" not in upload:
-        print('we are erroring out at url in upload<<<>>>>>><<<<>>>')
-        return upload, 400
-    url = upload['url']
-
-    profile_img = Musician(
-        user_id = current_user.id,
-        profile_img=url,
-        musician_name = request.form['musician_name'],
-        biography = request.form['biography'],
-    )
-    db.session.add(profile_img)
-    db.session.commit()
-    return {'profile_img': profile_img}
+#     updated_image = Musician(
+#         user_id=current_user.id,
+#         profile_img=url,
+#         musician_name=request.form['musician_name'],
+#         biography=request.form['biography'],
+#     )
+#     db.session.add(updated_image)
+#     db.session.commit()
+#     return {'profile_img': profile_img}
