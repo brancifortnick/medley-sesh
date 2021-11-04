@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { getAllMusicians } from "../store/musician";
 
 
-function MusiciansListRefactor() {
+function MusiciansListRefactor () {
   const dispatch = useDispatch();
   const musicians = useSelector((state) => Object.values(state.musician));
 

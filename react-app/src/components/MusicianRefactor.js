@@ -5,6 +5,8 @@ import { getOneMusician, deleteOneMusician } from "../store/musician";
 import UpdateBiography from "./UpdateBiography";
 import ImageUpload from "./ImageUpload";
 
+
+
 function Musician() {
 
   const dispatch = useDispatch();
@@ -39,8 +41,9 @@ function Musician() {
       {currentUser.id === Number(musicians.user_id) ? (
         <div>
           <ImageUpload musicianId={musicianId} />
-      <strong>Biography:</strong>
-      </div> ) : null }
+          <strong>Biography:</strong>
+        </div>
+      ) : null}
       {musicians.biography}
       {currentUser.id === Number(musicians.user_id) ? (
         <div>
