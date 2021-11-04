@@ -16,12 +16,11 @@ const MusicianForm = ({musicianId}) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const musician = {id: user.id, user_id: musicianId, musician_name: musician_name, profile_img: profile_img, biography: biography };
-    const data = await dispatch(postNewMusician(musician));
-    if (data) {
-      console.log("data from front end", data);
-    }
-  };
+    const musician = {user_id: user.id, musician_name: musician_name, profile_img: profile_img, biography: biography};
+    await dispatch(postNewMusician(musician));
+    history.push('/musicians')
+    };
+
 
   // const onEdit= async (e) => {
   //   e.preventDefault();

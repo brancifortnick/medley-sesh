@@ -1,6 +1,7 @@
 const GET_MUSICIANS = "musician/GET_MUSICIANS";
 // const GET_ONE = "musician/GET_ONE";
-const ADD_MUSICIAN = 'musician/ADD_MUSICIAN';
+const ADD_MUSICIAN = "musician/ADD_MUSICIAN";
+const DELETE_MUSICIAN = "musician/DELETE_MUSICIAN";
 
 const getAllArtists = (musicians) => ({
   type: GET_MUSICIANS,
@@ -15,7 +16,12 @@ const getAllArtists = (musicians) => ({
 const addMusician = (musician) => ({
   type: ADD_MUSICIAN,
   musician,
-})
+});
+
+const deleteMusician = (musician) => ({
+  type: DELETE_MUSICIAN,
+  musician,
+});
 
 export const getAllMusicians = () => async (dispatch) => {
   const res = await fetch(`/api/musicians/`);
@@ -35,11 +41,11 @@ export const getAllMusicians = () => async (dispatch) => {
 // };
 
 export const postNewMusician = (musician) => async (dispatch) => {
-  const{user_id, musician_name, profile_img, biography} = musician;
+  const { user_id, musician_name, profile_img, biography } = musician;
   const res = await fetch(`/api/musicians/new`, {
     method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       user_id,
@@ -48,20 +54,27 @@ export const postNewMusician = (musician) => async (dispatch) => {
       biography,
     }),
   });
-   if(res.ok){
+  console.log(res, "<<<res>>>");
+  if (res.ok) {
     const data = await res.json();
-    dispatch(addMusician(data))
+    dispatch(addMusician(data));
   }
 };
 
-
-
+export const deleteOneMusician = (musicianId) => async (dispatch) => {
+  const res = await fetch(`/api/musicians/${musicianId}`, {
+    method: "DELETE",
+  });
+  console.log(`musicianid`, musicianId);
+  if (res.ok) {
+    dispatch(deleteMusician(musicianId));
+  }
+};
 
 const initialState = {};
 
-
 export default function reducer(state = initialState, action) {
-  let newState = {}
+  let newState = {};
   switch (action.type) {
     case GET_MUSICIANS: {
       action.payload.musicians.forEach((musician) => {
@@ -71,13 +84,13 @@ export default function reducer(state = initialState, action) {
     }
     case ADD_MUSICIAN:
       newState = Object.assign({}, state);
-      newState[action.musician.id] = action.musician
-      return newState
+      newState[action.musician.id] = action.musician;
+      return newState;
+    case DELETE_MUSICIAN:
+      const oldState = { ...state };
+      delete oldState[action.musician];
+      return oldState;
 
-    // case GET_ONE:
-    //   return {
-    //     ...action.payload
-    //   }
     default:
       return state;
   }
