@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Redirect } from "react-router-dom";
 import { getAllMusicians, postNewMusician } from "../store/musician";
 
-const MusicianForm = ({musicianId}) => {
+const MusicianForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
