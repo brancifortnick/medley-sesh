@@ -63,7 +63,7 @@ def delete_musician(id):
 #     return {'songs': [song.to_dict() for song in songs]}
 
 
-@musician_routes.route('', methods=['POST'])
+@musician_routes.route('/upload', methods=['POST'])
 @login_required
 def upload_image_test():
 
