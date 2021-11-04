@@ -42,11 +42,13 @@ const NavBar = () => {
           </div>
         </div>
       ) : null}
-      {!loggedInUser ? (
+      {loggedInUser ? (
         <div className='s3-test'>
+          <button id='s3'>
           <NavLink to='/musicians/upload' exact={true} activeClassName='active'>
             Musicians Picture
           </NavLink>
+          </button>
         </div>
 
       ) : null}

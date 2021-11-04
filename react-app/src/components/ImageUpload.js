@@ -19,7 +19,7 @@ const ImageUpload = () => {
     formData.append("profile_img", profile_img);
     setImageLoading(true);
 
-    const res = await fetch("/api/musicians", {
+    const res = await fetch("/api/musicians/upload", {
       method: "POST",
       body: formData,
     });
