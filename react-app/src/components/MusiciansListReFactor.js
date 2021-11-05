@@ -19,8 +19,8 @@ function MusiciansListRefactor () {
           <NavLink to={`/musicians/${musician.id}`}>
             <img
               src={musician.profile_img}
-              alt="musician-p"
-              className="thumbnail"
+              alt="profile_img"
+              className="card"
             ></img>
             <div className="musician-name">{musician.musician_name}</div>
           </NavLink>
