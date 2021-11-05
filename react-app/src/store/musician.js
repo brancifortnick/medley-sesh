@@ -53,25 +53,39 @@ export const getOneMusician = (id) => async (dispatch) => {
   }
 };
 
-export const postNewMusician = (musician) => async (dispatch) => {
-  const { user_id, musician_name, profile_img, biography } = musician;
-  const res = await fetch(`/api/musicians/new`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      user_id,
-      musician_name,
-      profile_img,
-      biography,
-    }),
-  });
-  if (res.ok) {
-    const data = await res.json();
-    dispatch(addMusician(data));
-  }
-};
+// export const postNewMusician = (musician) => async (dispatch) => {
+//   const { user_id, musician_name, profile_img, biography } = musician;
+//   const res = await fetch(`/api/musicians/new`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       user_id,
+//       musician_name,
+//       profile_img,
+//       biography,
+//     }),
+//   });
+//   if (res.ok) {
+//     const data = await res.json();
+//     dispatch(addMusician(data));
+//   }
+// };
+
+export const postNewMusician = (formData) => async dispatch =>{
+  const response = await fetch(`/api/musicians/new`,{
+    method: 'POST',
+    body: formData,
+  })
+  if(response.ok){
+    const newMusician = await response.json()
+    dispatch(addMusician(newMusician));
+    return newMusician
+  };
+
+}
+
 
 export const uploadImageToS = (formData, musicianId) => async (dispatch) => {
   const response = await fetch(`/api/musicians/${musicianId}/image`, {
