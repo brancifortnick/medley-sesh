@@ -8,8 +8,8 @@ const getUser = (user) => ({
 
 
 
-export const getOneUser = (id) => async (dispatch) => {
-  const res = await fetch(`/api/users/${id}`);
+export const getOneUser = (userId) => async (dispatch) => {
+  const res = await fetch(`/api/users/${userId}`);
   if (res.ok) {
     const user = await res.json();
     dispatch(getUser(user));

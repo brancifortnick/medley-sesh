@@ -74,7 +74,7 @@ export const getOneMusician = (id) => async (dispatch) => {
 // };/
 
 export const postNewMusician = (formData) => async dispatch =>{
-  const response = await fetch(`/api/musicians/new/musician`,{
+  const response = await fetch(`/api/musicians/new`,{
     method: 'POST',
     body: formData,
   })
@@ -82,9 +82,8 @@ export const postNewMusician = (formData) => async dispatch =>{
     const newMusician = await response.json()
     dispatch(addMusician(newMusician));
     return newMusician
-  };
-
-}
+  }
+};
 
 
 export const uploadImageToS = (formData, musicianId) => async (dispatch) => {
@@ -111,12 +110,12 @@ export const updateBiography = (formData, musicianId) => async (dispatch) => {
 };
 
 
-export const deleteOneMusician = (musicianId) => async (dispatch) => {
-  const res = await fetch(`/api/musicians/${musicianId}`, {
+export const deleteOneMusician = (id) => async (dispatch) => {
+  const res = await fetch(`/api/musicians/${id}`, {
     method : "DELETE",
   });
   if (res.ok) {
-    dispatch(deleteMusician(musicianId));
+    dispatch(deleteMusician(id));
   }
 };
 
@@ -138,9 +137,9 @@ export default function reducer(state = initialState, action) {
       // newState[action.musician.id] = action.musician;
       return {...action.payload}
     case DELETE_MUSICIAN:
-      const oldState = { ...state };
-      delete oldState[action.musician.id];
-      return oldState;
+      const currentState = { ...state };
+      delete currentState[action.musician.id];
+      return currentState;
     case ADD_IMAGE:
       return {...action.payload};
     case UPDATE_BIOGRAPHY:
