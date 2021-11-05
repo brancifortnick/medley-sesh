@@ -1,5 +1,6 @@
 from functools import update_wrapper
 from re import L
+import re
 from flask import Blueprint, jsonify, request
 from flask.helpers import flash, url_for
 from werkzeug.utils import redirect
@@ -27,26 +28,67 @@ def get_artist_id(id):
     return musician.to_dict()
 
 
+# @musician_routes.route('/new', methods=['POST'])
+# @login_required
+# def add_musician():
+
+#     if request.method == 'POST':
+
+#         form = MusicianForm()
+
+#         form['csrf_token'].data = request.cookies['csrf_token']
+#         if form.validate_on_submit():
+
+#             musician = Musician(
+#                 musician_name=form.data['musician_name'],
+#                 profile_img=form.data['profile_img'],
+#                 biography=form.data['biography'],
+#                 user_id=current_user.id,
+#             )
+#             db.session.add(musician)
+#             db.session.commit()
+#             return musician.to_dict()
+
+
 @musician_routes.route('/new', methods=['POST'])
 @login_required
-def add_musician():
+def create_musician():
 
-    if request.method == 'POST':
+    print('inside of creating musician post route to s3')
 
-        form = MusicianForm()
+    if 'profile_img' not in request.files:
+        return{'errors': 'image needed'}, 400
 
-        form['csrf_token'].data = request.cookies['csrf_token']
-        if form.validate_on_submit():
+    profile_img = request.files['profile_img']
 
-            musician = Musician(
-                musician_name=form.data['musician_name'],
-                profile_img=form.data['profile_img'],
-                biography=form.data['biography'],
-                user_id=current_user.id,
-            )
-            db.session.add(musician)
-            db.session.commit()
-            return musician.to_dict()
+    if not allowed_file(profile_img.filename):
+        return {'errors': 'incorrect upload file type'}, 400
+
+    profile_img.filename = get_unique_filename(profile_img.filename)
+
+    upload = upload_file_to_s3(profile_img)
+
+    print('erroring after upload to s3')
+
+    if 'url' not in upload:
+        return upload, 400
+
+    print('erroring url not found')
+
+    url = upload['url']
+
+    new_musician = Musician(
+        musician_name = request.form['musician_name'],
+        biography = request.form['biography'],
+        profile_img = url,
+        user_id = current_user.id
+    )
+    db.session.add(new_musician)
+    db.session.commit()
+    print('uploading successfully ')
+    return new_musician.to_dict()
+
+
 
 
 @musician_routes.route('/<int:id>', methods=['DELETE'])
@@ -91,7 +133,7 @@ def upload_image_test(id):
 @login_required
 def update_bio(id):
     musician = Musician.query.get(id)
-    musician.bio = request.form["biography"]
+    musician.biography = request.form["biography"]
     db.session.add(musician)
     db.session.commit()
     return musician.to_dict()
