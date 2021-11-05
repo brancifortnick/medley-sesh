@@ -14,7 +14,7 @@ import MusicianForm from './components/MusicianForm';
 import ImageUpload from './components/ImageUpload';
 import MusicianRefactor from './components/MusicianRefactor';
 import MusiciansListRefactor from './components/MusiciansListReFactor';
-
+import MusicianFormRefactor from './components/MusicianFormRefactor';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -56,7 +56,7 @@ function App() {
           <MusicianRefactor />
         </ProtectedRoute>
         <ProtectedRoute path='/musicians/new/musician' exact={true}>
-          <MusicianForm />
+          <MusicianFormRefactor />
           </ProtectedRoute>
           <ProtectedRoute path='/musicians/<int:id>/image' exact={true}>
             <ImageUpload />

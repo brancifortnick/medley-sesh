@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory} from "react-router-dom";
 import { getAllMusicians, postNewMusician } from "../store/musician";
@@ -58,7 +58,6 @@ const MusicianFormRefactor = () => {
             type="file"
             accept="image/*"
             name="profile_img"
-            value={profile_img}
             onChange={updateProfileImg}
           />
           <button className="submit" type="submit" id="create_musician">
