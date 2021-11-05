@@ -71,10 +71,10 @@ export const getOneMusician = (id) => async (dispatch) => {
 //     const data = await res.json();
 //     dispatch(addMusician(data));
 //   }
-// };
+// };/
 
 export const postNewMusician = (formData) => async dispatch =>{
-  const response = await fetch(`/api/musicians/new`,{
+  const response = await fetch(`/api/musicians/new/musician`,{
     method: 'POST',
     body: formData,
   })

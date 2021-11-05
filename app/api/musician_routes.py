@@ -1,6 +1,4 @@
 from functools import update_wrapper
-from re import L
-import re
 from flask import Blueprint, jsonify, request
 from flask.helpers import flash, url_for
 from werkzeug.utils import redirect
