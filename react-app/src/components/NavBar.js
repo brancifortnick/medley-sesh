@@ -98,7 +98,7 @@ const NavBar = () => {
       {user ? (
         <div id="musicians-form">
           <NavLink
-            to="/musicians/new/musician"
+            to="/musicians/new"
             exact={true}
             activeClassName="active"
             style={{ textDecoration: "none" }}

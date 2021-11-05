@@ -48,7 +48,7 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId/new-artist" exact={true}>
+        <ProtectedRoute path="/musicians/new" exact={true}>
           <MusicianFormRefactor />
         </ProtectedRoute>
         <ProtectedRoute path="/musicians" exact={true}>
@@ -57,7 +57,7 @@ function App() {
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <MusicianRefactor />
         </ProtectedRoute>
-        <ProtectedRoute path="/musicians/<int:id>/image" exact={true}>
+        <ProtectedRoute path="/musicians/updateImage" exact={true}>
           <ImageUpload />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true}>
