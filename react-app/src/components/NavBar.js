@@ -9,7 +9,7 @@ const NavBar = () => {
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
-
+  let userId = user.id
 
     const demoFunction = async (e) => {
       e.preventDefault();
@@ -98,7 +98,7 @@ const NavBar = () => {
       {user ? (
         <div id="musicians-form">
           <NavLink
-            to="/musicians/new"
+            to={`/users/${user.id}/add-musician`}
             exact={true}
             activeClassName="active"
             style={{ textDecoration: "none" }}
