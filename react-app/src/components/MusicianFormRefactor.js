@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { getAllMusicians, postNewMusician } from "../store/musician";
 
 const MusicianFormRefactor = () => {
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -11,7 +12,7 @@ const MusicianFormRefactor = () => {
 
   // const [musicians, setMusicians] = useState([]);
   const [musician_name, setMusicianName] = useState("");
-  const [profile_img, setProfileImg] = useState("");
+  const [profile_img, setProfileImg] = useState(null);
   const [biography, setBiography] = useState("");
 
   const onSubmit = async (e) => {
@@ -21,10 +22,6 @@ const MusicianFormRefactor = () => {
     formData.append("profile_img", profile_img);
     formData.append("biography", biography);
     formData.append("user_id", user.id);
-    console.log(
-      formData,
-      "<<<<<<<<<<<<<<<<<<<<<FORMDATA>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>??????????????????????????????????????????????????????????????????????????????????"
-    );
 
     dispatch(postNewMusician(formData));
     dispatch(getAllMusicians());

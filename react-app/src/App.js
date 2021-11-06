@@ -48,7 +48,7 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/musicians/new" exact={true}>
+        <ProtectedRoute path="/users/:userId/add-musician" exact={true}>
           <MusicianFormRefactor />
         </ProtectedRoute>
         <ProtectedRoute path="/musicians" exact={true}>
