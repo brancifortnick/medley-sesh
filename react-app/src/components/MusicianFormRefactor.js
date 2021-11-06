@@ -1,14 +1,14 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getAllMusicians, postNewMusician } from "../store/musician";
 
 const MusicianFormRefactor = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const user = useSelector(state => state.session.user);
-  let user_id = user.id
+  const user = useSelector((state) => state.session.user);
+
   // const [musicians, setMusicians] = useState([]);
   const [musician_name, setMusicianName] = useState("");
   const [profile_img, setProfileImg] = useState("");
@@ -20,8 +20,11 @@ const MusicianFormRefactor = () => {
     formData.append("musician_name", musician_name);
     formData.append("profile_img", profile_img);
     formData.append("biography", biography);
-    formData.append("user_id", user_id);
-    console.log(formData, '<<<<<<<<<<<<<<<<<<<<<FORMDATA>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>??????????????????????????????????????????????????????????????????????????????????')
+    formData.append("user_id", user.id);
+    console.log(
+      formData,
+      "<<<<<<<<<<<<<<<<<<<<<FORMDATA>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>??????????????????????????????????????????????????????????????????????????????????"
+    );
 
     dispatch(postNewMusician(formData));
     dispatch(getAllMusicians());
@@ -46,6 +49,13 @@ const MusicianFormRefactor = () => {
             onChange={(e) => setMusicianName(e.target.value)}
             value={musician_name}
           />
+          <label>Profile Picture</label>
+          <input
+            type="file"
+            accept="image/*"
+            name="profile_img"
+            onChange={updateProfileImg}
+          />
           <label htmlFor="biography">Biography</label>
           <textarea
             name="biography"
@@ -53,13 +63,6 @@ const MusicianFormRefactor = () => {
             placeholder="biography"
             onChange={(e) => setBiography(e.target.value)}
             value={biography}
-          />
-          <label>Profile Picture</label>
-          <input
-            type="file"
-            accept="image/*"
-            name="profile_img"
-            onChange={updateProfileImg}
           />
           <button className="submit" type="submit" id="create_musician">
             Submit

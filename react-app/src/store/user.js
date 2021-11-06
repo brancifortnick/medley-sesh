@@ -21,7 +21,7 @@ export const getOneUser = (userId) => async (dispatch) => {
 
 const initialState = {};
 
-export default function reducer(state = initialState, action){
+export default function usersReducer(state = initialState, action){
     switch (action.type){
         case GET_USER:
             return {
