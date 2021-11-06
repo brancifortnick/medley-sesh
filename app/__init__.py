@@ -13,7 +13,6 @@ from .api.musician_routes import musician_routes
 from .api.song_routes import song_routes
 from .api.comment_routes import comment_routes
 
-
 from .seeds import seed_commands
 
 from .config import Config
