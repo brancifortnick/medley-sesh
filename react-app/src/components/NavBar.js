@@ -9,7 +9,6 @@ const NavBar = () => {
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
-  let userId = user.id
 
     const demoFunction = async (e) => {
       e.preventDefault();

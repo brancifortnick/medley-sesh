@@ -10,7 +10,7 @@ const UpdateBiography = ({ musicianBiography, musicianId }) => {
   const onSubmit = async (e) => {
     const formData = new FormData();
     formData.append("biography", biography);
-    await dispatch(updateBiography(formData, musicianId));
+    dispatch(updateBiography(formData, musicianId));
   };
 
   useEffect(() => {

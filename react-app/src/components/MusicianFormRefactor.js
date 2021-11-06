@@ -15,6 +15,8 @@ const MusicianFormRefactor = () => {
   const [profile_img, setProfileImg] = useState(null);
   const [biography, setBiography] = useState("");
 
+
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -23,13 +25,15 @@ const MusicianFormRefactor = () => {
     formData.append("biography", biography);
     formData.append("user_id", user.id);
 
+    console.log('formdata------=========-----', formData)
     dispatch(postNewMusician(formData));
     dispatch(getAllMusicians());
     history.push(`/users/${user.id}`);
   };
 
   const updateProfileImg = (e) => {
-    const file = e.target.files[0];
+    let file = e.target.files;
+    console.log(file[0].name);
     setProfileImg(file);
   };
 
