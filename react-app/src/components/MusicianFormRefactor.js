@@ -7,20 +7,21 @@ const MusicianFormRefactor = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.session.user);
-
+  const user = useSelector(state => state.session.user);
+  let user_id = user.id
   // const [musicians, setMusicians] = useState([]);
   const [musician_name, setMusicianName] = useState("");
   const [profile_img, setProfileImg] = useState("");
   const [biography, setBiography] = useState("");
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("musician_name", musician_name);
     formData.append("profile_img", profile_img);
     formData.append("biography", biography);
-    formData.append("user_id", user.id);
+    formData.append("user_id", user_id);
+    console.log(formData, '<<<<<<<<<<<<<<<<<<<<<FORMDATA>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>??????????????????????????????????????????????????????????????????????????????????')
 
     dispatch(postNewMusician(formData));
     dispatch(getAllMusicians());

@@ -3,10 +3,11 @@ import botocore
 import os
 import uuid
 
+
 BUCKET_NAME = os.environ.get("S3_BUCKET")
 S3_LOCATION = f"https://{BUCKET_NAME}.s3.amazonaws.com/"
 ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg",
-                      'png', 'mpeg', "mp4", "mov", "wav", "mp3", "ogg"}
+                      'png', "mp4", "wav", "mp3", "ogg"}
 
 s3 = boto3.client(
     "s3",
@@ -22,6 +23,8 @@ s3rsrc = boto3.resource(
 
 
 def allowed_file(filename):
+    print(filename)
+    print("." in filename)
     return "." in filename and \
            filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -33,6 +36,8 @@ def get_unique_filename(filename):
 
 
 def upload_file_to_s3(file, acl="public-read"):
+    print("=======================made it to upload_file_to_s3 function",
+          file, type(file), '===========')
     try:
         s3.upload_fileobj(
             file,
@@ -45,7 +50,7 @@ def upload_file_to_s3(file, acl="public-read"):
         )
     except Exception as e:
         # in case the our s3 upload fails
-        print('errorssssss<<<<<<uploadfiletos3>>>>>>>>>', str(e))
+        print('errorssssss<<<<<<uploadfiletos3>>>>>>>>> s3.py-------------', str(e))
         return {"errors": str(e)}
 
     return {"url": f"{S3_LOCATION}{file.filename}"}

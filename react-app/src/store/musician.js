@@ -2,8 +2,8 @@ const GET_MUSICIANS = "musician/GET_MUSICIANS";
 const GET_ONE = "musician/GET_ONE";
 const ADD_MUSICIAN = "musician/ADD_MUSICIAN";
 const DELETE_MUSICIAN = "musician/DELETE_MUSICIAN";
-const ADD_IMAGE = 'musician/ADD_IMAGE';
-const UPDATE_BIOGRAPHY = 'musician/UPDATE_BIOGRAPHY';
+const ADD_IMAGE = "musician/ADD_IMAGE";
+const UPDATE_BIOGRAPHY = "musician/UPDATE_BIOGRAPHY";
 
 const getAllArtists = (musicians) => ({
   type: GET_MUSICIANS,
@@ -17,41 +17,37 @@ const getOne = (musician) => ({
 
 const addMusician = (musician) => ({
   type: ADD_MUSICIAN,
-  musician,
+  payload: musician,
 });
 
 const deleteMusician = (musician) => ({
   type: DELETE_MUSICIAN,
-  musician,
+  payload: musician,
 });
 
 const addImage = (musician) => ({
   type: ADD_IMAGE,
   payload: musician,
-})
+});
 
 const updateBio = (musician) => ({
   type: UPDATE_BIOGRAPHY,
   payload: musician,
-})
-
-
+});
 
 export const getAllMusicians = (id) => async (dispatch) => {
   const res = await fetch(`/api/musicians/`);
   if (res.ok) {
     const data = await res.json();
     dispatch(getAllArtists(data.musicians));
+    console.log(
+      data.musicians,
+      "store <<<<<<<getALLMusicians DATA>MUSICIANs>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    );
   }
 };
 
-export const getOneMusician = (id) => async (dispatch) => {
-  const res = await fetch(`/api/musicians/${id}`);
-  if (res.ok) {
-    const data = await res.json();
-    dispatch(getOne(data));
-  }
-};
+
 
 // export const postNewMusician = (musician) => async (dispatch) => {
 //   const { user_id, musician_name, profile_img, biography } = musician;
@@ -71,52 +67,59 @@ export const getOneMusician = (id) => async (dispatch) => {
 //     const data = await res.json();
 //     dispatch(addMusician(data));
 //   }
-// };
+// };/
 
-export const postNewMusician = (formData) => async dispatch =>{
-  const response = await fetch(`/api/musicians/new`,{
-    method: 'POST',
+export const postNewMusician = (formData) => async (dispatch) => {
+  const response = await fetch(`/api/musicians/new`, {
+    method: "POST",
     body: formData,
-  })
-  if(response.ok){
-    const newMusician = await response.json()
+  });
+  if (response.ok) {
+    const newMusician = await response.json();
     dispatch(addMusician(newMusician));
-    return newMusician
-  };
+    return newMusician;
+  } else {
+    console.log("error------------------------------------------upload createArtist thunk (fetch call)");
+  }
+};
 
-}
-
-
-export const uploadImageToS = (formData, musicianId) => async (dispatch) => {
-  const response = await fetch(`/api/musicians/${musicianId}/image`, {
-   method: 'PUT',
-   body: formData,
-  })
-  if(response.ok){
-    const picture = await response.json()
-    dispatch(addImage(picture));
+export const getOneMusician = (id) => async (dispatch) => {
+  const res = await fetch(`/api/musicians/${id}`);
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(getOne(data));
   }
 };
 
 
+export const uploadImageToS = (formData, musicianId) => async (dispatch) => {
+  const response = await fetch(`/api/musicians/${musicianId}/image`, {
+    method: "PUT",
+    body: formData,
+  });
+  if (response.ok) {
+    const picture = await response.json();
+    dispatch(addImage(picture));
+  }
+};
+
 export const updateBiography = (formData, musicianId) => async (dispatch) => {
   const response = await fetch(`/api/musicians/${musicianId}/biography`, {
-    method :'PUT',
+    method: "PUT",
     body: formData,
-  })
-  if(response.ok){
+  });
+  if (response.ok) {
     const biography = await response.json();
     dispatch(updateBio(biography));
   }
 };
 
-
-export const deleteOneMusician = (musicianId) => async (dispatch) => {
-  const res = await fetch(`/api/musicians/${musicianId}`, {
-    method : "DELETE",
+export const deleteOneMusician = (id) => async (dispatch) => {
+  const res = await fetch(`/api/musicians/${id}`, {
+    method: "DELETE",
   });
   if (res.ok) {
-    dispatch(deleteMusician(musicianId));
+    dispatch(deleteMusician(id));
   }
 };
 
@@ -125,27 +128,26 @@ const initialState = {};
 export default function reducer(state = initialState, action) {
   let newState = {};
   switch (action.type) {
-    case GET_MUSICIANS: {
+    case GET_MUSICIANS:
       action.payload.forEach((musician) => {
         newState[musician.id] = musician;
       });
       return newState;
-    }
-    case GET_ONE:
-      return {...action.payload}
     case ADD_MUSICIAN:
       // newState = Object.assign({}, state);
       // newState[action.musician.id] = action.musician;
-      return {...action.payload}
+      return { ...action.payload };
+    case GET_ONE:
+      return { ...action.payload };
     case DELETE_MUSICIAN:
-      const oldState = { ...state };
-      delete oldState[action.musician.id];
-      return oldState;
+      const currentState = { ...state };
+      delete currentState[action.musician.id];
+      return currentState;
     case ADD_IMAGE:
-      return {...action.payload};
+      return { ...action.payload };
     case UPDATE_BIOGRAPHY:
-      return {...action.payload};
+      return { ...action.payload };
     default:
       return state;
   }
-};
+}

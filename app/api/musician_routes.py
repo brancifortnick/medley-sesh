@@ -1,14 +1,9 @@
-from functools import update_wrapper
-from re import L
-import re
-from flask import Blueprint, jsonify, request
-from flask.helpers import flash, url_for
-from werkzeug.utils import redirect
-from app.forms.musician_form import MusicianForm
-from app.models import Musician, Song, db
+from flask import Blueprint, request
+# from app.forms.musician_form import MusicianForm
 from flask_login import current_user, login_required
-from app.s3 import (
-    upload_file_to_s3, allowed_file, get_unique_filename)
+from app.models import Musician, Song, db
+from app.s3_helpers import (
+    get_unique_filename, allowed_file, upload_file_to_s3)
 
 
 musician_routes = Blueprint('musicians', __name__)
@@ -27,6 +22,12 @@ def get_artist_id(id):
     musician = Musician.query.get(id)
     return musician.to_dict()
 
+
+@musician_routes.route('<int:id>/songs')
+@login_required
+def musicians_songs():
+    songs = Song.query.filter(Song.musician_id == id).all()
+    return {'songs': [song.to_dict() for song in songs]}
 
 # @musician_routes.route('/new', methods=['POST'])
 # @login_required
@@ -54,8 +55,6 @@ def get_artist_id(id):
 @login_required
 def create_musician():
 
-    print('inside of creating musician post route to s3')
-
     if 'profile_img' not in request.files:
         return{'errors': 'image needed'}, 400
 
@@ -68,7 +67,7 @@ def create_musician():
 
     upload = upload_file_to_s3(profile_img)
 
-    print('erroring after upload to s3')
+    print('+++++++++++++erroring after upload to s3+++++++++++')
 
     if 'url' not in upload:
         return upload, 400
@@ -77,35 +76,25 @@ def create_musician():
 
     url = upload['url']
 
-    new_musician = Musician(
-        musician_name = request.form['musician_name'],
-        biography = request.form['biography'],
-        profile_img = url,
-        user_id = current_user.id
+    musician = Musician(
+        musician_name=request.form['musician_name'],
+        biography=request.form['biography'],
+        profile_img=url,
+        user_id=current_user.id,
     )
-    db.session.add(new_musician)
+
+    db.session.add(musician)
     db.session.commit()
-    print('uploading successfully ')
-    return new_musician.to_dict()
+    print('uploading successfully')
+    return musician.to_dict()
 
-
-
-
-@musician_routes.route('/<int:id>', methods=['DELETE'])
-@login_required
-def delete_musician(id):
-    if request.method == "DELETE":
-        musician = Musician.query.get(id)
-        db.session.delete(musician)
-        db.session.commit()
-        return {'id', id}
 
 @musician_routes.route('/<int:id>/image', methods=['PUT'])
 @login_required
 def upload_image_test(id):
 
     if 'profile_img' not in request.files:
-            return {"errors": "image required"}, 400
+        return {"errors": "image required"}, 400
 
     profile_img = request.files["profile_img"]
 
@@ -137,3 +126,13 @@ def update_bio(id):
     db.session.add(musician)
     db.session.commit()
     return musician.to_dict()
+
+
+@musician_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_musician(id):
+    if request.method == "DELETE":
+        musician = Musician.query.get(id)
+        db.session.delete(musician)
+        db.session.commit()
+        return {'id', id}
