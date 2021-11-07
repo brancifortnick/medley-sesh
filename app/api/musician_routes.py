@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-# from app.forms.musician_form import MusicianForm
+from app.forms.musician_form import MusicianForm
 from flask_login import current_user, login_required
 from app.models import Musician, Song, db
 from app.s3_helpers import (
@@ -51,6 +51,32 @@ def musicians_songs():
 #             return musician.to_dict()
 
 
+@musician_routes.route('/new-picture', methods=['POST'])
+@login_required
+def profile_add():
+
+    if 'profile_img' not in request.files:
+        return{'errors': 'image needed'}, 400
+
+    profile_img = request.files['profile_img']
+
+    if not allowed_file(profile_img.filename):
+        return {'errors': 'incorrect upload file type'}, 400
+
+    profile_img.filename = get_unique_filename(profile_img.filename)
+
+    upload = upload_file_to_s3(profile_img)
+
+    if 'url' not in upload:
+        return upload, 400
+
+    print('erroring url not found')
+
+    url = upload['url']
+
+    return {'url': url}
+
+
 @musician_routes.route('/new', methods=['POST'])
 @login_required
 def create_musician():
@@ -66,8 +92,6 @@ def create_musician():
     profile_img.filename = get_unique_filename(profile_img.filename)
 
     upload = upload_file_to_s3(profile_img)
-
-    print('+++++++++++++erroring after upload to s3+++++++++++')
 
     if 'url' not in upload:
         return upload, 400
