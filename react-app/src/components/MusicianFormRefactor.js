@@ -32,7 +32,7 @@ const MusicianFormRefactor = () => {
   };
 
   const updateProfileImg = (e) => {
-    let file = e.target.files;
+    let file = e.target.files[0];
     console.log(file[0].name);
     setProfileImg(file);
   };
@@ -55,6 +55,7 @@ const MusicianFormRefactor = () => {
             type="file"
             accept="image/*"
             name="profile_img"
+            value={profile_img}
             onChange={updateProfileImg}
           />
           <label htmlFor="biography">Biography</label>
