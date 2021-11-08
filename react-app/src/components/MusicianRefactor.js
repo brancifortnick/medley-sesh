@@ -5,10 +5,7 @@ import { getOneMusician, deleteOneMusician } from "../store/musician";
 import UpdateBiography from "./UpdateBiography";
 import ImageUpload from "./ImageUpload";
 
-
-
 function Musician() {
-
   const dispatch = useDispatch();
 
   const currentUser = useSelector((state) => state.session.user);
@@ -26,15 +23,20 @@ function Musician() {
     dispatch(getOneMusician(musicianId));
   }, [dispatch, musicianId]);
 
-
-
   return (
-    <div>
+    <div className="card-container">
       {musicians.profile_img !== null ? (
-        <img src={musicians?.profile_img} alt="musician-pic"></img>
+        <img
+          className="card"
+          stle={{ height: "300px", width: "150px" }}
+          src={musicians?.profile_img}
+          alt="musician-pic"
+        ></img>
       ) : (
         <img
-          src='https://blueheronhillsgc.com/wp-content/uploads/2016/03/female-profile-blank.jpg'
+          className="card"
+          // style={{height: "300px", width: "150px"}}
+          src="https://blueheronhillsgc.com/wp-content/uploads/2016/03/female-profile-blank.jpg"
           alt="blank"
         ></img>
       )}

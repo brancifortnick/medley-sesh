@@ -18,6 +18,7 @@ function MusiciansListRefactor () {
         <div className={"musician-p-container"}>
           <NavLink to={`/musicians/${musician.id}`}>
             <img
+              style={{width: "300px", height: "150px" }}
               src={musician.profile_img}
               alt="profile_img"
               className="card"
