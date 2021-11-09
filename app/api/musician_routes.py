@@ -53,24 +53,24 @@ def musicians_songs():
 
 @musician_routes.route('/new-picture', methods=['POST'])
 @login_required
-def profile_add():
+def upload_picture():
 
-    if 'profile_img' not in request.files:
-        return{'errors': 'image needed'}, 400
+    # if 'image' not in request.files:
+    #     return{'errors': 'image needed'}, 400
 
-    profile_img = request.files['profile_img']
+    image = request.files['profile_img']
 
-    if not allowed_file(profile_img.filename):
-        return {'errors': 'incorrect upload file type'}, 400
+    # if not allowed_file(image.filename):
+    #     return {'errors': 'incorrect upload file type'}, 400
 
-    profile_img.filename = get_unique_filename(profile_img.filename)
+    image.filename = get_unique_filename(image.filename)
 
-    upload = upload_file_to_s3(profile_img)
+    upload = upload_file_to_s3(image)
 
     if 'url' not in upload:
         return upload, 400
 
-    print('erroring url not found')
+    # print('erroring url not found')
 
     url = upload['url']
 
@@ -81,65 +81,78 @@ def profile_add():
 @login_required
 def create_musician():
 
-    if 'profile_img' not in request.files:
-        return{'errors': 'image needed'}, 400
+    form = MusicianForm()
 
-    profile_img = request.files['profile_img']
+    new_musician = Musician()
 
-    if not allowed_file(profile_img.filename):
-        return {'errors': 'incorrect upload file type'}, 400
-
-    profile_img.filename = get_unique_filename(profile_img.filename)
-
-    upload = upload_file_to_s3(profile_img)
-
-    if 'url' not in upload:
-        return upload, 400
-
-    print('erroring url not found')
-
-    url = upload['url']
-
-    musician = Musician(
-        musician_name=request.form['musician_name'],
-        biography=request.form['biography'],
-        profile_img=url,
-        user_id=current_user.id,
-    )
-
-    db.session.add(musician)
+    form.populate_obj(new_musician)
+    db.session.add(new_musician)
     db.session.commit()
-    print('uploading successfully')
-    return musician.to_dict()
+    return new_musician.to_dict()
+
+# @musician_routes.route('/new', methods=['POST'])
+# @login_required
+# def create_musician():
+
+#     if 'profile_img' not in request.files:
+#         return{'errors': 'image needed'}, 400
+
+#     profile_img = request.files['profile_img']
+
+#     if not allowed_file(profile_img.filename):
+#         return {'errors': 'incorrect upload file type'}, 400
+
+#     profile_img.filename = get_unique_filename(profile_img.filename)
+
+#     upload = upload_file_to_s3(profile_img)
+
+#     if 'url' not in upload:
+#         return upload, 400
+
+#     print('erroring url not found')
+
+#     url = upload['url']
+
+#     musician = Musician(
+#         musician_name=request.form['musician_name'],
+#         biography=request.form['biography'],
+#         profile_img=url,
+#         user_id=current_user.id,
+#     )
+
+#     db.session.add(musician)
+#     db.session.commit()
+#     print('uploading successfully')
+#     return musician.to_dict()
 
 
-@musician_routes.route('/<int:id>/image', methods=['PUT'])
-@login_required
-def upload_image_test(id):
+# @musician_routes.route('/<int:id>/image', methods=['PUT'])
+# @login_required
+# def upload_image_test(id):
 
-    if 'profile_img' not in request.files:
-        return {"errors": "image required"}, 400
+#     if 'profile_img' not in request.files:
+#         return {"errors": "image required"}, 400
 
-    profile_img = request.files["profile_img"]
+#     profile_img = request.files["profile_img"]
 
-    if not allowed_file(profile_img.filename):
-        return {"errors": "file type not permitted"}, 400
+#     if not allowed_file(profile_img.filename):
+#         return {"errors": "file type not permitted"}, 400
 
-    profile_img.filename = get_unique_filename(profile_img.filename)
+#     profile_img.filename = get_unique_filename(profile_img.filename)
 
-    upload = upload_file_to_s3(profile_img)
+#     upload = upload_file_to_s3(profile_img)
 
-    if "url" not in upload:
-        print('we are erroring out at url in upload<<<>>>>>><<<<>>>')
-        return upload, 400
+#     if "url" not in upload:
+#         print('we are erroring out at url in upload<<<>>>>>><<<<>>>')
+#         return upload, 400
 
-    url = upload['url']
+#     url = upload['url']
 
-    musician = Musician.query.get(id)
-    musician.profile_img = url
-    db.session.add(musician)
-    db.session.commit()
-    return musician.to_dict()
+#     musician = Musician.query.get(id)
+#     musician.profile_img = url
+#     db.session.add(musician)
+#     db.session.commit()
+#     return musician.to_dict()
 
 
 @musician_routes.route("/<int:id>/biography", methods=["PUT"])

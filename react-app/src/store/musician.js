@@ -69,20 +69,39 @@ export const getAllMusicians = (id) => async (dispatch) => {
 //   }
 // };/
 
-export const postNewMusician = (formData) => async (dispatch) => {
-  const response = await fetch(`/api/musicians/new`, {
-    method: "POST",
-    body: formData,
-  });
-  if (response.ok) {
-    const newMusician = await response.json();
-    dispatch(addMusician(newMusician));
-    return newMusician;
-  } else {
-    console.log("error------------------------------------------upload createArtist thunk (fetch call)");
-  }
-};
+// export const postNewMusician = (formData) => async (dispatch) => {
+//   const response = await fetch(`/api/musicians/new`, {
+//     method: "POST",
+//     body: formData,
+//   });
+//   if (response.ok) {
+//     const newMusician = await response.json();
+//     dispatch(addMusician(newMusician));
+//     return newMusician;
+//   } else {
+//     console.log("error------------------------------------------upload createArtist thunk (fetch call)");
+//   }
+// };
 
+export const postNewMusician = (profile_img, biography, user_id, musician_name) => async (dispatch) => {
+  profile_img = profile_img.url
+  console.log(profile_img)
+  const res = await fetch('api/musicians/new',{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({profile_img, biography, user_id, musician_name})
+  });
+  if(res.ok){
+    const musician = await res.json();
+    dispatch(addMusician(musician));
+  }else{
+    console.log('erroring in post route>>>>>STORE<<<<<')
+  }
+
+
+}
 export const getOneMusician = (id) => async (dispatch) => {
   const res = await fetch(`/api/musicians/${id}`);
   if (res.ok) {
@@ -144,7 +163,7 @@ export default function reducer(state = initialState, action) {
       delete currentState[action.musician.id];
       return currentState;
     case ADD_IMAGE:
-      return { ...action.payload };
+      return newState[action.payload.id]= action.payload;
     case UPDATE_BIOGRAPHY:
       return { ...action.payload };
     default:

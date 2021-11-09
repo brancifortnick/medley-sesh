@@ -15,7 +15,7 @@ import ImageUpload from "./components/ImageUpload";
 import MusicianRefactor from "./components/MusicianRefactor";
 import MusiciansListRefactor from "./components/MusiciansListReFactor";
 import MusicianFormRefactor from "./components/MusicianFormRefactor";
-
+import MusicianFormThree from "./components/MusicianFormThree";
 function App() {
   const [loaded, setLoaded] = useState(false);
 
@@ -49,7 +49,8 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId/add-musician" exact={true}>
-          <MusicianFormRefactor />
+          {/* <MusicianFormRefactor /> */}
+          <MusicianFormThree />
         </ProtectedRoute>
         <ProtectedRoute path="/musicians" exact={true}>
           <MusiciansListRefactor />
