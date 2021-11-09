@@ -88,7 +88,7 @@ export const postNewMusician =
       profile_img,
       "profile_img>>>>>>STORE postnewMusician thunk<<<<<<<<<"
     );
-    const res = await fetch("api/musicians/new", {
+    const res = await fetch("/api/musicians/new", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
