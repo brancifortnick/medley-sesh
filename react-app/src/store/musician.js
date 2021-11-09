@@ -85,7 +85,7 @@ export const getAllMusicians = (id) => async (dispatch) => {
 
 export const postNewMusician = (profile_img, biography, user_id, musician_name) => async (dispatch) => {
   profile_img = profile_img.url
-  console.log(profile_img)
+  console.log(profile_img, 'profile_img>>>>>>STORE postnewMusician thunk<<<<<<<<<')
   const res = await fetch('api/musicians/new',{
     method: 'POST',
     headers: {
