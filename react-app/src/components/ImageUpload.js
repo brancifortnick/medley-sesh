@@ -9,21 +9,21 @@ const ImageUpload = ({ musicianId }) => {
 
   const dispatch = useDispatch();
 
-  const [profile_img, setProfileImage] = useState(null);
+  const [image, setProfileImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
-
-  const updateImage = (e) => {
-    const file = e.target.files[0];
-    setProfileImage(file);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("profile_img", profile_img);
+    formData.append("profile_img", image);
 
     setImageLoading(true);
     dispatch(uploadImageToS(formData, musicianId));
+  };
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setProfileImage(file);
   };
 
   useEffect(() => {
