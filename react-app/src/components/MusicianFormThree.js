@@ -18,6 +18,7 @@ const MusicianFormThree = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("profile_img", profile_img);
+    //fetching from backend route
     const res = await fetch('/api/musicians/new-picture', {
         method :'POST',
         body: formData,
