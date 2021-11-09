@@ -36,7 +36,7 @@ const MusicianFormThree = () => {
     const file = e.target.files[0];
     setProfileImg(file);
   };
-
+//
   return (
     <div className="outer_card">
       <h1>Add A Musician</h1>
