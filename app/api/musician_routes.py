@@ -58,14 +58,14 @@ def upload_picture():
     # if 'image' not in request.files:
     #     return{'errors': 'image needed'}, 400
 
-    image = request.files['profile_img']
+    profile_img = request.files['profile_img']
 
     # if not allowed_file(image.filename):
     #     return {'errors': 'incorrect upload file type'}, 400
 
-    image.filename = get_unique_filename(image.filename)
+    profile_img.filename = get_unique_filename(profile_img.filename)
 
-    upload = upload_file_to_s3(image)
+    upload = upload_file_to_s3(profile_img)
 
     if 'url' not in upload:
         return upload, 400

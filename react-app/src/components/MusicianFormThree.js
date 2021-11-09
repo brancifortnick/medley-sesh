@@ -11,20 +11,20 @@ const MusicianFormThree = () => {
 
   // const [musicians, setMusicians] = useState([]);
   const [musician_name, setMusicianName] = useState("");
-  const [image, setProfileImg] = useState(null);
+  const [profile_img, setProfileImg] = useState(null);
   const [biography, setBiography] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("profile_img", image.blob);
+    formData.append("profile_img", profile_img);
     const res = await fetch('/api/musicians/new-picture', {
         method :'POST',
         body: formData,
     });
     if(res.ok){
         let profile_img = await res.json()
-        const musician = dispatch(postNewMusician(profile_img, biography, user.id, musician_name));
+        dispatch(postNewMusician(profile_img, biography, user.id, musician_name));
     }else{
         console.log('post form on front end----------ERROR F>E')
 
