@@ -34,8 +34,9 @@ const ImageUpload = ({ musicianId }) => {
   };
 
   useEffect(() => {
-    dispatch(getOneMusician(parseInt(musicianId)));
+    dispatch(getOneMusician(Number(musicianId)));
     setImageLoading(false);
+
   }, [dispatch, musicianId]);
 
   return (

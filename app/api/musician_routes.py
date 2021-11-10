@@ -29,27 +29,6 @@ def musicians_songs():
     songs = Song.query.filter(Song.musician_id == id).all()
     return {'songs': [song.to_dict() for song in songs]}
 
-# @musician_routes.route('/new', methods=['POST'])
-# @login_required
-# def add_musician():
-
-#     if request.method == 'POST':
-
-#         form = MusicianForm()
-
-#         form['csrf_token'].data = request.cookies['csrf_token']
-#         if form.validate_on_submit():
-
-#             musician = Musician(
-#                 musician_name=form.data['musician_name'],
-#                 profile_img=form.data['profile_img'],
-#                 biography=form.data['biography'],
-#                 user_id=current_user.id,
-#             )
-#             db.session.add(musician)
-#             db.session.commit()
-#             return musician.to_dict()
-
 
 @musician_routes.route('/new-picture', methods=['POST'])
 @login_required
@@ -92,15 +71,14 @@ def upload_image_test(id):
 
     profile_img = request.files["profile_img"]
 
-    if not allowed_file(profile_img.filename):
-        return {"errors": "file type not permitted"}, 400
+    # if not allowed_file(profile_img.filename):
+    #     return {"errors": "file type not permitted"}, 400
 
     profile_img.filename = get_unique_filename(profile_img.filename)
 
     upload = upload_file_to_s3(profile_img)
 
     if "url" not in upload:
-        print('we are erroring out at url in upload<<<>>>>>><<<<>>>')
         return upload, 400
 
     url = upload['url']
@@ -130,6 +108,31 @@ def delete_musician(id):
         db.session.delete(musician)
         db.session.commit()
         return {'id', id}
+
+
+
+#old routes
+
+# @musician_routes.route('/new', methods=['POST'])
+# @login_required
+# def add_musician():
+
+#     if request.method == 'POST':
+
+#         form = MusicianForm()
+
+#         form['csrf_token'].data = request.cookies['csrf_token']
+#         if form.validate_on_submit():
+
+#             musician = Musician(
+#                 musician_name=form.data['musician_name'],
+#                 profile_img=form.data['profile_img'],
+#                 biography=form.data['biography'],
+#                 user_id=current_user.id,
+#             )
+#             db.session.add(musician)
+#             db.session.commit()
+#             return musician.to_dict()
 
 
 

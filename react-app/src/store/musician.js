@@ -84,10 +84,6 @@ export const getAllMusicians = (id) => async (dispatch) => {
 export const postNewMusician =
   (profile_img, biography, user_id, musician_name) => async (dispatch) => {
     profile_img = profile_img.url;
-    console.log(
-      profile_img,
-      "profile_img>>>>>>STORE postnewMusician thunk<<<<<<<<<"
-    );
     const res = await fetch("/api/musicians/new", {
       method: "POST",
       headers: {
@@ -111,14 +107,20 @@ export const getOneMusician = (id) => async (dispatch) => {
   }
 };
 
-export const uploadImageToS = (formData, musicianId) => async (dispatch) => {
+export const uploadImageToS = (profile_img, musicianId) => async (dispatch) => {
+  // profile_img = profile_img.url
   const response = await fetch(`/api/musicians/${musicianId}/image`, {
     method: "PUT",
-    body: formData,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ profile_img, musicianId }),
   });
   if (response.ok) {
     const picture = await response.json();
     dispatch(addImage(picture));
+  }else{
+    console.log('<<<<<<<<error>>>>>>>>---upload to s3 put method store>>>>>>')
   }
 };
 
@@ -153,8 +155,6 @@ export default function reducer(state = initialState, action) {
       });
       return newState;
     case ADD_MUSICIAN:
-      // newState = Object.assign({}, state);
-      // newState[action.musician.id] = action.musician;
       return { ...action.payload };
     case GET_ONE:
       return { ...action.payload };
@@ -163,8 +163,9 @@ export default function reducer(state = initialState, action) {
       delete currentState[action.musician.id];
       return currentState;
     case ADD_IMAGE:
-      newState[action.payload.id] = action.payload;
-      return newState;
+      return {...action.payload}
+      // newState[action.payload.id] = action.payload;
+      // return newState;
     case UPDATE_BIOGRAPHY:
       return { ...action.payload };
     default:
