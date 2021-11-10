@@ -14,8 +14,8 @@ function MusiciansListRefactor () {
 
   const musiciansList = musicians.map((musician, idx) => {
     return (
-      <li key={idx} className={"musician-li"}>
-        <div className={"musician-p-container"}>
+      <li key={idx} className="musician-li">
+        <div className="musician-p-container">
           <NavLink to={`/musicians/${musician.id}`}>
             <img
               style={{width: "300px", height: "150px" }}

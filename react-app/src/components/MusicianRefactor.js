@@ -22,7 +22,7 @@ function Musician() {
       {musicians.profile_img !== null ? (
         <img
           className="card"
-          style={{ height: "300px", width: "150px" }}
+          style={{ height: "300px", width: "300px" }}
           src={musicians?.profile_img}
           alt="profile_img"
         ></img>
