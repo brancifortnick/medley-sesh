@@ -40,10 +40,6 @@ export const getAllMusicians = (id) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(getAllArtists(data.musicians));
-    console.log(
-      data.musicians,
-      "store <<<<<<<getALLMusicians DATA>MUSICIANs>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    );
   }
 };
 
@@ -140,7 +136,9 @@ export const deleteOneMusician = (id) => async (dispatch) => {
     method: "DELETE",
   });
   if (res.ok) {
-    dispatch(deleteMusician(id));
+   dispatch(deleteMusician(id));
+  }else{
+    console.log('error>>>>>Redux STORE THUNK DELETE>>>>>>>>>')
   }
 };
 
@@ -159,8 +157,8 @@ export default function reducer(state = initialState, action) {
     case GET_ONE:
       return { ...action.payload };
     case DELETE_MUSICIAN:
-      const currentState = { ...state };
-      delete currentState[action.musician.id];
+      const currentState = {...state}
+      delete currentState[action.payload.id];
       return currentState;
     case ADD_IMAGE:
       return {...action.payload}
