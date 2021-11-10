@@ -10,12 +10,12 @@ const DeleteMusician = ({ musicianId }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     dispatch(deleteOneMusician(Number(musicianId)));
-    history.push("/musicians");
+    history.push("/");
   };
 
-//   useEffect(() => {
-//     dispatch(getOneMusician(Number(musicianId)));
-//   }, [dispatch, musicianId]);
+  useEffect(() => {
+    dispatch(getOneMusician(Number(musicianId)));
+  }, [dispatch, musicianId]);
 
   return (
     <div id="delete-musician-div">

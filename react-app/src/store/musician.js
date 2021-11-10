@@ -103,6 +103,18 @@ export const getOneMusician = (id) => async (dispatch) => {
   }
 };
 
+export const deleteOneMusician = (id) => async (dispatch) => {
+  const res = await fetch(`/api/musicians/${id}`, {
+    method: "DELETE",
+  });
+  if (res.ok) {
+    dispatch(deleteMusician(id));
+  } else {
+    console.log("error>>>>>Redux STORE THUNK DELETE>>>>>>>>>");
+  }
+};
+
+
 export const uploadImageToS = (profile_img, musicianId) => async (dispatch) => {
   // profile_img = profile_img.url
   const response = await fetch(`/api/musicians/${musicianId}/image`, {
@@ -131,16 +143,6 @@ export const updateBiography = (formData, musicianId) => async (dispatch) => {
   }
 };
 
-export const deleteOneMusician = (id) => async (dispatch) => {
-  const res = await fetch(`/api/musicians/${id}`, {
-    method: "DELETE",
-  });
-  if (res.ok) {
-   dispatch(deleteMusician(id));
-  }else{
-    console.log('error>>>>>Redux STORE THUNK DELETE>>>>>>>>>')
-  }
-};
 
 const initialState = {};
 
