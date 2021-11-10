@@ -8,20 +8,13 @@ import DeleteMusician from "./DeleteMusician";
 
 function Musician() {
   const dispatch = useDispatch();
-
   const currentUser = useSelector((state) => state.session.user);
   const { musicianId } = useParams();
   const musicians = useSelector((state) => state.musician);
 
-  //   let num = musicianId
-  //   const deleteMusician = () => {
-  //     console.log(num)
-  //     dispatch(deleteOneMusician(num))
-  //     history.push(`/musicians`)
-  //   }
 
   useEffect(() => {
-    dispatch(getOneMusician(musicianId));
+    dispatch(getOneMusician(Number(musicianId)));
   }, [dispatch, musicianId]);
 
   return (
@@ -58,7 +51,7 @@ function Musician() {
         </div>
       ) : null}
        {currentUser.id === Number(musicians.user_id) ? (
-            <DeleteMusician  musicianId={musicianId} />
+           <DeleteMusician musicianId={musicianId} />
           ): null }
     </div>
   );
