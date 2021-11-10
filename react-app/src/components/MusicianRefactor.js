@@ -12,11 +12,12 @@ function Musician() {
   const { musicianId } = useParams();
   const musicians = useSelector((state) => state.musician);
 
+  const hey = console.log("hey")
 
   useEffect(() => {
     dispatch(getOneMusician(Number(musicianId)));
   }, [dispatch, musicianId]);
-//
+//a
   return (
     <div className="card-container">
       {musicians.profile_img !== null ? (
