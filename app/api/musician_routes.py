@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from app.forms.musician_form import MusicianForm
 from flask_login import current_user, login_required
 from app.models import Musician, Song, db
@@ -103,8 +103,9 @@ def update_bio(id):
 @musician_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_musician(id):
-    if request.method == "DELETE":
         musician = Musician.query.get(id)
+        if not musician:
+            return jsonify('Musician does not exist')
         db.session.delete(musician)
         db.session.commit()
         return {'id', id}

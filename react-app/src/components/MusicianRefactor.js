@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { getOneMusician, deleteOneMusician } from "../store/musician";
 import UpdateBiography from "./UpdateBiography";
 import ImageUpload from "./ImageUpload";
+import DeleteMusician from "./DeleteMusician";
 
 function Musician() {
   const dispatch = useDispatch();
@@ -28,9 +29,9 @@ function Musician() {
       {musicians.profile_img !== null ? (
         <img
           className="card"
-          stle={{ height: "300px", width: "150px" }}
+          style={{ height: "300px", width: "150px" }}
           src={musicians?.profile_img}
-          alt="musician-pic"
+          alt="profile_img"
         ></img>
       ) : (
         <img
@@ -53,8 +54,12 @@ function Musician() {
             musicianBiography={musicians.biography}
             musicianId={musicianId}
           />
+
         </div>
       ) : null}
+       {currentUser.id === Number(musicians.user_id) ? (
+            <DeleteMusician  musicianId={musicianId} />
+          ): null }
     </div>
   );
 }
