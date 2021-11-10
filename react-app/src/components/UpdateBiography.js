@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateBiography, getOneMusician } from "../store/musician";
 
+
+
 const UpdateBiography = ({ musicianBiography, musicianId }) => {
   const dispatch = useDispatch();
 
@@ -14,12 +16,12 @@ const UpdateBiography = ({ musicianBiography, musicianId }) => {
   };
 
   useEffect(() => {
-    dispatch(getOneMusician(parseInt(musicianId)));
+    dispatch(getOneMusician(Number(musicianId)));
   }, [dispatch, musicianId]);
-
+// THINK about logic here with onClick event for button, what direction to go in // do a modal
   return (
     <div>
-      <button>Edit no functionality yet</button>
+      <button>Edit Bio</button>
       {biography ? (
         <form onSubmit={onSubmit}>
           <label id="bio-form">

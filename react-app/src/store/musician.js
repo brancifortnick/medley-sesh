@@ -128,7 +128,7 @@ export const uploadImageToS = (profile_img, musicianId) => async (dispatch) => {
     const picture = await response.json();
     dispatch(addImage(picture));
   }else{
-    console.log('<<<<<<<<error>>>>>>>>---upload to s3 put method store>>>>>>')
+    console.log('<<<<<<<<error>>>>>>>>---upload to s3 put method store----stringifying musicianId is causing error potentially>>>>>>')
   }
 };
 

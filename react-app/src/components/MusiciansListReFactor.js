@@ -20,7 +20,7 @@ function MusiciansListRefactor () {
             <img
               style={{width: "300px", height: "150px" }}
               src={musician.profile_img}
-              alt="profile_img"
+              alt="loading..."
               className="card"
             ></img>
             <div className="musician-name">{musician.musician_name}</div>
