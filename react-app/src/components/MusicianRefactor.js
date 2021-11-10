@@ -16,7 +16,7 @@ function Musician() {
   useEffect(() => {
     dispatch(getOneMusician(Number(musicianId)));
   }, [dispatch, musicianId]);
-
+//
   return (
     <div className="card-container">
       {musicians.profile_img !== null ? (
