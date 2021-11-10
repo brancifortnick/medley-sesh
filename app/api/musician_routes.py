@@ -29,6 +29,90 @@ def musicians_songs():
     songs = Song.query.filter(Song.musician_id == id).all()
     return {'songs': [song.to_dict() for song in songs]}
 
+
+@musician_routes.route('/new-picture', methods=['POST'])
+@login_required
+def upload_picture():
+
+    profile_img = request.files['profile_img']
+
+    profile_img.filename = get_unique_filename(profile_img.filename)
+
+    upload = upload_file_to_s3(profile_img)
+
+    if 'url' not in upload:
+        return upload, 400
+
+    url = upload['url']
+
+    return {'url': url}
+
+
+@musician_routes.route('/new', methods=['POST'])
+@login_required
+def create_musician():
+
+    form = MusicianForm()
+
+    new_musician = Musician()
+
+    form.populate_obj(new_musician)
+    db.session.add(new_musician)
+    db.session.commit()
+    return new_musician.to_dict()
+
+
+@musician_routes.route('/<int:id>/image', methods=['PUT'])
+@login_required
+def upload_image_test(id):
+
+    if 'profile_img' not in request.files:
+        return {"errors": "image required"}, 400
+
+    profile_img = request.files["profile_img"]
+
+    # if not allowed_file(profile_img.filename):
+    #     return {"errors": "file type not permitted"}, 400
+
+    profile_img.filename = get_unique_filename(profile_img.filename)
+
+    upload = upload_file_to_s3(profile_img)
+
+    if "url" not in upload:
+        return upload, 400
+
+    url = upload['url']
+
+    musician = Musician.query.get(id)
+    musician.profile_img = url
+    db.session.add(musician)
+    db.session.commit()
+    return musician.to_dict()
+
+
+@musician_routes.route("/<int:id>/biography", methods=["PUT"])
+@login_required
+def update_bio(id):
+    musician = Musician.query.get(id)
+    musician.biography = request.form["biography"]
+    db.session.add(musician)
+    db.session.commit()
+    return musician.to_dict()
+
+
+@musician_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_musician(id):
+    if request.method == "DELETE":
+        musician = Musician.query.get(id)
+        db.session.delete(musician)
+        db.session.commit()
+        return {'id', id}
+
+
+
+#old routes
+
 # @musician_routes.route('/new', methods=['POST'])
 # @login_required
 # def add_musician():
@@ -51,44 +135,6 @@ def musicians_songs():
 #             return musician.to_dict()
 
 
-@musician_routes.route('/new-picture', methods=['POST'])
-@login_required
-def upload_picture():
-
-    # if 'image' not in request.files:
-    #     return{'errors': 'image needed'}, 400
-
-    profile_img = request.files['profile_img']
-
-    # if not allowed_file(image.filename):
-    #     return {'errors': 'incorrect upload file type'}, 400
-
-    profile_img.filename = get_unique_filename(profile_img.filename)
-
-    upload = upload_file_to_s3(profile_img)
-
-    if 'url' not in upload:
-        return upload, 400
-
-    # print('erroring url not found')
-
-    url = upload['url']
-
-    return {'url': url}
-
-
-@musician_routes.route('/new', methods=['POST'])
-@login_required
-def create_musician():
-
-    form = MusicianForm()
-
-    new_musician = Musician()
-
-    form.populate_obj(new_musician)
-    db.session.add(new_musician)
-    db.session.commit()
-    return new_musician.to_dict()
 
 # @musician_routes.route('/new', methods=['POST'])
 # @login_required
@@ -124,52 +170,3 @@ def create_musician():
 #     db.session.commit()
 #     print('uploading successfully')
 #     return musician.to_dict()
-
-
-# @musician_routes.route('/<int:id>/image', methods=['PUT'])
-# @login_required
-# def upload_image_test(id):
-
-#     if 'profile_img' not in request.files:
-#         return {"errors": "image required"}, 400
-
-#     profile_img = request.files["profile_img"]
-
-#     if not allowed_file(profile_img.filename):
-#         return {"errors": "file type not permitted"}, 400
-
-#     profile_img.filename = get_unique_filename(profile_img.filename)
-
-#     upload = upload_file_to_s3(profile_img)
-
-#     if "url" not in upload:
-#         print('we are erroring out at url in upload<<<>>>>>><<<<>>>')
-#         return upload, 400
-
-#     url = upload['url']
-
-#     musician = Musician.query.get(id)
-#     musician.profile_img = url
-#     db.session.add(musician)
-#     db.session.commit()
-#     return musician.to_dict()
-
-
-@musician_routes.route("/<int:id>/biography", methods=["PUT"])
-@login_required
-def update_bio(id):
-    musician = Musician.query.get(id)
-    musician.biography = request.form["biography"]
-    db.session.add(musician)
-    db.session.commit()
-    return musician.to_dict()
-
-
-@musician_routes.route('/<int:id>', methods=['DELETE'])
-@login_required
-def delete_musician(id):
-    if request.method == "DELETE":
-        musician = Musician.query.get(id)
-        db.session.delete(musician)
-        db.session.commit()
-        return {'id', id}

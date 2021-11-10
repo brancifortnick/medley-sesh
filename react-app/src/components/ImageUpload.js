@@ -9,16 +9,23 @@ const ImageUpload = ({ musicianId }) => {
 
   const dispatch = useDispatch();
 
-  const [image, setProfileImage] = useState(null);
+  const [profile_img, setProfileImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("profile_img", image);
+    formData.append("profile_img", profile_img);
 
+    const res = await fetch(`/api/musicians/${musicianId}/image`, {
+      method: 'PUT',
+      body: formData,
+    });
+    if(res.ok){
+      let profile_img = await res.json();
+      dispatch(uploadImageToS(profile_img, musicianId))
+    }
     setImageLoading(true);
-    dispatch(uploadImageToS(formData, musicianId));
   };
 
   const updateImage = (e) => {
@@ -27,8 +34,9 @@ const ImageUpload = ({ musicianId }) => {
   };
 
   useEffect(() => {
-    dispatch(getOneMusician(parseInt(musicianId)));
+    dispatch(getOneMusician(Number(musicianId)));
     setImageLoading(false);
+
   }, [dispatch, musicianId]);
 
   return (
