@@ -25,7 +25,7 @@ def get_artist_id(id):
 
 @musician_routes.route('<int:id>/songs')
 @login_required
-def musicians_songs():
+def musicians_songs(id):
     songs = Song.query.filter(Song.musician_id == id).all()
     return {'songs': [song.to_dict() for song in songs]}
 

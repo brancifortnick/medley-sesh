@@ -14,4 +14,4 @@ from app.models import Song, db
 class SongForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     file_url = StringField('file_url', validators=[DataRequired()])
-    song_img = StringField('song_img', validators=[DataRequired()])
+    song_img = StringField('song_img', default=None)

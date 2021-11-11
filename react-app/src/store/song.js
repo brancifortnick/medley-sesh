@@ -46,7 +46,6 @@ export const createNewSong =
     if (res.ok) {
       const newSong = await res.json();
       dispatch(addOneSong(newSong));
-      return newSong;
     } else {
       console.log(
         "erroring out in musician thunk---> createNewSong---> STORE ***SONG**"
@@ -66,20 +65,20 @@ export const deleteTrack = (id) => async (dispatch) => {
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
-  let newState = {};
   switch (action.type) {
     case GET_TRACKS:
+      let newState = {};
       action.payload.forEach((song) => {
         newState[song.id] = song;
       });
       return newState;
     case ADD_TRACK:
-      //return {...action.payload}
-      newState[action.payload.id] = action.payload;
-      return newState;
+      return {...action.payload}
+      // newState[action.payload.id] = action.payload;
+      // return newState;
     case DELETE_TRACK:
       const currentState = { ...state };
-      currentState[action.payload]; // maybe this should be action.payload.id-not sure
+      delete currentState[action.payload.id]; // maybe this should be action.payload.id-not sure
       return currentState;
     default:
       return state;

@@ -16,6 +16,7 @@ import MusicianRefactor from "./components/MusicianRefactor";
 import MusiciansListRefactor from "./components/MusiciansListReFactor";
 import MusicianFormRefactor from "./components/MusicianFormRefactor";
 import MusicianFormThree from "./components/MusicianFormThree";
+
 function App() {
   const [loaded, setLoaded] = useState(false);
 
@@ -39,31 +40,39 @@ function App() {
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
+
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
+
         <ProtectedRoute path="/users" exact={true}>
           <UsersList />
         </ProtectedRoute>
+
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
+
         <ProtectedRoute path="/users/:userId/add-musician" exact={true}>
-          {/* <MusicianFormRefactor /> */}
           <MusicianFormThree />
         </ProtectedRoute>
+
         <ProtectedRoute path="/musicians" exact={true}>
           <MusiciansListRefactor />
         </ProtectedRoute>
+
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <MusicianRefactor />
         </ProtectedRoute>
+
         <ProtectedRoute path="/musicians/updateImage" exact={true}>
           <ImageUpload />
         </ProtectedRoute>
+
         <ProtectedRoute path="/" exact={true}>
           <h1>My Home Page</h1>
         </ProtectedRoute>
+
       </Switch>
     </BrowserRouter>
   );

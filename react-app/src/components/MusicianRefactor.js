@@ -5,6 +5,8 @@ import { getOneMusician, deleteOneMusician } from "../store/musician";
 import UpdateBiography from "./UpdateBiography";
 import ImageUpload from "./ImageUpload";
 import DeleteMusician from "./DeleteMusician";
+import AllSongs from "./AllSongs/AllSongs";
+import UploadSong from "./UploadSong/UploadSong";
 
 function Musician() {
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ function Musician() {
       {musicians.profile_img !== null ? (
         <img
           className="card"
-          style={{ height: "300px", width: "150px" }}
+          style={{ height: "500px", width: "500px" }}
           src={musicians?.profile_img}
           alt="profile_img"
         ></img>
@@ -47,12 +49,20 @@ function Musician() {
             musicianBiography={musicians.biography}
             musicianId={musicianId}
           />
-
         </div>
       ) : null}
-       {currentUser.id === Number(musicians.user_id) ? (
-           <DeleteMusician musicianId={musicianId} />
-          ): null }
+      <div>
+        {currentUser.id === Number(musicians.user_id) ? (
+          <DeleteMusician musicianId={musicianId} />
+        ) : null}
+      </div>
+        <div>
+          {currentUser.id == Number(musicians.user_id) ? (
+            <UploadSong musicianId={musicianId} />
+          ) : null }
+        </div>
+
+      <AllSongs musicianId={musicianId} />
     </div>
   );
 }

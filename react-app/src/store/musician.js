@@ -131,9 +131,9 @@ export default function reducer(state = initialState, action) {
       delete currentState[action.payload.id]; ///put route will need new ID remember
       return currentState;
     case ADD_IMAGE:
-      return {...action.payload} // error is def comming from here for update-needs id
-      // newState[action.payload.id] = action.payload;
-      // return newState;
+      // return {...action.payload} // error is def comming from here for update-needs id
+      newState[action.payload.id] = action.payload;
+      return newState;
     case UPDATE_BIOGRAPHY:
       return { ...action.payload };
     default:
