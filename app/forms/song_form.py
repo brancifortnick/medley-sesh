@@ -15,3 +15,4 @@ class SongForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     file_url = StringField('file_url', validators=[DataRequired()])
     song_img = StringField('song_img', default=None)
+    musician_id = IntegerField('musician_id')

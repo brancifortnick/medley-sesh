@@ -18,7 +18,6 @@ const UploadSong = ({ musicianId }) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file_url", file_url);
-    formData.append('song_img', song_img);
 
     const res = await fetch('/api/songs/new-song', {
       method: "POST",
@@ -76,7 +75,6 @@ const UploadSong = ({ musicianId }) => {
             accept='image/*'
             type='file'
             onChange={(e) => setSongImg(e.target.files[1])}
-            value={song_img}
             />
           <button type="submit" id="create-song-btn">
             Upload Track
