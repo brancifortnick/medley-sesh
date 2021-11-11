@@ -7,7 +7,7 @@ from app.models import Musician
 def name_exists(form, field):
     musician_name = field.data
     musician = Musician.query.filter(
-        Musician.musician_name == musician_name).first()
+        Musician.musician_name == musician_name).first() #look up logic for stronger constraints
     if(musician):
         raise ValidationError('Name already exists')
 
