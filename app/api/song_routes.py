@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required
 from app.models import Song, db
+from app.forms import SongForm
 from flask_login import current_user, login_required
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -22,7 +23,7 @@ def get_song(id):
     return song.to_dict()
 
 
-@song_routes.route('/new-music', methods=['POST'])
+@song_routes.route('/new-song', methods=['POST'])
 @login_required
 def add_song():
 
@@ -47,10 +48,12 @@ def add_song():
 @login_required
 def complete_song():
 
-    # form = SongForm() # make song form
+    form = SongForm() # make song form
 
     new_song = Song()
-    # form.populate_obj(new_song)
+
+    form.populate_obj(new_song)
+
     db.session.add(new_song)
     db.session.commit()
     return new_song.to_dict()
