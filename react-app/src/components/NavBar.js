@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { demoLogin } from "../store/session";
 import "./NavBar.module.css";
 
+
 const NavBar = () => {
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
@@ -77,6 +78,7 @@ const NavBar = () => {
             style={{ textDecoration: "none" }}
           >
             {`${user.username}s Profile`}
+
           </NavLink>
         </button>
       ) : null}

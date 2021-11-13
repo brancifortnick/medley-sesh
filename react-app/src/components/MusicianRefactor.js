@@ -32,7 +32,7 @@ function Musician() {
         <img
           className="card"
           // style={{height: "300px", width: "150px"}}
-          src="https://blueheronhillsgc.com/wp-content/uploads/2016/03/female-profile-blank.jpg"
+          src="https://via.placeholder.com/350x150"
           alt="blank"
         ></img>
       )}
@@ -56,11 +56,11 @@ function Musician() {
           <DeleteMusician musicianId={musicianId} />
         ) : null}
       </div>
-        <div>
-          {currentUser.id == Number(musicians.user_id) ? (
-            <UploadSong musicianId={musicianId} />
-          ) : null }
-        </div>
+      <div>
+        {currentUser.id === Number(musicians.user_id) ? (
+          <UploadSong musicianId={musicianId} />
+        ) : null}
+      </div>
 
       <AllSongs musicianId={musicianId} />
     </div>

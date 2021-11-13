@@ -14,7 +14,7 @@ const AllSongs = ({ musicianId }) => {
   useEffect(() => {
     dispatch(getMusiciansTracks(parseInt(musicianId)));
     //should this be parseInt =<><> not sure <><>=
-  }, [dispatch]);
+  }, [dispatch, musicianId]);
 
   return (
     <div>

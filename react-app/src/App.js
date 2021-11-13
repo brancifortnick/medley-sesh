@@ -11,11 +11,13 @@ import User from "./components/User";
 // import Musician from './components/Musician';
 // import MusiciansList from "./components/MusiciansList";
 // import MusicianForm from "./components/MusicianForm";
+// import MusicianFormRefactor from "./components/AllMusicians/MusicianFormRefactor";
 import ImageUpload from "./components/ImageUpload";
 import MusicianRefactor from "./components/MusicianRefactor";
 import MusiciansListRefactor from "./components/MusiciansListReFactor";
-// import MusicianFormRefactor from "./components/AllMusicians/MusicianFormRefactor";
 import MusicianFormThree from "./components/MusicianFormThree";
+import LandingPage from './components/LandingPage/LandingPage';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -70,7 +72,7 @@ function App() {
         </ProtectedRoute>
 
         <ProtectedRoute path="/" exact={true}>
-          <h1>My Home Page</h1>
+          <LandingPage />
         </ProtectedRoute>
 
       </Switch>
