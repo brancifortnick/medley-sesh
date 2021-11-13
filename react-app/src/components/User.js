@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getOneUser} from '../store/user';
 import UsersMusicians from './UsersMusicians/UsersMusicians';
 
-function User() {
+function User () {
 
   const dispatch = useDispatch();
   const { userId }  = useParams();
@@ -41,8 +41,8 @@ function User() {
           <strong>Email</strong> {usersInformation.email}
         </li>
         <h3> Your Musicians </h3>
-        <button type='button'>
-          <Link to={`/users/${userId}/add-musician`}>Create A Musician</Link>
+        <button type='button' id='add-musician-btn'>
+          <Link to={`/users/${userId}/add-musician`}>Add your musician here</Link>
         </button>
       </div>
       <UsersMusicians />

@@ -29,7 +29,7 @@ const UsersMusicians = () => {
 
   return (
     <div className="musician-container">
-      <ul className="musician-ul">{usersMusicians}</ul>
+      <ul>{usersMusicians}</ul>
     </div>
   );
 };
