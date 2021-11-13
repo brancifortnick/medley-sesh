@@ -4,6 +4,7 @@ import LogoutButton from "./auth/LogoutButton";
 import { useDispatch, useSelector } from "react-redux";
 import { demoLogin } from "../store/session";
 import "./NavBar.module.css";
+import UsersMusicians from "./UsersMusicians/UsersMusicians";
 
 const NavBar = () => {
   const user = useSelector((state) => state.session.user);
@@ -77,6 +78,7 @@ const NavBar = () => {
             style={{ textDecoration: "none" }}
           >
             {`${user.username}s Profile`}
+
           </NavLink>
         </button>
       ) : null}
