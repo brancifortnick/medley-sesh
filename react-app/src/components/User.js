@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import UsersMusicians from './UsersMusicians/UsersMusicians';
 
 function User() {
   const [user, setUser] = useState({});
@@ -28,6 +29,7 @@ function User() {
       <li>
         <strong>Email</strong> {user.email}
       </li>
+      <UsersMusicians />
     </ul>
   );
 }
