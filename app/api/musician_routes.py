@@ -23,7 +23,7 @@ def get_artist_id(id):
     return musician.to_dict()
 
 
-@musician_routes.route('<int:id>/songs')
+@musician_routes.route('/<int:id>/songs')
 @login_required
 def musicians_songs(id):
     songs = Song.query.filter(Song.musician_id == id).all()
