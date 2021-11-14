@@ -54,7 +54,7 @@ function App() {
 
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
-          <UsersMusicians />
+
         </ProtectedRoute>
 
         <ProtectedRoute path="/users/:userId/add-musician" exact={true}>
