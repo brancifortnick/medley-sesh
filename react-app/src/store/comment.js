@@ -36,6 +36,20 @@ export const getAllComments = (song_id) => async (dispatch) => {
 
 
 
+export const deleteAComment = (id) => async (dispatch) => {
+    const res = await fetch(`/api/comments/delete/${id}`, {
+        method: "DELETE",
+        body: JSON.stringify(id)
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(deleteComment(data))
+        // return data;
+    }
+}
+
+const initialState = {};
+
 export default function reducer(state = initialState, action) {
   let newState = {};
   switch (action.type) {
@@ -46,6 +60,9 @@ export default function reducer(state = initialState, action) {
       return newState;
     case ADD_COMMENT:
         return {...action.payload}
+    case DELETE_COMMENT:
+        delete newState[action.payload.id]
+        return newState;
     default:
         return state
   }
