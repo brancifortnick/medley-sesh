@@ -17,6 +17,7 @@ import MusicianRefactor from "./components/MusicianRefactor";
 import MusiciansListRefactor from "./components/MusiciansListReFactor";
 import MusicianFormThree from "./components/MusicianFormThree";
 import LandingPage from './components/LandingPage/LandingPage';
+import UsersMusicians from "./components/UsersMusicians/UsersMusicians";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
 
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
+          <UsersMusicians />
         </ProtectedRoute>
 
         <ProtectedRoute path="/users/:userId/add-musician" exact={true}>

@@ -23,9 +23,9 @@ const UsersMusicians = () => {
     return user.id === Number(musician.user_id) ? (
       <li key={idx} className="musician-li">
         <div className="musician-div">
-          <NavLink to={`/musicians/${musician.id}`}>
             <img src={musician.profile_img} alt="_blank" className="card"></img>
             {musician.musician_name}
+          <NavLink to={`/musicians/${musician.id}`}>
           </NavLink>
           <DeleteMusician musicianId={musician.id} />
         </div>

@@ -40,6 +40,7 @@ export const getAllMusicians = (id) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(getAllArtists(data.musicians));
+    return data;
   }
 };
 
@@ -123,7 +124,10 @@ export default function reducer(state = initialState, action) {
       });
       return newState;
     case ADD_MUSICIAN:
-      return { ...action.payload };
+      const addState = {...state}
+      addState[action.payload] = action.payload;
+      return addState;
+      // return { ...action.payload };
     case GET_ONE:
       return { ...action.payload };
     case DELETE_MUSICIAN:

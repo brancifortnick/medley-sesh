@@ -65,9 +65,9 @@ def complete_song():
 @song_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_track(id):
-    song = Song.query.id(id)
+    song = Song.query.get(id)
     if not song:
         return jsonify('Track does not exist')
     db.session.delete(song)
     db.session.commit()
-    return {'id', id }
+    return {'id' : id }

@@ -16,7 +16,7 @@ function Musician() {
 
 
   useEffect(() => {
-    dispatch(getOneMusician(Number(musicianId)));
+    dispatch(getOneMusician(parseInt(musicianId)));
   }, [dispatch, musicianId]);
 
   return (
