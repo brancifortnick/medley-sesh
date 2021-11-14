@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useDispatch } from 'react-redux';
 import { getAllComments } from '../../store/comment';
-
+//
 
 const CommentDelete = ({comment}) => {
 
