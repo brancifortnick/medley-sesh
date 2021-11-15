@@ -28,9 +28,8 @@ const deleteComment = (comment) => ({
 export const getAllComments = (song_id) => async (dispatch) => {
   const response = await fetch(`/api/comments/${song_id}`);
   if (response.ok) {
-    const comments = await response.json();
-    dispatch(getComments(comments));
-    return comments;
+    const data = await response.json();
+    dispatch(getComments(data.comments));
   }else{
     console.log('FETCH FROM ++++++STORE GET')
   }
@@ -67,16 +66,21 @@ export default function reducer(state = initialState, action) {
   let newState = {...state};
   switch (action.type) {
     case GET_COMMENTS:
+      const commentState = {};
       action.payload.forEach((comment) => {
-        newState[comment.id] = comment;
+        commentState[comment.id] = comment;
       });
-      return newState;
+      return commentState;
     case ADD_COMMENT:
-      return { ...action.payload };
+      newState[action.payload.id] = action.payload;
+    // return { ...action.payload };
     case DELETE_COMMENT:
       delete newState[action.payload.id];
       return newState;
+    // case EDIT_COMMENT:
+    //   newState[action.payload.id] = action.payload;
+    //   return newState;
     default:
       return state;
   }
-}
+};
