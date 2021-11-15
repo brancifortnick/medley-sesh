@@ -20,7 +20,6 @@ import MusicianFormThree from "./components/MusicianFormThree";
 import LandingPage from './components/LandingPage/LandingPage';
 import CommentCreate from "./components/CommentCreate/CommentCreate";
 import UploadSong from "./components/UploadSong/UploadSong";
-import DeleteMusician from "./components/DeleteMusician";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
