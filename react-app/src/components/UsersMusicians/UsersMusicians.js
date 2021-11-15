@@ -21,16 +21,17 @@ const UsersMusicians = () => {
 
   const usersMusicians = musicians.map((musician, idx) => {
     return user.id === Number(musician.user_id) ? (
-      <li key={idx} className="musician-li">
+      <ol key={idx} className="musician-li">
+        <div>
+          {musician.musician_name}
+        </div>
         <div className="musician-div">
-            <img src={musician.profile_img} alt="_blank" className="card"></img>
-            {musician.musician_name}
+            <img src={musician.profile_img} alt="_blank" className="card" style={{height: "500px", width: "600px"}}></img>
           <NavLink to={`/musicians/${musician.id}`}>
           </NavLink>
         </div>
-
           {/* <DeleteMusician musicianId={musician.id} /> */}
-      </li>
+      </ol>
     ) : null;
   });
 

@@ -4,3 +4,9 @@
     justify-content: space-around;
     align-items: center;
 }
+.musician-li {
+   list-style-type: disc;
+}
+.musician-name {
+list-style-type: disc;
+}

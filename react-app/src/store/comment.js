@@ -23,13 +23,13 @@ const deleteComment = (comment) => ({
 //   payload: comment,
 // });
 
-export const getComments = () => async (dispatch) => {
-  const res = await fetch(`/api/comment`);
-  if (res.ok) {
-    const comments = await res.json();
-    dispatch(getComments(comments));
-  }
-};
+// export const getAllComments = () => async (dispatch) => {
+//   const res = await fetch(`/api/comments`);
+//   if (res.ok) {
+//     const comments = await res.json();
+//     dispatch(getComments(comments));
+//   }
+// };
 
 export const getAllCommentsBySongId = (song_id) => async (dispatch) => {
   const response = await fetch(`/api/comments/${song_id}`);

@@ -3,20 +3,22 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { getOneMusician, deleteOneMusician } from "../store/musician";
 import UpdateBiography from "./UpdateBiography";
-import ImageUpload from "./ImageUpload";
 import DeleteMusician from "./DeleteMusician";
 import AllSongs from "./AllSongs/AllSongs";
 import UploadSong from "./UploadSong/UploadSong";
+// import ImageUpload from "./ImageUpload";
 
-function Musician() {
+
+
+const Musician = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
   const { musicianId } = useParams();
-  const musicians = useSelector((state) => state.musician);
-
+  // const musicians = useSelector((state) => Object.values(state.musician));
+  const musicians = useSelector(state => state.musician);
 
   useEffect(() => {
-    dispatch(getOneMusician(parseInt(musicianId)));
+    dispatch(getOneMusician(Number(musicianId)));
   }, [dispatch, musicianId]);
 
   return (
@@ -31,17 +33,17 @@ function Musician() {
       ) : (
         <img
           className="card"
-          // style={{height: "300px", width: "150px"}}
+          style={{height: "300px", width: "150px"}}
           src="https://via.placeholder.com/350x150"
           alt="blank"
         ></img>
       )}
-      {currentUser.id === Number(musicians.user_id) ? (
+      {/* {currentUser.id === Number(musicians.user_id) ? (
         <div>
           <ImageUpload musicianId={musicianId} />
-          <strong>Biography:</strong>
         </div>
-      ) : null}
+      ) : null} */}
+      <strong>Biography:</strong>
       {musicians.biography}
       {currentUser.id === Number(musicians.user_id) ? (
         <div>

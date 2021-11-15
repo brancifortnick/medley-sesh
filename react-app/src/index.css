@@ -3,7 +3,9 @@ body {
    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    font-weight: 300;
 }
-
+li{
+    list-style-type: none;
+}
 /* .card h1{
   background-color: #CB997E;
   color: #FFF1E6;
