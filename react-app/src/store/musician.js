@@ -137,7 +137,8 @@ export default function reducer(state = initialState, action) {
       delete currentState[action.payload.id]; ///put route will need new ID remember
       return currentState;
     case UPDATE_BIOGRAPHY:
-      return { ...action.payload };
+      const updateState = {...state}
+      updateState[action.payload] = action.payload;
     default:
       return state;
   }

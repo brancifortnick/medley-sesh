@@ -10,7 +10,7 @@ const AllSongs = ({ musicianId }) => {
   const user = useSelector((state) => state.session.user);
   const musician = useSelector((state) => Object.values(state.musician));
   const songs = useSelector((state) => Object.values(state.song));
-
+//
   useEffect(() => {
     dispatch(getMusiciansTracks(parseInt(musicianId)));
     //should this be parseInt =<><> not sure <><>=
