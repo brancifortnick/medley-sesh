@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useDispatch } from "react-redux";
 import { getAllComments, deleteAComment } from "../../store/comment";
-
+import { useHistory } from "react-router-dom";
 const CommentDelete = ({ comment }) => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  let song_id = comment.id;
+  const history = useHistory();
 
   const commentDelete = async (e) => {
     e.preventDefault();
-    dispatch(deleteAComment(song_id));
+    await dispatch(deleteAComment(comment));
+    history.push(`/musicians/${id}`)
   };
 
   useEffect(() => {
     dispatch(getAllComments(id));
-  }, [dispatch, id]);
+  }, [dispatch]);
 
   return (
     <div>
