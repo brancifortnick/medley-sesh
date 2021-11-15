@@ -10,7 +10,7 @@ const AllSongs = ({ musicianId }) => {
   const user = useSelector((state) => state.session.user);
   const musician = useSelector((state) => Object.values(state.musician));
   const songs = useSelector((state) => Object.values(state.song));
-
+//
   useEffect(() => {
     dispatch(getMusiciansTracks(parseInt(musicianId)));
     //should this be parseInt =<><> not sure <><>=
@@ -22,10 +22,10 @@ const AllSongs = ({ musicianId }) => {
         {songs.map((song) => (
           <ul key={song.id} className="song-id">
             <strong>Title:{" "}</strong>
-            {song.title}
+            <strong>{song.title}</strong>
             <div></div>
             <audio src={song.file_url} controls></audio>
-            {user.id === Number(song.musician_id)? (
+            {user.id === Number(song.musician_id) ? (
             <DeleteTrack musicianId={musicianId} songId={song.id} />
             ): null}
           </ul>

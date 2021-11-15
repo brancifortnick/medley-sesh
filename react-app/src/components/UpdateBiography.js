@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateBiography, getOneMusician } from "../store/musician";
+import { useHistory } from "react-router-dom";
 import { Modal } from "../context/Modal";
 
 const UpdateBiography = ({ musicianBiography, musicianId }) => {
   const dispatch = useDispatch();
-
+  // const history = useHistory();
   const [biography, setBiography] = useState("");
   const [showModal, setModal] = useState(false);
 
@@ -14,6 +15,7 @@ const UpdateBiography = ({ musicianBiography, musicianId }) => {
     formData.append("biography", biography);
     dispatch(updateBiography(formData, musicianId));
     setModal(false);
+    // history.push('/musicians')
   };
 
   useEffect(() => {
@@ -21,15 +23,15 @@ const UpdateBiography = ({ musicianBiography, musicianId }) => {
   }, [dispatch, musicianId]);
 
   return (
-    <div>
+    <>
       <button id="biography-edit" onClick={() => setModal(true)}>
         Edit your biography
       </button>
       {showModal && (
         <Modal onClose={() => setModal(false)}>
           <form onSubmit={onSubmit}>
-            <label id="bio-form">
-              Artist Biography
+            <label id="biography-form">
+              Musician Biography
               <textarea
                 name="biography"
                 placeholder={musicianBiography}
@@ -43,7 +45,7 @@ const UpdateBiography = ({ musicianBiography, musicianId }) => {
           </form>
         </Modal>
       )}
-    </div>
+    </>
   );
 };
 export default UpdateBiography;

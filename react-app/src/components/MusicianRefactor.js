@@ -53,11 +53,11 @@ const Musician = () => {
           />
         </div>
       ) : null}
-      <div>
+      {/* <div>
         {currentUser.id === Number(musicians.user_id) ? (
           <DeleteMusician musicianId={musicianId} />
         ) : null}
-      </div>
+      </div> */}
       <div>
         {currentUser.id === Number(musicians.user_id) ? (
           <UploadSong musicianId={musicianId} />

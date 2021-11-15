@@ -74,6 +74,16 @@ def delete_musician(id):
     db.session.commit()
     return {'id': id }
 
+
+@musician_routes.route("/<int:id>/biography", methods=["PUT"])
+@login_required
+def update_bio(id):
+    musician = Musician.query.get(id)
+    musician.biography = request.form["biography"]
+    db.session.add(musician)
+    db.session.commit()
+    return musician.to_dict()
+
 # @musician_routes.route('/<int:id>/image', methods=['PUT'])
 # @login_required
 # def upload_image_test(id):
@@ -97,16 +107,6 @@ def delete_musician(id):
 
 #     musician = Musician.query.get(id)
 #     musician.profile_img = url
-#     db.session.add(musician)
-#     db.session.commit()
-#     return musician.to_dict()
-
-
-# @musician_routes.route("/<int:id>/biography", methods=["PUT"])
-# @login_required
-# def update_bio(id):
-#     musician = Musician.query.get(id)
-#     musician.biography = request.form["biography"]
 #     db.session.add(musician)
 #     db.session.commit()
 #     return musician.to_dict()
