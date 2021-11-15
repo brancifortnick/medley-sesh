@@ -1,13 +1,4 @@
-#landing-page-div{
-  display: flex;
-  flex-direction: row;
-  align-items:stretch;
-  background: url(../../assets/philly_skyline.jpg) no-repeat center;
-  background-size: cover;
-  border: 10px solid black;
-  padding: 35px;
-  background-repeat: no-repeat;
-}
+
 
 #welcome-text {
     display: flex;
