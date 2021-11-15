@@ -12,11 +12,12 @@ import User from "./components/User";
 // import MusiciansList from "./components/MusiciansList";
 // import MusicianForm from "./components/MusicianForm";
 // import MusicianFormRefactor from "./components/AllMusicians/MusicianFormRefactor";
-import ImageUpload from "./components/ImageUpload";
+// import ImageUpload from "./components/ImageUpload";
 import MusicianRefactor from "./components/MusicianRefactor";
 import MusiciansListRefactor from "./components/MusiciansListReFactor";
 import MusicianFormThree from "./components/MusicianFormThree";
 import LandingPage from './components/LandingPage/LandingPage';
+import CommentCreate from "./components/CommentCreate/CommentCreate";
 // import UsersMusicians from "./components/UsersMusicians/UsersMusicians";
 
 
@@ -67,11 +68,12 @@ function App() {
 
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <MusicianRefactor />
+          <CommentCreate />
         </ProtectedRoute>
-
+{/*
         <ProtectedRoute path="/musicians/updateImage" exact={true}>
           <ImageUpload />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
 
         <ProtectedRoute path="/" exact={true}>
           <LandingPage />

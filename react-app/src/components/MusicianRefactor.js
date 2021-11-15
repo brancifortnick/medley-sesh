@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { getOneMusician, deleteOneMusician } from "../store/musician";
 import UpdateBiography from "./UpdateBiography";
-import ImageUpload from "./ImageUpload";
+// import ImageUpload from "./ImageUpload";
 import DeleteMusician from "./DeleteMusician";
 import AllSongs from "./AllSongs/AllSongs";
 import UploadSong from "./UploadSong/UploadSong";
@@ -38,7 +38,7 @@ function Musician() {
       )}
       {currentUser.id === Number(musicians.user_id) ? (
         <div>
-          <ImageUpload musicianId={musicianId} />
+          {/* <ImageUpload musicianId={musicianId} /> */}
           <strong>Biography:</strong>
         </div>
       ) : null}
