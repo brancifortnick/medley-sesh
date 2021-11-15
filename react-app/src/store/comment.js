@@ -1,5 +1,5 @@
-const GET_COMMENTS = 'comments/GET_COMMENTS';
-const ADD_COMMENT = 'comments/ADD_COMMENT';
+const GET_COMMENTS = 'comment/GET_COMMENTS';
+const ADD_COMMENT = 'comment/ADD_COMMENT';
 const DELETE_COMMENT = 'comment/DELETE_COMMENT';
 const EDIT_COMMENT = 'comment/EDIT_COMMENT';
 

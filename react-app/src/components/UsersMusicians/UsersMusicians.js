@@ -28,6 +28,7 @@ const UsersMusicians = () => {
           <NavLink to={`/musicians/${musician.id}`}>
           </NavLink>
         </div>
+
           {/* <DeleteMusician musicianId={musician.id} /> */}
       </li>
     ) : null;
