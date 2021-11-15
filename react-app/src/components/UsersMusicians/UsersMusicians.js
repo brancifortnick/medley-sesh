@@ -13,16 +13,22 @@ const UsersMusicians = () => {
     dispatch(getAllMusicians());
   }, [dispatch]);
 
+
+
+//! I think the errror is comming from NavLink potentially ==== not showing musicians on users/id route ---- find why not!!!!!!!!!
+
+
+
   const usersMusicians = musicians.map((musician, idx) => {
     return user.id === Number(musician.user_id) ? (
       <li key={idx} className="musician-li">
         <div className="musician-div">
-          <NavLink to={`/musicians/${musician.id}`}>
             <img src={musician.profile_img} alt="_blank" className="card"></img>
             {musician.musician_name}
+          <NavLink to={`/musicians/${musician.id}`}>
           </NavLink>
-          <DeleteMusician musicianId={musician.id} />
         </div>
+          {/* <DeleteMusician musicianId={musician.id} /> */}
       </li>
     ) : null;
   });

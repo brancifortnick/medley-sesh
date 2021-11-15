@@ -5,8 +5,8 @@ const LandingPage = () => {
 
 
     return (
-        <div>
-            <h1>
+        <div id='landing-page-div'>
+            <h1 id='welcome-text'>
                 Welcome To Medley.....In progress......
             </h1>
         </div>

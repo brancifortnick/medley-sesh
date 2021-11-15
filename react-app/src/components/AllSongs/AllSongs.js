@@ -25,7 +25,7 @@ const AllSongs = ({ musicianId }) => {
             {song.title}
             <div></div>
             <audio src={song.file_url} controls></audio>
-            {user.id === Number(musician.user_id)}
+            {user.id === Number(song.musician_id)}
             <DeleteTrack musicianId={musicianId} songId={song.id} />
           </ul>
         ))}

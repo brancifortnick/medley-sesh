@@ -4,12 +4,15 @@ import session from "./session";
 import usersReducer from "./user";
 import musician from "./musician";
 import song from "./song";
+import comment from './comment';
+
 
 const rootReducer = combineReducers({
   session,
   musician,
   usersReducer: usersReducer,
   song,
+  comment,
 });
 
 let enhancer;
