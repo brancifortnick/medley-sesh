@@ -7,9 +7,6 @@ li{
     list-style-type: none;
 }
 nav{
-  display: flex;
-  justify-content: flex-start;
-  align-items: space-evenly;
   background-color: #CB997E;
   color: #FFF1E6;
   padding: 20px;
