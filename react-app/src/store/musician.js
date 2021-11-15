@@ -2,8 +2,8 @@ const GET_MUSICIANS = "musician/GET_MUSICIANS";
 const GET_ONE = "musician/GET_ONE";
 const ADD_MUSICIAN = "musician/ADD_MUSICIAN";
 const DELETE_MUSICIAN = "musician/DELETE_MUSICIAN";
-const ADD_IMAGE = "musician/ADD_IMAGE";
 const UPDATE_BIOGRAPHY = "musician/UPDATE_BIOGRAPHY";
+// const ADD_IMAGE = "musician/ADD_IMAGE"; -- put route for image updating
 
 const getAllArtists = (musicians) => ({
   type: GET_MUSICIANS,
@@ -25,17 +25,21 @@ const deleteMusician = (musician) => ({
   payload: musician,
 });
 
-const addImage = (musician) => ({
-  type: ADD_IMAGE,
-  payload: musician,
-});
 
 const updateBio = (musician) => ({
   type: UPDATE_BIOGRAPHY,
   payload: musician,
 });
 
-export const getAllMusicians = (id) => async (dispatch) => {
+
+// const addImage = (musician) => ({
+//   type: ADD_IMAGE,
+//   payload: musician,
+// });
+//---put route
+
+
+export const getAllMusicians = () => async (dispatch) => {
   const res = await fetch(`/api/musicians/`);
   if (res.ok) {
     const data = await res.json();
@@ -67,7 +71,7 @@ export const getOneMusician = (id) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(getOne(data));
-  }
+  }//
 };
 
 export const deleteOneMusician = (id) => async (dispatch) => {
@@ -81,22 +85,6 @@ export const deleteOneMusician = (id) => async (dispatch) => {
   }
 };
 
-export const uploadImageToS = (profile_img, musicianId) => async (dispatch) => {
-  // profile_img = profile_img.url
-  const response = await fetch(`/api/musicians/${musicianId}/image`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ profile_img, musicianId }),
-  });
-  if (response.ok) {
-    const picture = await response.json();
-    dispatch(addImage(picture));
-  } else {
-    console.log("Image can't be added");
-  }
-};
 
 export const updateBiography = (formData, musicianId) => async (dispatch) => {
   const response = await fetch(`/api/musicians/${musicianId}/biography`, {
@@ -108,6 +96,24 @@ export const updateBiography = (formData, musicianId) => async (dispatch) => {
     dispatch(updateBio(biography));
   }
 };
+
+// export const uploadImageToS = (profile_img, musicianId) => async (dispatch) => {
+//   // profile_img = profile_img.url
+//   const response = await fetch(`/api/musicians/${musicianId}/image`, {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({ profile_img, musicianId }),
+//   });
+//   if (response.ok) {
+//     const picture = await response.json();
+//     dispatch(addImage(picture));
+//   } else {
+//     console.log("Image can't be added");
+//   }
+// };
+//---put route semi functioning
 
 const initialState = {};
 
@@ -130,13 +136,16 @@ export default function reducer(state = initialState, action) {
       const currentState = { ...state };
       delete currentState[action.payload.id]; ///put route will need new ID remember
       return currentState;
-    case ADD_IMAGE:
-      // return {...action.payload} // error is def comming from here for update-needs id
-      newState[action.payload.id] = action.payload;
-      return newState;
     case UPDATE_BIOGRAPHY:
       return { ...action.payload };
     default:
       return state;
   }
-}
+};
+
+
+//-put case for updating musician image
+    /* case ADD_IMAGE:
+    //   return {...action.payload}  error is def comming from here for update-needs id
+    //   newState[action.payload.id] = action.payload;
+      return newState;*/

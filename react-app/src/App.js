@@ -13,13 +13,14 @@ import User from "./components/User";
 // import MusicianForm from "./components/MusicianForm";
 // import MusicianFormRefactor from "./components/AllMusicians/MusicianFormRefactor";
 // import ImageUpload from "./components/ImageUpload";
+// import UsersMusicians from "./components/UsersMusicians/UsersMusicians";
 import MusicianRefactor from "./components/MusicianRefactor";
 import MusiciansListRefactor from "./components/MusiciansListReFactor";
 import MusicianFormThree from "./components/MusicianFormThree";
 import LandingPage from './components/LandingPage/LandingPage';
 import CommentCreate from "./components/CommentCreate/CommentCreate";
-// import UsersMusicians from "./components/UsersMusicians/UsersMusicians";
-
+import UploadSong from "./components/UploadSong/UploadSong";
+import DeleteMusician from "./components/DeleteMusician";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -55,11 +56,14 @@ function App() {
 
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
-
         </ProtectedRoute>
 
         <ProtectedRoute path="/users/:userId/add-musician" exact={true}>
           <MusicianFormThree />
+        </ProtectedRoute>
+
+        <ProtectedRoute path="/songs/new" exact={true}>
+          <UploadSong />
         </ProtectedRoute>
 
         <ProtectedRoute path="/musicians" exact={true}>
@@ -70,7 +74,7 @@ function App() {
           <MusicianRefactor />
           <CommentCreate />
         </ProtectedRoute>
-{/*
+        {/*
         <ProtectedRoute path="/musicians/updateImage" exact={true}>
           <ImageUpload />
         </ProtectedRoute> */}
@@ -78,7 +82,6 @@ function App() {
         <ProtectedRoute path="/" exact={true}>
           <LandingPage />
         </ProtectedRoute>
-
       </Switch>
     </BrowserRouter>
   );

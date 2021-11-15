@@ -1,22 +1,23 @@
 import React from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import { useDispatch, useSelector } from "react-redux";
 import { demoLogin } from "../store/session";
 import "./NavBar.module.css";
 
-
 const NavBar = () => {
+
   const user = useSelector((state) => state.session.user);
+  // const musicians = useSelector(state => Object.values(state.musician));
+  // const songs = useSelector(state => Object.values(state.song));
   const dispatch = useDispatch();
   const history = useHistory();
 
-    const demoFunction = async (e) => {
-      e.preventDefault();
-      dispatch(demoLogin());
-      history.push('/')
-    }
-
+  const demoFunction = async (e) => {
+    e.preventDefault();
+    dispatch(demoLogin());
+    history.push("/");
+  };
 
   return (
     <nav className="nav_container">
@@ -78,7 +79,6 @@ const NavBar = () => {
             style={{ textDecoration: "none" }}
           >
             {`${user.username}s Profile`}
-
           </NavLink>
         </button>
       ) : null}
@@ -104,7 +104,19 @@ const NavBar = () => {
             activeClassName="active"
             style={{ textDecoration: "none" }}
           >
-            Upload
+            Upload Musician
+          </NavLink>
+        </div>
+      ) : null}
+      {user ? (
+        <div id="uploadSong-form">
+          <NavLink
+            to={`/songs/new`}
+            exact={true}
+            activeClassName="active"
+            style={{ textDecoration: "none" }}
+          >
+            Upload Your Music
           </NavLink>
         </div>
       ) : null}
