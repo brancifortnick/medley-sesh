@@ -44,8 +44,6 @@ export const getAllMusicians = (id) => async (dispatch) => {
   }
 };
 
-
-
 export const postNewMusician =
   (profile_img, biography, user_id, musician_name) => async (dispatch) => {
     profile_img = profile_img.url;
@@ -60,7 +58,7 @@ export const postNewMusician =
       const musician = await res.json();
       dispatch(addMusician(musician));
     } else {
-      console.log("erroring in post route>>>>>STORE<<<<<");
+      console.log("Musician Not Added - Error");
     }
   };
 
@@ -79,10 +77,9 @@ export const deleteOneMusician = (id) => async (dispatch) => {
   if (res.ok) {
     dispatch(deleteMusician(id));
   } else {
-    console.log("error>>>>>Redux STORE THUNK DELETE>>>>>>>>>");
+    console.log("Musician Can't be deleted");
   }
 };
-
 
 export const uploadImageToS = (profile_img, musicianId) => async (dispatch) => {
   // profile_img = profile_img.url
@@ -96,8 +93,8 @@ export const uploadImageToS = (profile_img, musicianId) => async (dispatch) => {
   if (response.ok) {
     const picture = await response.json();
     dispatch(addImage(picture));
-  }else{
-    console.log('<<<<<<<<error>>>>>>>>---upload to s3 put method store>>>>>>')
+  } else {
+    console.log("Image can't be added");
   }
 };
 
@@ -112,7 +109,6 @@ export const updateBiography = (formData, musicianId) => async (dispatch) => {
   }
 };
 
-
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
@@ -124,14 +120,14 @@ export default function reducer(state = initialState, action) {
       });
       return newState;
     case ADD_MUSICIAN:
-      const addState = {...state}
+      const addState = { ...state };
       addState[action.payload.id] = action.payload;
       return addState;
-      // return { ...action.payload };
+    // return { ...action.payload };
     case GET_ONE:
       return { ...action.payload };
     case DELETE_MUSICIAN:
-      const currentState = {...state}
+      const currentState = { ...state };
       delete currentState[action.payload.id]; ///put route will need new ID remember
       return currentState;
     case ADD_IMAGE:

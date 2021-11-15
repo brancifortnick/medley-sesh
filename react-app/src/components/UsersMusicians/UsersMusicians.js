@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { getAllMusicians } from "../../store/musician";
-import DeleteMusician from "../DeleteMusician";
+// import DeleteMusician from "../DeleteMusician";
 
 const UsersMusicians = () => {
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ const UsersMusicians = () => {
           <NavLink to={`/musicians/${musician.id}`}>
           </NavLink>
         </div>
+
           {/* <DeleteMusician musicianId={musician.id} /> */}
       </li>
     ) : null;
