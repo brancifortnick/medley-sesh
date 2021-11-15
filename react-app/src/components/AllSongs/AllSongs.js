@@ -22,10 +22,10 @@ const AllSongs = ({ musicianId }) => {
         {songs.map((song) => (
           <ul key={song.id} className="song-id">
             <strong>Title:{" "}</strong>
-            {song.title}
+            <strong>{song.title}</strong>
             <div></div>
             <audio src={song.file_url} controls></audio>
-            {user.id === Number(song.musician_id)? (
+            {user.id === Number(song.musician_id) ? (
             <DeleteTrack musicianId={musicianId} songId={song.id} />
             ): null}
           </ul>
