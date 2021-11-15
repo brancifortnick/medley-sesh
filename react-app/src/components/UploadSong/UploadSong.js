@@ -69,7 +69,7 @@ const UploadSong = ({ musicianId }) => {
             type="file"
             onChange={uploadTrack}
           />
-          <label className='form-input'>Album Art</label>
+          <label className='form-input'>Song Picture</label>
           <input
             name='song_img'
             accept='image/*'
