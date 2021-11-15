@@ -1,7 +1,7 @@
 const GET_COMMENTS = "comment/GET_COMMENTS";
 const ADD_COMMENT = "comment/ADD_COMMENT";
 const DELETE_COMMENT = "comment/DELETE_COMMENT";
-const EDIT_COMMENT = "comment/EDIT_COMMENT";
+// const EDIT_COMMENT = "comment/EDIT_COMMENT";
 
 const getComments = (comment) => ({
   type: GET_COMMENTS,
@@ -23,19 +23,16 @@ const deleteComment = (comment) => ({
 //   payload: comment,
 // });
 
-// export const getAllComments = () => async (dispatch) => {
-//   const res = await fetch(`/api/comments`);
-//   if (res.ok) {
-//     const comments = await res.json();
-//     dispatch(getComments(comments));
-//   }
-// };
 
-export const getAllCommentsBySongId = (song_id) => async (dispatch) => {
+
+export const getAllComments = (song_id) => async (dispatch) => {
   const response = await fetch(`/api/comments/${song_id}`);
   if (response.ok) {
     const comments = await response.json();
     dispatch(getComments(comments));
+    return comments;
+  }else{
+    console.log('FETCH FROM ++++++STORE GET')
   }
 };
 export const createComment = (formData) => async (dispatch) => {
@@ -60,14 +57,14 @@ export const deleteAComment = (id) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(deleteComment(data));
-    // return data;
+    return data;
   }
 };
 
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
-  let newState = {};
+  let newState = {...state};
   switch (action.type) {
     case GET_COMMENTS:
       action.payload.forEach((comment) => {

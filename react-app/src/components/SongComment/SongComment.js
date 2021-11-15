@@ -6,14 +6,17 @@ import CommentDelete from "../CommentDelete/CommentDelete";
 
 const SongComments = () => {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { songId } = useParams();
 
   const comments = useSelector((state) => Object.values(state.comment));
   const user = useSelector((state) => state.session.user);
   const songs = useSelector(state => state.song)
-  useEffect(() => {
-    dispatch(getAllComments(parseInt(id)));
-  }, [dispatch, id]);
+
+
+  // comments.song_id = songId;
+  // useEffect(() => {
+  //   dispatch(getAllComments(parseInt(songId)));
+  // }, [dispatch, songId]);
 
   return (
     <div>

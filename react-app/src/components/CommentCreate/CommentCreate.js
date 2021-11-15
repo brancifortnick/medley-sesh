@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createComment, getAllComments} from "../../store/comment";
+import { createComment, getAllComments } from "../../store/comment";
+import { Modal } from "../../context/Modal";
 
 const CommentCreate = () => {
   const dispatch = useDispatch();
@@ -9,6 +10,7 @@ const CommentCreate = () => {
   const songs = useSelector((state) => Object.values(state.song));
 
   const [comment, setComment] = useState("");
+  const [showModal, setModal] = useState(false);
 
   let song_id = songs.map((song) => {
     return song.id
@@ -22,29 +24,36 @@ const CommentCreate = () => {
     formData.append("user_id", user.id);
 
     dispatch(createComment(formData));
+    setModal(false);
+    setComment("");
   };
 
-    // useEffect(()=> {
-    //     dispatch(getAllComments())
-    // },[dispatch])
-
+  // useEffect(() => {
+  //   dispatch(getAllComments());
+  // }, [dispatch]);
 
   const updateComment = (e) => setComment(e.target.value);
 
   return (
     <div>
-      <form className="comment-container" onSubmit={onSubmit}>
-        <textarea
-          className="comment-input"
-          type="text"
-          placeholder="Comment here..."
-          onChange={updateComment}
-          value={comment}
-        />
-        <button className="comment_submit" type="submit">
-          Submit Comment
-        </button>
-      </form>
+      <button onClick={() => setModal(true)}>Click here to comment</button>
+      {showModal && (
+        <Modal onClose={() => setModal(false)}>
+          <form className="comment-container" onSubmit={onSubmit}>
+            <textarea
+              className="comment-input"
+              type="text"
+              placeholder="Comment here..."
+              onChange={updateComment}
+              value={comment}
+            />
+            <button className="comment_submit" type="submit">
+              Submit Comment
+            </button>
+          </form>
+        </Modal>
+      )}
+
     </div>
   );
 };
