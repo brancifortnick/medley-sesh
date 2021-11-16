@@ -3,7 +3,7 @@ import { NavLink, useHistory, useParams } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import { useDispatch, useSelector } from "react-redux";
 import { demoLogin } from "../store/session";
-import "./NavBar.module.css";
+import "./NavBar.css";
 
 const NavBar = () => {
 
