@@ -1,11 +1,20 @@
 /* TODO Add site wide styles */
 body {
+  padding: 0px;
    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    font-weight: 300;
+   margin: 0px;
 }
 li{
     list-style-type: none;
 }
+ol{
+  padding: 6px;
+  margin: 0px;
+  display: inline-block;
+
+}
+/* style={{display: "table-cell"}} */
 nav{
   background-color: #CB997E;
   color: #FFF1E6;
