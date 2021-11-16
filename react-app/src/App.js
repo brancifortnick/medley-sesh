@@ -81,6 +81,7 @@ function App() {
           <ImageUpload />
         </ProtectedRoute> */}
 
+      {/**?why is my commits not ppushing */}
         <ProtectedRoute path="/" exact={true}>
           <LandingPage />
         </ProtectedRoute>
