@@ -25,15 +25,15 @@ const deleteComment = (comment) => ({
 
 
 
-export const getAllComments = (song_id) => async (dispatch) => {
-  const response = await fetch(`/api/comments/${song_id}`);
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(getComments(data.comments));
-  }else{
-    console.log('FETCH FROM ++++++STORE GET')
-  }
-};
+// export const getAllComments = (song_id) => async (dispatch) => {
+//   const response = await fetch(`/api/comments/${song_id}`);
+//   if (response.ok) {
+//     const data = await response.json();
+//     dispatch(getComments(data.comments));
+//   }else{
+//     console.log('FETCH FROM ++++++STORE GET')
+//   }
+// };
 export const createComment = (formData) => async (dispatch) => {
   const res = await fetch(`/api/comments/new`, {
     method: "POST",
@@ -73,6 +73,7 @@ export default function reducer(state = initialState, action) {
       return commentState;
     case ADD_COMMENT:
       newState[action.payload.id] = action.payload;
+      return newState;
     // return { ...action.payload };
     case DELETE_COMMENT:
       delete newState[action.payload.id];

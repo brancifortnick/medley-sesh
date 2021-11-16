@@ -8,7 +8,6 @@ const AllSongs = ({ musicianId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
-  const musician = useSelector((state) => Object.values(state.musician));
   const songs = useSelector((state) => Object.values(state.song));
 //
   useEffect(() => {

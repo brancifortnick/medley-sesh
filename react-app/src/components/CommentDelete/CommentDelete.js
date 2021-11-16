@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useDispatch } from "react-redux";
-import { getAllComments, deleteAComment } from "../../store/comment";
-import { useHistory } from "react-router-dom";
-const CommentDelete = ({ comment }) => {
-  const dispatch = useDispatch();
-  const { id } = useParams();
+// import React, { useState, useEffect } from "react";
+// import { useDispatch, useSelector} from "react-redux";
+// import { getAllComments, deleteAComment } from "../../store/comment";
+// import { useHistory, useParams} from "react-router-dom";
+// const CommentDelete = () => {
+//   const dispatch = useDispatch();
+//   const { id } = useParams();
+//   const comments = useSelector(state => state.comment);
+//   let commentId = id;
+//   const history = useHistory();
 
-  const history = useHistory();
+//   const commentDelete = async (e) => {
+//     e.preventDefault();
+//     await dispatch(deleteAComment(commentId));
+//     history.push(`/musicians`)
+//   };
 
-  const commentDelete = async (e) => {
-    e.preventDefault();
-    await dispatch(deleteAComment(comment));
-    history.push(`/musicians/${id}`)
-  };
+//   useEffect(() => {
+//     dispatch(getAllComments());
+//   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getAllComments(id));
-  }, [dispatch]);
-
-  return (
-    <div>
-      <button id="delete-comment" type="submit" onChange={commentDelete}>
-        Delete Comment
-      </button>
-    </div>
-  );
-};
-export default CommentDelete;
+//   return (
+//     <div>
+//       <button id="delete-comment" type="submit" onClick={commentDelete}>
+//         Delete Comment
+//       </button>
+//     </div>
+//   );
+// };
+// export default CommentDelete;
