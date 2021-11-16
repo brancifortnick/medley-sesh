@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required
-from app.models import Song, db
+from app.models import Song, Comment, db
 from app.forms import SongForm
 from flask_login import current_user, login_required
 from app.s3_helpers import (
@@ -22,6 +22,11 @@ def get_song(id):
     song = Song.query.get(id)
     return song.to_dict()
 
+
+@song_routes.route('/<int:id>/comments', methods=['GET'])
+def get_comments(id):
+    comments = Comment.query.filter(Comment.song_id == id).all()
+    return {'comments': [comment.to_dict for comment in comments]}
 
 
 

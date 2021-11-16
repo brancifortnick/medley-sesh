@@ -20,6 +20,8 @@ import MusicianFormThree from "./components/MusicianFormThree";
 import LandingPage from './components/LandingPage/LandingPage';
 import CommentCreate from "./components/CommentCreate/CommentCreate";
 import UploadSong from "./components/UploadSong/UploadSong";
+import CommentDisplay from "./components/CommentDisplay/CommentDisplay";
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,9 +63,9 @@ function App() {
           <MusicianFormThree />
         </ProtectedRoute>
 
-        <ProtectedRoute path="/songs/new" exact={true}>
+        {/* <ProtectedRoute path="/songs/new" exact={true}>
           <UploadSong />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
 
         <ProtectedRoute path="/musicians" exact={true}>
           <MusiciansListRefactor />
@@ -72,6 +74,7 @@ function App() {
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <MusicianRefactor />
           <CommentCreate />
+          {/* <CommentDisplay /> */}
         </ProtectedRoute>
         {/*
         <ProtectedRoute path="/musicians/updateImage" exact={true}>
