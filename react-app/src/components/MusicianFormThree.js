@@ -65,7 +65,7 @@ const MusicianFormThree = () => {
         <textarea
           name="biography"
           type="text"
-          placeholder="biography"
+          placeholder="biography..."
           onChange={(e) => setBiography(e.target.value)}
           value={biography}
         />
