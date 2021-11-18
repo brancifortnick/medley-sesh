@@ -3,6 +3,24 @@
     justify-content: center;
     margin-bottom: 150px;
     background-color: #a5a58b;
-    color: #eddcd2;
+    color: #f0efeb;
     font-size: 30px;
+}
+
+button#create_musician.submit{
+  width: 75px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: #a5a58d;
+  font-size: 15px;
+  font-weight: 600;
+  color: #F0EFEB;
+  border: none;
+}
+button#create_musician.submit.submit:hover{
+      transition: all 0.4s ease 0s;
+  background-color: #f0efeb;
+  font-weight: 600;
+  color: #A5A58D;
+  border: none;
 }
