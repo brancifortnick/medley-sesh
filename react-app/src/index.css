@@ -14,6 +14,9 @@ ol{
   display: inline-block;
 
 }
+label{
+  font-weight: 550;
+}
 /* style={{display: "table-cell"}} */
 nav{
   background-color: #CB997E;
@@ -31,4 +34,16 @@ nav{
 .card p{
   padding-top: 20px;
   padding-left: 20px;
+}
+
+a{
+  font-weight: 600;
+  color: #F0EFEB;
+  border: none;
+}
+
+a:hover{
+  font-weight: 600;
+  color: #A5A58D;
+  border: none;
 }
