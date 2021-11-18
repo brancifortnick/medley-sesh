@@ -38,14 +38,12 @@ const deleteComment = (comment) => ({
 
 
 export const getAllComments = (song_id) => async (dispatch) => {
-  console.log(song_id, '++++++++++++++++++')
   const response = await fetch(`/api/comments/${song_id}`);
   if (response.ok) {
     const data = await response.json();
-    console.log(data, 'data=================', typeof(data.comments), "<<<<typeof>>>>")
     dispatch(getComments(data.comments));
   }else{
-    console.log('FETCH FROM ++++++STORE GET')
+    console.log("Can't fetch comments")
   }
 };
 
@@ -88,7 +86,6 @@ export default function reducer(state = initialState, action) {
     case ADD_COMMENT:
       newState[action.payload.id] = action.payload;
       return newState;
-    // return { ...action.payload };
     case DELETE_COMMENT:
       delete newState[action.payload.id];
       return newState;
