@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
-import { getOneMusician, deleteOneMusician } from "../store/musician";
+import { useParams} from "react-router-dom";
+import { getOneMusician} from "../store/musician";
 import UpdateBiography from "./UpdateBiography";
 import DeleteMusician from "./DeleteMusician";
 import AllSongs from "./AllSongs/AllSongs";

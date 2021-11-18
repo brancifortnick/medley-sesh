@@ -139,6 +139,7 @@ export default function reducer(state = initialState, action) {
     case UPDATE_BIOGRAPHY:
       const updateState = {...state}
       updateState[action.payload] = action.payload;
+      return updateState;
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 const GET_TRACKS = "song/GET_TRACKS";
 const ADD_TRACK = "song/ADD_TRACK";
-const UPDATE_TRACK = "song/UPDATE_TRACK";
+// const UPDATE_TRACK = "song/UPDATE_TRACK";
 const DELETE_TRACK = "song/DELETE_TRACK";
 
 const getAllSongs = (songs) => ({
@@ -13,10 +13,10 @@ const addOneSong = (song) => ({
   payload: song,
 });
 
-const updateTrack = (song) => ({
-  type: UPDATE_TRACK,
-  payload: song,
-});
+// const updateTrack = (song) => ({
+//   type: UPDATE_TRACK,
+//   payload: song,
+// });
 
 const deleteATrack = (song) => ({
   type: DELETE_TRACK,

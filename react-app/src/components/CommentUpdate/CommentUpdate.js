@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import { updateAComment, getAllComments } from "../../store/comment";
-import { getOneMusician } from "../../store/musician";
-import { getMusiciansTracks } from "../../store/song";
+// import { getOneMusician } from "../../store/musician";
+// import { getMusiciansTracks } from "../../store/song";
 
 const UpdateComment = ({commentId}) => {
   const dispatch = useDispatch();

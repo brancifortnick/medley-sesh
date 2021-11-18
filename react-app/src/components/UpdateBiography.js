@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateBiography, getOneMusician } from "../store/musician";
-import { useHistory } from "react-router-dom";
 import { Modal } from "../context/Modal";
 
 const UpdateBiography = ({ musicianBiography, musicianId }) => {
   const dispatch = useDispatch();
-  // const history = useHistory();
+
   const [biography, setBiography] = useState("");
   const [showModal, setModal] = useState(false);
 
@@ -15,7 +14,7 @@ const UpdateBiography = ({ musicianBiography, musicianId }) => {
     formData.append("biography", biography);
     dispatch(updateBiography(formData, musicianId));
     setModal(false);
-    // history.push('/musicians')
+
   };
 
   useEffect(() => {
