@@ -28,7 +28,7 @@ const UploadSong = ({ musicianId }) => {
       dispatch(createNewSong(title, file_url, song_img, user.id));
     } else {
       console.log(
-        "error from UploadSong component front end-------------+++++------"
+        "error - song not uploaded"
       );
     }
       history.push(`/users/${user.id}`)
@@ -61,7 +61,6 @@ const UploadSong = ({ musicianId }) => {
             onChange={(e) => setTitle(e.target.value)}
             value={title}
           />
-          {/* {check to make sure that this file is completely on target---- thinking error could also come from below input--S3 Auth/access is issue i think as well} */}
           <label className="form-input">Song</label>
           <input
             name="file_url"

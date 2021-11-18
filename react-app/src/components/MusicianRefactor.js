@@ -46,7 +46,7 @@ const Musician = () => {
       <strong>Biography:</strong>
       {musicians.biography}
       {currentUser.id === Number(musicians.user_id) ? (
-        <div>
+        <div id='update-biography'>
           <UpdateBiography
             musicianBiography={musicians.biography}
             musicianId={musicianId}

@@ -6,17 +6,26 @@ import DeleteTrack from "../DeleteTrack/DeleteTrack";
 import CommentDisplay from "../CommentDisplay/CommentDisplay";
 import CommentCreate from "../CommentCreate/CommentCreate";
 import CommentDelete from "../CommentDelete/CommentDelete";
+import CommentUpdate from '../CommentUpdate/CommentUpdate';
+import './AllSongs.css'
+import { getOneMusician } from "../../store/musician";
+
 
 const AllSongs = ({ musicianId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
   const songs = useSelector((state) =>  Object.values(state.song));
+  const comments = useSelector(state => Object.values(state.comment));
 
+
+  let commentId = comments.map((comment)=> {
+    return songs.id === comment.song_id
+  })
 
 
   useEffect(() => {
-    dispatch(getMusiciansTracks(parseInt(musicianId)));
+    dispatch(getOneMusician(parseInt(musicianId)));
     //should this be parseInt =<><> not sure <><>=
   }, [dispatch, musicianId]);
 
@@ -31,12 +40,15 @@ const AllSongs = ({ musicianId }) => {
             {user.id === Number(song.musician_id) ? (
               <DeleteTrack musicianId={musicianId} songId={song.id} />
             ) : null}
-            {user.id === Number(song.musician_id) ? (
+            {/* {user.id === Number(song.musician_id) ? (
               <CommentCreate musicianId={musicianId} songId={song.id} />
-            ) : null}
+            ) : null} */}
             {user.id === Number(song.musician_id) ? (
-               <CommentDisplay musicianId={musicianId} songId={song.id} />
+               <CommentDisplay commentId={commentId} musicianId={musicianId} songId={song.id} />
             ) : null}
+            {/* {user.id === Number(song.musician_id) ? (
+              <CommentUpdate commentId={commentId} musicianId={musicianId} songId={song.id} />
+            ): null} */}
           </ul>
         ))}
       </>

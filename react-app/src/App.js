@@ -8,19 +8,11 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
-// import Musician from './components/Musician';
-// import MusiciansList from "./components/MusiciansList";
-// import MusicianForm from "./components/MusicianForm";
-// import MusicianFormRefactor from "./components/AllMusicians/MusicianFormRefactor";
-// import ImageUpload from "./components/ImageUpload";
-// import UsersMusicians from "./components/UsersMusicians/UsersMusicians";
 import MusicianRefactor from "./components/MusicianRefactor";
 import MusiciansListRefactor from "./components/MusiciansListReFactor";
 import MusicianFormThree from "./components/MusicianFormThree";
 import LandingPage from './components/LandingPage/LandingPage';
-import CommentCreate from "./components/CommentCreate/CommentCreate";
-import UploadSong from "./components/UploadSong/UploadSong";
-import CommentDisplay from "./components/CommentDisplay/CommentDisplay";
+
 
 
 function App() {
@@ -63,10 +55,6 @@ function App() {
           <MusicianFormThree />
         </ProtectedRoute>
 
-        {/* <ProtectedRoute path="/songs/new" exact={true}>
-          <UploadSong />
-        </ProtectedRoute> */}
-
         <ProtectedRoute path="/musicians" exact={true}>
           <MusiciansListRefactor />
         </ProtectedRoute>
@@ -74,15 +62,11 @@ function App() {
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <MusicianRefactor />
         </ProtectedRoute>
-        {/*
-        <ProtectedRoute path="/musicians/updateImage" exact={true}>
-          <ImageUpload />
-        </ProtectedRoute> */}
 
-      {/**?why is my commits not ppushing */}
         <ProtectedRoute path="/" exact={true}>
           <LandingPage />
         </ProtectedRoute>
+
       </Switch>
     </BrowserRouter>
   );
