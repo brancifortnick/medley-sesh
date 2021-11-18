@@ -73,8 +73,6 @@ function App() {
 
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <MusicianRefactor />
-          <CommentCreate />
-          {/* <CommentDisplay /> */}
         </ProtectedRoute>
         {/*
         <ProtectedRoute path="/musicians/updateImage" exact={true}>
