@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 0 175px 0;
+  padding: 40px 175px 0px;
 }
 .user-page-container{
     display: flex;
@@ -17,4 +17,29 @@
 }
 #component{
     font-weight: 400;
+}
+button#add-musician-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 175px 20;
+    align-items: center;
+    height: 35px;
+    border-radius: 6px;
+    border: none;
+    background-color: #a5a58d;
+}
+button#add-musician-btn:hover{
+  transition: all 0.4s ease 0s;
+  background-color: #f0efeb;
+  font-weight: 600;
+  color: #A5A58D;
+  border: none;
+}
+div#add-musicians-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    padding: 4px;
 }

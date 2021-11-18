@@ -28,22 +28,26 @@ function User () {
           <strong>Email</strong> {usersInformation.email}
         </ol>
       </div>
-      <div id="your-musicians-container">
-        <strong> Your Musicians </strong>
 
-        {/* <div id="add-musician-link"> */}
+      {/* <div id="add-musician-link"> */}
+      <div id="add-musicians-button">
         <button activeClassName="active" type="button" id="add-musician-btn">
           <Link
-            style={{ textDecoration: "none"}}
+            style={{ textDecoration: "none" }}
             to={`/users/${userId}/add-musician`}
           >
             Add your musician here
           </Link>
         </button>
       </div>
+      <div id="your-musicians-container">
+        <strong> Your Musicians </strong>
+      </div>
       {/* </div> */}
       <div id="usersMusicians-component">
-        <div id='component'><UsersMusicians /></div>
+        <div id="component">
+          <UsersMusicians />
+        </div>
       </div>
       {/* <div>
       <DeleteMusician />
