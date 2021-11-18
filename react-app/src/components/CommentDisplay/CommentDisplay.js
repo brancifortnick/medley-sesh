@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllComments } from "../../store/comment";
 import CommentDelete from "../CommentDelete/CommentDelete";
-
+import CommentUpdate from '../CommentUpdate/CommentUpdate';
 
 const CommentDisplay = ({songId}) => {
   const dispatch = useDispatch();
@@ -16,7 +15,7 @@ const CommentDisplay = ({songId}) => {
 
   return (
     <div>
-      <form className="form-container">
+      <div className="form-container">
         <div id="comment-div">
           {comments.map((comment) => (
             <div type="text" className="comment_body" key={comment?.id}>
@@ -28,13 +27,18 @@ const CommentDisplay = ({songId}) => {
               </div>
               <div className="content-delete">
                 {currentUser.id === comment.user_id ? (
+                  <CommentUpdate commentId={comment.id} />
+                ): null}
+                </div>
+                {currentUser.id === comment.user_id ? (
                 <CommentDelete commentId={comment.id} />
                 ): null}
+                <div>
               </div>
             </div>
           ))}
         </div>
-      </form>
+      </div>
     </div>
   );
 };

@@ -20,7 +20,7 @@ import MusicianFormThree from "./components/MusicianFormThree";
 import LandingPage from './components/LandingPage/LandingPage';
 import CommentCreate from "./components/CommentCreate/CommentCreate";
 import UploadSong from "./components/UploadSong/UploadSong";
-import CommentDisplay from "./components/CommentDisplay/CommentDisplay";
+import CommentUpdate from "./components/CommentDisplay/CommentDisplay";
 
 
 function App() {
