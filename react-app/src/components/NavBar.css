@@ -6,10 +6,10 @@ nav {
   font-weight: bold;
   text-decoration: none;
 }
-.activeStyle {
+/* .activeStyle {
   font-weight: bolder;
   text-decoration: none;
-}
+} */
 .nav_container {
   display: flex;
   flex-direction: row;
