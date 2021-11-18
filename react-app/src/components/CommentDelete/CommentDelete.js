@@ -15,8 +15,8 @@ const CommentDelete = () => {
   };
 
   useEffect(() => {
-    dispatch(getAllComments(songId));
-  }, [dispatch, songId]);
+    dispatch(getAllComments());
+  }, [dispatch]);
 
   return (
     <div id='button-delete-div'>
