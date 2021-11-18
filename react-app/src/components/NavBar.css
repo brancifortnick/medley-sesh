@@ -50,6 +50,7 @@ button#sign_up {
   border-radius: 6px;
   background-color: #a5a58d;
   font-size: 15px;
+
 }
 button#login_nav:hover,
 button#sign_up:hover {
@@ -68,6 +69,11 @@ button#demo-button {
 button#demo-button:hover {
   transition: all 0.4s ease 0s;
   background-color: #f0efeb;
-    font-weight: 600;
+  font-weight: 600;
   color: #A5A58D;
 }
+
+
+/* button#login_nav:focus{
+outline: none;
+} */
