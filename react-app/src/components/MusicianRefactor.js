@@ -6,6 +6,7 @@ import UpdateBiography from "./UpdateBiography";
 import DeleteMusician from "./DeleteMusician";
 import AllSongs from "./AllSongs/AllSongs";
 import UploadSong from "./UploadSong/UploadSong";
+import CommentDisplay from "./CommentDisplay/CommentDisplay";
 // import ImageUpload from "./ImageUpload";
 
 
@@ -63,7 +64,7 @@ const Musician = () => {
           <UploadSong musicianId={musicianId} />
         ) : null}
       </div>
-
+      {/* <CommentDisplay musicianId={musicianId} /> */}
       <AllSongs musicianId={musicianId} />
     </div>
   );

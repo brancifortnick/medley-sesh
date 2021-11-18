@@ -25,15 +25,30 @@ const deleteComment = (comment) => ({
 
 
 
-// export const getAllComments = (song_id) => async (dispatch) => {
-//   const response = await fetch(`/api/comments/${song_id}`);
+// export const getAllComments = () => async (dispatch) => {
+//   const response = await fetch(`/api/comments/`);
 //   if (response.ok) {
 //     const data = await response.json();
-//     dispatch(getComments(data.comments));
-//   }else{
-//     console.log('FETCH FROM ++++++STORE GET')
+//     dispatch(getComments(data.comment));
+//   } else {
+//     console.log("FETCH FROM ++++++STORE GET");
 //   }
 // };
+
+
+
+export const getAllComments = (song_id) => async (dispatch) => {
+  console.log(song_id, '++++++++++++++++++')
+  const response = await fetch(`/api/comments/${song_id}`);
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data, 'data=================', typeof(data.comments), "<<<<typeof>>>>")
+    dispatch(getComments(data.comments));
+  }else{
+    console.log('FETCH FROM ++++++STORE GET')
+  }
+};
+
 export const createComment = (formData) => async (dispatch) => {
   const res = await fetch(`/api/comments/new`, {
     method: "POST",
@@ -63,14 +78,13 @@ export const deleteAComment = (id) => async (dispatch) => {
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
-  let newState = {...state};
+  let newState = {};
   switch (action.type) {
     case GET_COMMENTS:
-      const commentState = {};
       action.payload.forEach((comment) => {
-        commentState[comment.id] = comment;
+        newState[comment.id] = comment;
       });
-      return commentState;
+      return newState;
     case ADD_COMMENT:
       newState[action.payload.id] = action.payload;
       return newState;
