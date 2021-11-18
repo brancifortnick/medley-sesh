@@ -9,7 +9,6 @@ nav{
 }
 .activeStyle{
     font-weight: bolder;
-    color:red;
     text-decoration: none;
 }
   .nav_container{
@@ -21,3 +20,15 @@ nav{
     background-color: #CB997E;
     backdrop-filter: blur(5px);
   }
+button#home, button#user-page, button#musicians-form, button#musicians-list{
+  width: 150px;
+  height:20px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #FFF1E6;
+  color: white;
+  margin-top: 5px;
+}

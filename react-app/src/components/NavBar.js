@@ -21,6 +21,7 @@ const NavBar = () => {
 
   return (
     <nav className="nav_container">
+    {user ? (
       <div className="nav_bar_buttons">
         <button id="home">
           <NavLink
@@ -33,6 +34,7 @@ const NavBar = () => {
           </NavLink>
         </button>
       </div>
+     ): null }
       {!user ? (
         <div className="nav_bar_buttons">
           <div id="login">
@@ -65,7 +67,7 @@ const NavBar = () => {
       ) : null}
       {!user ? (
         <div>
-          <button className="nav_bar_buttons" onClick={demoFunction}>
+          <button id="demo-button" onClick={demoFunction}>
             Demo
           </button>
         </div>
@@ -97,16 +99,18 @@ const NavBar = () => {
         </div>
       ) : null} */}
       {user ? (
-        <div id="musicians-form">
-          <NavLink
-            to={`/users/${user.id}/add-musician`}
-            exact={true}
-            activeClassName="active"
-            style={{ textDecoration: "none" }}
-          >
-            Upload Musician
-          </NavLink>
-        </div>
+        <button id="musicians-form">
+          <div id="musicians-form">
+            <NavLink
+              to={`/users/${user.id}/add-musician`}
+              exact={true}
+              activeClassName="active"
+              style={{ textDecoration: "none" }}
+            >
+              Upload Musician
+            </NavLink>
+          </div>
+        </button>
       ) : null}
       {/* {user ? (
         <div id="uploadSong-form">
@@ -121,16 +125,18 @@ const NavBar = () => {
         </div>
       ) : null} */}
       {user ? (
-        <div className="nav_bar_buttons">
-          <NavLink
-            to="/musicians"
-            exact={true}
-            activeClassName="active"
-            style={{ textDecoration: "none" }}
-          >
-            Musicians
-          </NavLink>
-        </div>
+        <button id="musicians-list">
+          <div id="musicians">
+            <NavLink
+              to="/musicians"
+              exact={true}
+              activeClassName="active"
+              style={{ textDecoration: "none" }}
+            >
+              Musicians
+            </NavLink>
+          </div>
+        </button>
       ) : null}
       {user ? (
         <div className="nav_bar_buttons">
