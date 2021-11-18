@@ -64,12 +64,11 @@ export const createComment = (formData) => async (dispatch) => {
 export const deleteAComment = (id) => async (dispatch) => {
   const res = await fetch(`/api/comments/delete/${id}`, {
     method: "DELETE",
-    body: JSON.stringify(id),
   });
   if (res.ok) {
-    const data = await res.json();
-    dispatch(deleteComment(data));
-    return data;
+    dispatch(deleteComment(id));
+  } else {
+    console.log("Musician Can't be deleted");
   }
 };
 

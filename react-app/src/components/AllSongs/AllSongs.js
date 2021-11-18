@@ -6,6 +6,8 @@ import DeleteTrack from "../DeleteTrack/DeleteTrack";
 import CommentDisplay from "../CommentDisplay/CommentDisplay";
 import CommentCreate from "../CommentCreate/CommentCreate";
 import CommentDelete from "../CommentDelete/CommentDelete";
+import './AllSongs.css'
+
 
 const AllSongs = ({ musicianId }) => {
   const dispatch = useDispatch();
@@ -37,6 +39,7 @@ const AllSongs = ({ musicianId }) => {
             {user.id === Number(song.musician_id) ? (
                <CommentDisplay musicianId={musicianId} songId={song.id} />
             ) : null}
+               {/* <CommentDelete /> */}
           </ul>
         ))}
       </>
