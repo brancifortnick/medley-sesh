@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getAllMusicians, postNewMusician } from "../store/musician";
+import './MusicianFormThree.css'
+
 
 const MusicianFormThree = () => {
   const history = useHistory();
@@ -40,7 +42,7 @@ const MusicianFormThree = () => {
 //
   return (
     <div className="outer_card">
-      <h1>Add A Musician</h1>
+      <h1 id="add-musician-text">Add A Musician</h1>
       <form onSubmit={onSubmit}>
         <div className="input_container">
           <label htmlFor="musician_name">Musician Name</label>
@@ -51,25 +53,25 @@ const MusicianFormThree = () => {
             onChange={(e) => setMusicianName(e.target.value)}
             value={musician_name}
           />
-          <label>Profile Picture</label>
-          <input
-            type="file"
-            accept="image/*"
-            name="profile_img"
-            onChange={updateProfileImg}
-          />
-          <label htmlFor="biography">Biography</label>
-          <textarea
-            name="biography"
-            type="text"
-            placeholder="biography"
-            onChange={(e) => setBiography(e.target.value)}
-            value={biography}
-          />
-          <button className="submit" type="submit" id="create_musician">
-            Submit
-          </button>
         </div>
+        <label>Add Profile Picture</label>
+        <input
+          type="file"
+          accept="image/*"
+          name="profile_img"
+          onChange={updateProfileImg}
+        />
+        <label htmlFor="biography">Biography</label>
+        <textarea
+          name="biography"
+          type="text"
+          placeholder="biography"
+          onChange={(e) => setBiography(e.target.value)}
+          value={biography}
+        />
+        <button className="submit" type="submit" id="create_musician">
+          Submit
+        </button>
       </form>
     </div>
   );

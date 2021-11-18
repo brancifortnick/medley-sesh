@@ -1,0 +1,8 @@
+#add-musician-text{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 150px;
+    background-color: #a5a58b;
+    color: #eddcd2;
+    font-size: 30px;
+}
