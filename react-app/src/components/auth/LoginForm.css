@@ -1,14 +1,14 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #EDDCD2;
+  margin: 0;
+  padding: 0;
+  background-color: #eddcd2;
 }
 form {
-  text-align: center;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 form input {
@@ -35,31 +35,31 @@ button.login {
   height: 50px;
   font-size: 15px;
   font-weight: 600;
-  margin-left: 70px;
+  margin-left: 20px;
   border-radius: 10px;
   border: none;
-  background-color: #CB997E;
+  background-color: #cb997e;
   color: white;
   margin-top: 5px;
 }
 button.login:hover {
-    transition: all 0.4s ease 0s;
-    background-color: #A5A58D;
-    cursor: pointer;
+  transition: all 0.4s ease 0s;
+  background-color: #a5a58d;
+  cursor: pointer;
 }
 .errors {
-    width: 300px;
-    color: red;
-    background-color:#FFF1E6;
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px;
+  width: 300px;
+  color: red;
+  background-color: #fff1e6;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 .errors li {
-    list-style-type: none;
+  list-style-type: none;
 }
