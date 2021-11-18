@@ -90,12 +90,14 @@ export default function reducer(state = initialState, action) {
     case ADD_COMMENT:
       newState[action.payload.id] = action.payload;
       return newState;
+    case DELETE_COMMENT:
+      const deleteState = {...state}
+      delete deleteState[action.payload.id];
+      return deleteState;
     case EDIT_COMMENT:
       const updateState = {...state}
-      updateState[action.payload.id] = action.payload;
-    case DELETE_COMMENT:
-      delete newState[action.payload.id];
-      return newState;
+      updateState[action.payload] = action.payload;
+      return updateState;
     default:
       return state;
   }

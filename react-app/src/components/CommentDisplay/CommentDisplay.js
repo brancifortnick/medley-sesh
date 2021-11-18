@@ -11,7 +11,7 @@ const CommentDisplay = ({songId}) => {
 
   useEffect(() => {
     dispatch(getAllComments(songId));
-  }, [dispatch]);
+  }, [dispatch, songId]);
 
   return (
     <div>

@@ -1,19 +1,14 @@
 import React, { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getMusiciansTracks } from "../../store/song";
 import DeleteTrack from "../DeleteTrack/DeleteTrack";
 import CommentDisplay from "../CommentDisplay/CommentDisplay";
-import CommentCreate from "../CommentCreate/CommentCreate";
-import CommentDelete from "../CommentDelete/CommentDelete";
-import CommentUpdate from '../CommentUpdate/CommentUpdate';
 import './AllSongs.css'
 import { getOneMusician } from "../../store/musician";
 
 
 const AllSongs = ({ musicianId }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const user = useSelector((state) => state.session.user);
   const songs = useSelector((state) =>  Object.values(state.song));
   const comments = useSelector(state => Object.values(state.comment));
