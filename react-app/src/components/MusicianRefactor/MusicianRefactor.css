@@ -1,13 +1,24 @@
-.card{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
-}
+
 div#biography{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
+.card-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.biography-div{
+  flex: 2;
+  align-items: flex-start;
+}
+.audio-div audio{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
 }

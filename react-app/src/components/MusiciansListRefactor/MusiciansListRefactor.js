@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {getAllMusicians} from '../../store/musician'
-
+import './MusiciansListRefactor.css'
 
 function MusiciansListRefactor () {
   const dispatch = useDispatch();
@@ -14,24 +14,26 @@ function MusiciansListRefactor () {
 
   const musiciansList = musicians.map((musician, idx) => {
     return (
-      <li key={idx} className="musician-li">
-        <div className="musician-div-container">
-          <NavLink to={`/musicians/${musician.id}`}>
-            <img
-              style={{width: "300px", height: "150px" }}
-              src={musician.profile_img}
-              alt="profile_img"
-              className="card"
-            ></img>
-            <div className="musician-name">{musician.musician_name}</div>
-          </NavLink>
+      <div className="musicians-container">
+        <div key={idx}>
+          <div className="musician-div-container">
+            <NavLink to={`/musicians/${musician.id}`}>
+              <img
+                style={{ width: "300px", height: "150px" }}
+                src={musician.profile_img}
+                alt="profile_img"
+                className="card"
+              ></img>
+              <div className="musician-name">{musician.musician_name}</div>
+            </NavLink>
+          </div>
         </div>
-      </li>
+      </div>
     );
   });
   return (
     <div>
-      <ul id='musicians-list-components'>{musiciansList}</ul>
+      <div className='musicians-list-components'>{musiciansList}</div>
     </div>
   );
 };

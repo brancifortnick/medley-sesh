@@ -8,7 +8,7 @@ import AllSongs from "../AllSongs/AllSongs";
 import UploadSong from "../UploadSong/UploadSong";
 // import ImageUpload from "./ImageUpload";
 import CommentCreate from "../CommentCreate/CommentCreate";
-
+import './MusicianRefactor.css'
 
 const Musician = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,12 @@ const Musician = () => {
       {musicians.profile_img !== null ? (
         <img
           className="card"
-          style={{ height: "500px", width: "500px" }}
+          style={{
+            height: "300px",
+            width: "500px",
+            paddingTop: "20px",
+            marginTop: "20px",
+          }}
           src={musicians?.profile_img}
           alt="profile_img"
         ></img>
@@ -38,14 +43,14 @@ const Musician = () => {
           alt="blank"
         ></img>
       )}
-      {/* {currentUser.id === Number(musicians.user_id) ? (
-        <div>
-          <ImageUpload musicianId={musicianId} />
-        </div>
-      ) : null} */}
-      <div id="biography">
+      <div className="audio-div">
         {" "}
-        <strong>Biography:</strong>
+        <AllSongs musicianId={musicianId} />
+      </div>
+      <div className="biography-div">
+        <div id="bio">
+          <strong>Biography</strong>
+        </div>
         {musicians.biography}
         {currentUser.id === Number(musicians.user_id) ? (
           <div id="update-biography">
@@ -72,7 +77,6 @@ const Musician = () => {
           <UploadSong musicianId={musicianId} />
         ) : null}
       </div>
-      <AllSongs musicianId={musicianId} />
     </div>
   );
 }
