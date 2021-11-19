@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import './UsersList.module.css'
+import './UsersList.css'
 
 //
 function UsersList() {

@@ -25,7 +25,7 @@ const CommentCreate = () => {
 
     dispatch(createComment(formData));
     setModal(false);
-    setComment("");
+    // setComment("");
   };
 
   // useEffect(() => {

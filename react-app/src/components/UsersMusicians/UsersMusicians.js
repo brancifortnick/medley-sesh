@@ -40,7 +40,7 @@ const UsersMusicians = () => {
 
   return (
     <div className="musician-container">
-      <ul>{usersMusicians}</ul>
+      <div id='users-musicians'>{usersMusicians}</div>
     </div>
   );
 };
