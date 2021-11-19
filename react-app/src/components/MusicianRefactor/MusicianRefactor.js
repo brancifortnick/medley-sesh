@@ -1,11 +1,11 @@
 import React, {useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams} from "react-router-dom";
-import { getOneMusician} from "../store/musician";
-import UpdateBiography from "./UpdateBiography";
-import DeleteMusician from "./DeleteMusician";
-import AllSongs from "./AllSongs/AllSongs";
-import UploadSong from "./UploadSong/UploadSong";
+import { getOneMusician} from "../../store/musician";
+import UpdateBiography from "../UpdateBiography/UpdateBiography";
+import DeleteMusician from '../DeleteMusician/DeleteMusician';
+import AllSongs from "../AllSongs/AllSongs";
+import UploadSong from "../UploadSong/UploadSong";
 // import ImageUpload from "./ImageUpload";
 
 
@@ -33,7 +33,7 @@ const Musician = () => {
       ) : (
         <img
           className="card"
-          style={{height: "300px", width: "150px"}}
+          style={{ height: "300px", width: "150px" }}
           src="https://via.placeholder.com/350x150"
           alt="blank"
         ></img>
@@ -43,16 +43,20 @@ const Musician = () => {
           <ImageUpload musicianId={musicianId} />
         </div>
       ) : null} */}
-      <strong>Biography:</strong>
-      {musicians.biography}
-      {currentUser.id === Number(musicians.user_id) ? (
-        <div id='update-biography'>
-          <UpdateBiography
-            musicianBiography={musicians.biography}
-            musicianId={musicianId}
-          />
-        </div>
-      ) : null}
+      <div id="biography">
+        {" "}
+        <strong>Biography:</strong>
+        {musicians.biography}
+        {currentUser.id === Number(musicians.user_id) ? (
+          <div id="update-biography">
+            <UpdateBiography
+              musicianBiography={musicians.biography}
+              musicianId={musicianId}
+            />
+          </div>
+        ) : null}
+      </div>
+
       <div>
         {currentUser.id === Number(musicians.user_id) ? (
           <DeleteMusician musicianId={musicianId} />

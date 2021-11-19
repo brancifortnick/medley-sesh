@@ -4,13 +4,13 @@ import { useDispatch} from "react-redux";
 import { authenticate } from "./store/session";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
-import MusicianRefactor from "./components/MusicianRefactor";
-import MusiciansListRefactor from "./components/MusiciansListReFactor";
-import MusicianFormThree from "./components/MusicianFormThree";
+import UsersList from "./components/UsersList/UsersList";
+import User from "./components/User/User";
+import MusicianRefactor from "./components/MusicianRefactor/MusicianRefactor";
+import MusiciansListRefactor from "./components/MusiciansListRefactor/MusiciansListRefactor";
+import MusicianFormThree from "./components/MusicianFormThree/MusicianFormThree";
 import LandingPage from './components/LandingPage/LandingPage';
 
 

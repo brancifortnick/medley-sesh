@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { getOneUser} from '../store/user';
-import DeleteMusician from './DeleteMusician';
-import UsersMusicians from './UsersMusicians/UsersMusicians';
+import { getOneUser} from '../../store/user';
+import UsersMusicians from '../UsersMusicians/UsersMusicians';
 import './User.css'
 
 

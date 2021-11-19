@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getAllMusicians } from "../store/musician";
+import {getAllMusicians} from '../../store/musician'
 
 
 function MusiciansListRefactor () {
@@ -15,7 +15,7 @@ function MusiciansListRefactor () {
   const musiciansList = musicians.map((musician, idx) => {
     return (
       <li key={idx} className="musician-li">
-        <div className="musician-p-container">
+        <div className="musician-div-container">
           <NavLink to={`/musicians/${musician.id}`}>
             <img
               style={{width: "300px", height: "150px" }}
@@ -31,7 +31,7 @@ function MusiciansListRefactor () {
   });
   return (
     <div>
-      <ul>{musiciansList}</ul>
+      <ul id='musicians-list-components'>{musiciansList}</ul>
     </div>
   );
 };

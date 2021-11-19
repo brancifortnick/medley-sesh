@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getAllMusicians, postNewMusician } from "../store/musician";
+import { getAllMusicians, postNewMusician } from "../../store/musician";
 import './MusicianFormThree.css'
 
 

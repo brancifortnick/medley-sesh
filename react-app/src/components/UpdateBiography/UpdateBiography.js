@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateBiography, getOneMusician } from "../store/musician";
-import { Modal } from "../context/Modal";
+import { updateBiography, getOneMusician } from "../../store/musician";
+import { Modal } from "../../context/Modal";
 
 const UpdateBiography = ({ musicianBiography, musicianId }) => {
   const dispatch = useDispatch();
