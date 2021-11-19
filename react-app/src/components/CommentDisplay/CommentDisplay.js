@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllComments } from "../../store/comment";
+import CommentCreate from "../CommentCreate/CommentCreate";
 import CommentDelete from "../CommentDelete/CommentDelete";
 import CommentUpdate from '../CommentUpdate/CommentUpdate';
 
@@ -25,6 +26,7 @@ const CommentDisplay = ({songId}) => {
               <div className="comment-text-div" type="text">
                 {comment?.comment}
               </div>
+
               <div className="content-delete">
                 {currentUser.id === comment.user_id ? (
                   <CommentUpdate commentId={comment.id} />

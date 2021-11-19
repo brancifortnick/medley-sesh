@@ -7,7 +7,7 @@ import DeleteMusician from '../DeleteMusician/DeleteMusician';
 import AllSongs from "../AllSongs/AllSongs";
 import UploadSong from "../UploadSong/UploadSong";
 // import ImageUpload from "./ImageUpload";
-
+import CommentCreate from "../CommentCreate/CommentCreate";
 
 
 const Musician = () => {
@@ -62,6 +62,11 @@ const Musician = () => {
           <DeleteMusician musicianId={musicianId} />
         ) : null}
       </div>
+      {/* <div className="comment-create">
+        {currentUser ? (
+        <CommentCreate />
+        ): null} */}
+      {/* </div> */}
       <div>
         {currentUser.id === Number(musicians.user_id) ? (
           <UploadSong musicianId={musicianId} />
