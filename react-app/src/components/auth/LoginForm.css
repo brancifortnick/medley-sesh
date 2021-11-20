@@ -28,12 +28,17 @@ form input:focus {
   display: flex;
   justify-content: center;
   margin-top: 175px;
+  margin-left: 725px;
+  width: 450px;
+  height: 350px;
+  background-color: #a5a58d;
+  border-radius: 10px;
 }
 
 button.login {
   width: 175px;
   height: 50px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   margin-left: 20px;
   border-radius: 10px;
@@ -44,7 +49,8 @@ button.login {
 }
 button.login:hover {
   transition: all 0.4s ease 0s;
-  background-color: #a5a58d;
+  background-color: white;
+  color: #a5a58d;
   cursor: pointer;
 }
 .errors {

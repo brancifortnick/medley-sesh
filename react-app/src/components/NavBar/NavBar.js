@@ -37,7 +37,6 @@ const NavBar = () => {
       ) : null}
       {!user ? (
         <div className="nav_bar_buttons">
-          <div id="login">
             <button id="login_nav">
               <NavLink
                 to="/login"
@@ -49,12 +48,10 @@ const NavBar = () => {
                 Login
               </NavLink>
             </button>
-          </div>
         </div>
       ) : null}
       {!user ? (
         <div className="nav_bar_buttons">
-          <div id="sign_up">
             <button id="sign_up">
               <NavLink
                 to="/sign-up"
@@ -65,7 +62,6 @@ const NavBar = () => {
                 Sign Up
               </NavLink>
             </button>
-          </div>
         </div>
       ) : null}
       {!user ? (
@@ -107,7 +103,6 @@ const NavBar = () => {
       {user ? (
         <div className="nav_bar_buttons">
           <button id="musicians-form">
-            <div id="musicians-form">
               <NavLink
                 to={`/users/${user.id}/add-musician`}
                 exact={true}
@@ -116,22 +111,9 @@ const NavBar = () => {
               >
                 Upload Musician
               </NavLink>
-            </div>
           </button>
         </div>
       ) : null}
-      {/* {user ? (
-        <div id="uploadSong-form">
-          <NavLink
-            to={`/musicians/${user.id}/songs/new`}
-            exact={true}
-            activeClassName="active"
-            style={{ textDecoration: "none" }}
-          >
-            Upload Your Music
-          </NavLink>
-        </div>
-      ) : null} */}
       {user ? (
         <div className="nav_bar_buttons">
           <button id="musicians-list">
