@@ -33,7 +33,7 @@ function MusiciansListRefactor() {
     );
   });
   return (
-    <div>
+    <div key={''}>
       <div className="musicians-list-components">{musiciansList}</div>
     </div>
   );
