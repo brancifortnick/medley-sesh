@@ -8,10 +8,11 @@ const CommentDelete = ({commentId}) => {
 
   const history = useHistory();
   const musician = useSelector(state => state.musician);
+  const user = useSelector(state => state.session.user);
   const commentDelete = async (e) => {
     e.preventDefault();
     dispatch(deleteAComment(commentId));
-    history.push(`/musicians/${musician.id}`)
+    history.push(`/musicians`)
   };
 
   // useEffect(() => {

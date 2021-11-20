@@ -29,7 +29,7 @@ const Musician = () => {
           style={{
             height: "300px",
             width: "500px",
-            paddingTop: "20px",
+            paddingTop: "0px",
             marginTop: "20px",
           }}
           src={musicians?.profile_img}
