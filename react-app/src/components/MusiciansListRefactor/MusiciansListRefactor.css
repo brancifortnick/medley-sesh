@@ -12,6 +12,7 @@ padding: 5px;
 }
 .musician-name{
   box-sizing: border-box;
+  padding: 4px;
   border-radius: 4px;
   color: #FFF1E6;
   background-color: #A5A58D;

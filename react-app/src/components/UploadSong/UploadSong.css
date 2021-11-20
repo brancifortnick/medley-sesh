@@ -1,7 +1,27 @@
-.song-form-container{
-    display: flex;
-    flex-direction: column;
+.song-form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
 }
-div.form-container{
-    flex-direction: column;
+div.form-container {
+  flex-direction: column;
+}
+/* #add-musician-text h1{
+    font-weight: 400;
+    font-style: italic;
+    background-color: #FFF1E6;
+    color: rgba(144, 166, 255)
+} */
+button#create-song-btn {
+  width: 100px;
+  height: 50px;
+  border-radius: 6px;
+  background-color: #a5a58d;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  cursor: pointer;
+
 }

@@ -52,7 +52,7 @@ const UploadSong = ({ musicianId }) => {
 
   return (
     <div className='song-form-container'>
-      <h1>Upload New Tracks</h1>
+      <h1>Add a song to your musician</h1>
       <form onSubmit={onSubmit}>
         <div className="form-container">
           <label id="title">Title:</label>
@@ -79,7 +79,7 @@ const UploadSong = ({ musicianId }) => {
             />
             <div id='upload-song'>
           <button type="submit" id="create-song-btn">
-            Upload Track
+            Upload
           </button>
         </div>
         </div>

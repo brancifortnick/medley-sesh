@@ -17,7 +17,7 @@ div.biography-div{
   align-items: center;
   margin-top: 8px;
   padding: 10px;
-  background-color: #a5a58d;
+  background-color: #a5a58d; /*#FFF1E6;*/
   border-bottom: 2px solid black;
   border-top: 4px solid #FFF1E6;
   border-radius: 8px;
@@ -31,5 +31,11 @@ div.biography-div{
 }
 
 .song-form{
-
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  margin: 8px;
+ background-color: #FFF1E6;
+ border-radius: 6px;
 }
