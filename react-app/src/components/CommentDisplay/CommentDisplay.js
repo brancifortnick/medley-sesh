@@ -26,8 +26,9 @@ const CommentDisplay = ({songId}) => {
           {comments.map((comment) => (
             <div type="text" className="comment_body" key={comment?.id}>
               <div className="username">
-                <p id="username-p">{comment?.username}:</p>
+                <p id="username-p">{comment?.username}</p>
               </div>
+
               <p className="comment-text-p" type="text">
                 {comment?.comment}
               </p>
@@ -36,11 +37,11 @@ const CommentDisplay = ({songId}) => {
                 {currentUser.id === comment.user_id ? (
                   <CommentUpdate commentId={comment.id} />
                 ) : null}
+
+                {currentUser.id === comment.user_id ? (
+                  <CommentDelete commentId={comment.id} />
+                ) : null}
               </div>
-              {currentUser.id === comment.user_id ? (
-                <CommentDelete commentId={comment.id} />
-              ) : null}
-              <div></div>
             </div>
           ))}
         </div>

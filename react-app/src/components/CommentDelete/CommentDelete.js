@@ -20,11 +20,11 @@ const CommentDelete = ({commentId}) => {
 
   return (
     <form id='delete-form'>
-      <div id="button-delete-div">
+
         <button id="delete-comment" type="submit" onClick={commentDelete}>
           Delete Comment
         </button>
-      </div>
+
     </form>
   );
 };
