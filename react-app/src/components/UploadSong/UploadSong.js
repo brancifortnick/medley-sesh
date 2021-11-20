@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createNewSong } from "../../store/song";
 import { getMusiciansTracks } from "../../store/song";
+import './UploadSong.css'
+
 
 const UploadSong = ({ musicianId }) => {
   const history = useHistory()
@@ -49,11 +51,11 @@ const UploadSong = ({ musicianId }) => {
   }, [dispatch, musicianId]);
 
   return (
-    <div>
+    <div className='song-form-container'>
       <h1>Upload New Tracks</h1>
       <form onSubmit={onSubmit}>
         <div className="form-container">
-          <label id="title">Title</label>
+          <label id="title">Title:</label>
           <input
             type="text"
             name="title"
@@ -75,9 +77,11 @@ const UploadSong = ({ musicianId }) => {
             type='file'
             onChange={(e) => setSongImg(e.target.files[1])}
             />
+            <div id='upload-song'>
           <button type="submit" id="create-song-btn">
             Upload Track
           </button>
+        </div>
         </div>
       </form>
     </div>

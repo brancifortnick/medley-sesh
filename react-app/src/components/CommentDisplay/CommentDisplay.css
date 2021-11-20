@@ -1,3 +1,26 @@
 #comment-div div{
+    /* display: flex; */
+}
+.comment-form-container{
     display: flex;
+}
+.username{
+    font-weight: bold;
+    /* border: 1px solid black; */
+}
+.comment_body{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 3px solid whitesmoke;
+    background-color: #A5A58D;
+    color: rgb(68, 64, 64);
+    border-radius: 3px;
+    text-align: center;
+    padding: 0;
+    margin: 2px;
+    font-weight: 400;
+}
+#username-p{
+
 }

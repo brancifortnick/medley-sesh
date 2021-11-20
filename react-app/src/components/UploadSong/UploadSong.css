@@ -1,0 +1,7 @@
+.song-form-container{
+    display: flex;
+    flex-direction: column;
+}
+div.form-container{
+    flex-direction: column;
+}

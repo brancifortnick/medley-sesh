@@ -43,15 +43,16 @@ const Musician = () => {
           alt="blank"
         ></img>
       )}
-      <div className="audio-div">
-        {" "}
-        <AllSongs musicianId={musicianId} />
+      <div id="delete-component">
+        {currentUser.id === Number(musicians.user_id) ? (
+          <DeleteMusician musicianId={musicianId} />
+        ) : null}
       </div>
       <div className="biography-div">
         <div id="bio">
           <strong>Biography</strong>
-        </div><p id='bio'>
-        {musicians.biography}</p>
+        </div>
+        <p id="bio">{musicians.biography}</p>
         {currentUser.id === Number(musicians.user_id) ? (
           <div id="update-biography">
             <UpdateBiography
@@ -61,18 +62,11 @@ const Musician = () => {
           </div>
         ) : null}
       </div>
-
-      <div id='delete-component'>
-        {currentUser.id === Number(musicians.user_id) ? (
-          <DeleteMusician musicianId={musicianId} />
-        ) : null}
+      <div className="audio-div">
+        {" "}
+        <AllSongs musicianId={musicianId} />
       </div>
-      {/* <div className="comment-create">
-        {currentUser ? (
-        <CommentCreate />
-        ): null} */}
-      {/* </div> */}
-      <div className='song-form'>
+      <div className="song-form">
         {currentUser.id === Number(musicians.user_id) ? (
           <UploadSong musicianId={musicianId} />
         ) : null}

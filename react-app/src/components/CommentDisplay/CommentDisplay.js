@@ -4,6 +4,8 @@ import { getAllComments } from "../../store/comment";
 import CommentCreate from "../CommentCreate/CommentCreate";
 import CommentDelete from "../CommentDelete/CommentDelete";
 import CommentUpdate from '../CommentUpdate/CommentUpdate';
+import './CommentDisplay.css';
+
 
 const CommentDisplay = ({songId}) => {
   const dispatch = useDispatch();
@@ -16,17 +18,19 @@ const CommentDisplay = ({songId}) => {
 
   return (
     <div>
-      <div className="form-container">
+      <div className="comment-form-container">
         <div id="comment-div">
           {comments.map((comment) => (
             <div type="text" className="comment_body" key={comment?.id}>
               <div className="username">
-                <strong>{comment?.username}</strong>
+                <p id='username-p'>{comment?.username}:</p>
               </div>
-              <p className="comment-text-div" type="text">
+              <p className="comment-text-p" type="text">
                 {comment?.comment}
               </p>
-
+              <div className='comment-create'>
+                <CommentCreate commentId={comment.id} />
+                </div>
               <div className="content-delete">
                 {currentUser.id === comment.user_id ? (
                   <CommentUpdate commentId={comment.id} />
