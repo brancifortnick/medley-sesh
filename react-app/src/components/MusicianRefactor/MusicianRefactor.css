@@ -11,9 +11,12 @@ div#biography{
   justify-content: space-between;
   align-items: center;
 }
-.biography-div{
-  flex: 2;
-  align-items: flex-start;
+div.biography-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4px;
+  padding: 4px;
 }
 .audio-div audio{
   display: flex;
@@ -21,4 +24,8 @@ div#biography{
   justify-content: space-evenly;
   align-items: center;
   padding: 10px;
+}
+
+.song-form{
+
 }
