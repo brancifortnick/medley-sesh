@@ -5,7 +5,7 @@ import DeleteTrack from "../DeleteTrack/DeleteTrack";
 import CommentDisplay from "../CommentDisplay/CommentDisplay";
 import './AllSongs.css'
 import { getOneMusician } from "../../store/musician";
-
+import './AllSongs.css'
 
 const AllSongs = ({ musicianId }) => {
   const dispatch = useDispatch();
@@ -29,8 +29,7 @@ const AllSongs = ({ musicianId }) => {
       <>
         {songs.map((song) => (
           <div key={song.id} className="song-id">
-            <p style={{fontWeight: "600"}}>Title: </p>
-            <p id='actual-title'>{song.title}</p>
+            <p className='title-p' >Title:{" "}{song.title} </p>
 
             <div id="audio-player">
               <audio src={song.file_url} controls></audio>
@@ -41,7 +40,7 @@ const AllSongs = ({ musicianId }) => {
             {/* {user.id === Number(song.musician_id) ? (
               <CommentCreate musicianId={musicianId} songId={song.id} />
             ) : null} */}
-            <div id='comment-display-component'>
+            <div id="comment-display-component">
               {user.id === Number(song.musician_id) ? (
                 <CommentDisplay
                   commentId={commentId}

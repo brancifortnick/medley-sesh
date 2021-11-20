@@ -1,25 +1,39 @@
 #comment-div div{
-    /* display: flex; */
+    display: flex;
+    flex-direction: row;
+    width: 700px;
 }
 .comment-form-container{
-    display: flex;
+
 }
-.username{
-    font-weight: bold;
-    /* border: 1px solid black; */
+div.username{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 15pt;
+    color:black;
+    background-color: white;
+    font-style: italic;
+    font-weight: bolder;
+    border: 2px solid #A5A58D;
+    border-bottom: 2px solid black;
+    border-radius: 3px;
 }
 .comment_body{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
-    border: 3px solid whitesmoke;
+    justify-content: flex-start;
+    align-items:baseline;
     background-color: #A5A58D;
-    color: rgb(68, 64, 64);
-    border-radius: 3px;
-    text-align: center;
+    color:black;
     padding: 0;
-    margin: 2px;
-    font-weight: 400;
+    margin: 0;
+    font-weight: 500;
+    text-align: start;
+    border-bottom: 2px solid black;
+    border-radius: 8px;
 }
 #username-p{
 
@@ -30,4 +44,17 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+p.comment-text-p{
+padding: 2px;
+}
+
+button#comment-edit {
+    width: 80px;
+}
+button#delete-comment{
+    width: 100px;
+}
+div#edit-comment{
+
 }

@@ -1,0 +1,16 @@
+#audio-player{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+}
+
+.title-p{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 560;
+    font-style: italic;
+    font-size: 18pt;
+}
