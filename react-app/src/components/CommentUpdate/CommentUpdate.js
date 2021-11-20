@@ -23,9 +23,13 @@ const UpdateComment = ({commentId}) => {
 
   return (
     <>
-      <button id="comment-edit" onClick={() => setModal(true)}>
-        Edit your comment
-      </button>
+      <div id="edit-comment">
+        {" "}
+        <button id="comment-edit" onClick={() => setModal(true)}>
+          Edit your comment
+        </button>
+      </div>
+
       {showModal && (
         <Modal onClose={() => setModal(false)}>
           <form onSubmit={onSubmit}>

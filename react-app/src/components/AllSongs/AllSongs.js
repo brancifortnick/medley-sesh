@@ -28,23 +28,33 @@ const AllSongs = ({ musicianId }) => {
     <div>
       <>
         {songs.map((song) => (
-          <ul key={song.id} className="song-id">
-            <strong>Title: </strong>
-            <strong>{song.title}</strong>
-            <audio src={song.file_url} controls></audio>
-            {user.id === Number(song.musician_id) ? (
-              <DeleteTrack musicianId={musicianId} songId={song.id} />
-            ) : null}
+          <div key={song.id} className="song-id">
+            <p style={{fontWeight: "600"}}>Title: </p>
+            <p id='actual-title'>{song.title}</p>
+
+            <div id="audio-player">
+              <audio src={song.file_url} controls></audio>
+              {user.id === Number(song.musician_id) ? (
+                <DeleteTrack musicianId={musicianId} songId={song.id} />
+              ) : null}
+            </div>
             {/* {user.id === Number(song.musician_id) ? (
               <CommentCreate musicianId={musicianId} songId={song.id} />
             ) : null} */}
-            {user.id === Number(song.musician_id) ? (
-               <CommentDisplay commentId={commentId} musicianId={musicianId} songId={song.id} />
-            ) : null}
+            <div id='comment-display-component'>
+              {user.id === Number(song.musician_id) ? (
+                <CommentDisplay
+                  commentId={commentId}
+                  musicianId={musicianId}
+                  songId={song.id}
+                />
+              ) : null}
+            </div>
+
             {/* {user.id === Number(song.musician_id) ? (
               <CommentUpdate commentId={commentId} musicianId={musicianId} songId={song.id} />
             ): null} */}
-          </ul>
+          </div>
         ))}
       </>
     </div>

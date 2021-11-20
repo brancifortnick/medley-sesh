@@ -20,7 +20,7 @@ const DeleteTrack = ({ musicianId, songId }) => {
   }, [dispatch, musicianId]);
 
   return (
-    <div>
+    <div id='deleteSong'>
       <button onClick={onSubmit} id="delete-song-btn">
         Delete Song
       </button>

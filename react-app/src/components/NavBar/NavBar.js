@@ -42,6 +42,7 @@ const NavBar = () => {
               <NavLink
                 to="/login"
                 exact={true}
+                className='nav-link'
                 activeClassName="active"
                 style={{ textDecoration: "none" }}
               >
@@ -80,6 +81,7 @@ const NavBar = () => {
             <NavLink
               to={`/users/${user.id}`}
               exact={true}
+              className='nav-link'
               activeClassName="active"
               style={{ textDecoration: "none" }}
             >
