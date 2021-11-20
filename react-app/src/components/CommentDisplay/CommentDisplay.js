@@ -18,29 +18,29 @@ const CommentDisplay = ({songId}) => {
 
   return (
     <div>
+      <div className="comment-create">
+        <CommentCreate />
+      </div>
       <div className="comment-form-container">
         <div id="comment-div">
           {comments.map((comment) => (
             <div type="text" className="comment_body" key={comment?.id}>
               <div className="username">
-                <p id='username-p'>{comment?.username}:</p>
+                <p id="username-p">{comment?.username}:</p>
               </div>
               <p className="comment-text-p" type="text">
                 {comment?.comment}
               </p>
-              <div className='comment-create'>
-                <CommentCreate commentId={comment.id} />
-                </div>
+
               <div className="content-delete">
                 {currentUser.id === comment.user_id ? (
                   <CommentUpdate commentId={comment.id} />
-                ): null}
-                </div>
-                {currentUser.id === comment.user_id ? (
-                <CommentDelete commentId={comment.id} />
-                ): null}
-                <div>
+                ) : null}
               </div>
+              {currentUser.id === comment.user_id ? (
+                <CommentDelete commentId={comment.id} />
+              ) : null}
+              <div></div>
             </div>
           ))}
         </div>
