@@ -21,9 +21,7 @@ nav {
   backdrop-filter: blur(5px);
 }
 
-.nav_bar_buttons:active{
 
-}
 button#home,
 button#user-page,
 button#musicians-form,
@@ -47,6 +45,7 @@ button#musicians-list:hover {
   font-size: 15px;
   font-weight: 600;
   color: #A5A58D;
+
 }
 button#login_nav,
 button#sign_up {
@@ -104,3 +103,10 @@ button.log-out-button:hover{
   color: #A5A58D;
   border:none;
 }
+
+  /* .nav-link {
+     color: #F0EFEB;
+  }
+  .nav-link:hover{
+    color: #a5a58d;
+  } */

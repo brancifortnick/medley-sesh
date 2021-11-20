@@ -23,9 +23,9 @@ const CommentDisplay = ({songId}) => {
               <div className="username">
                 <strong>{comment?.username}</strong>
               </div>
-              <div className="comment-text-div" type="text">
+              <p className="comment-text-div" type="text">
                 {comment?.comment}
-              </div>
+              </p>
 
               <div className="content-delete">
                 {currentUser.id === comment.user_id ? (

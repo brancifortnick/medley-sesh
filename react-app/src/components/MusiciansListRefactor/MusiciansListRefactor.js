@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import {getAllMusicians} from '../../store/musician'
-import './MusiciansListRefactor.css'
+import { getAllMusicians } from "../../store/musician";
+import "./MusiciansListRefactor.css";
+// import { Card } from "antd";
 
-function MusiciansListRefactor () {
+function MusiciansListRefactor() {
   const dispatch = useDispatch();
   const musicians = useSelector((state) => Object.values(state.musician));
 
@@ -33,9 +34,9 @@ function MusiciansListRefactor () {
   });
   return (
     <div>
-      <div className='musicians-list-components'>{musiciansList}</div>
+      <div className="musicians-list-components">{musiciansList}</div>
     </div>
   );
-};
+}
 
 export default MusiciansListRefactor;

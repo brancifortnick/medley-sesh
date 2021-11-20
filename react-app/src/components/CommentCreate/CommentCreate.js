@@ -36,7 +36,9 @@ const CommentCreate = () => {
 
   return (
     <div>
+      <div id='comment-modal'>
       <button onClick={() => setModal(true)}>Click here to comment</button>
+      </div>
       {showModal && (
         <Modal onClose={() => setModal(false)}>
           <form className="comment-container" onSubmit={onSubmit}>
@@ -47,14 +49,16 @@ const CommentCreate = () => {
               onChange={updateComment}
               value={comment}
             />
+
+            <div id='comment-create'>
             <button className="comment_submit" type="submit">
               Submit Comment
             </button>
+            </div>
           </form>
         </Modal>
       )}
-
-    </div>
+      </div>
   );
 };
 export default CommentCreate;

@@ -40,16 +40,18 @@ nav{
   padding-left: 20px;
 }
 
-a{
+a,a.active{
   font-weight: 600;
   color: #F0EFEB;
   border: none;
+  text-decoration: none
 }
 
-a:hover{
+a:hover,a.active:hover{
   font-weight: 600;
   color: #A5A58D;
   border: none;
+  text-decoration: none;
 }
 textarea{
   width: 50%;
