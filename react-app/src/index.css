@@ -30,7 +30,8 @@ label{
   border-radius: 6px;
   background-color: #F0EFEB;
   padding: 20 0 20px 0;
-  border: 8px solid #E1FCFD;
+  border: 6px solid #e5b9a8;
+   /* #E1FCFD; */
 }
 
 .card p{

@@ -5,7 +5,7 @@ nav {
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  background-color: #E5B9A8; /*#CB997E;*/
+  /*#CB997E;*/
   /* color: #FFF1E6; */
   padding: 20px;
   margin:0;
@@ -17,7 +17,7 @@ nav {
   align-items: center;
   height: 25px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.383);
-  background-color: #E5B9A8;
+  background-color: #4A5FC1;
   backdrop-filter: blur(5px);
 }
 

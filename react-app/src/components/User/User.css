@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 40px 175px 0px;
+  padding: 25px 175px 2px;
   color: #4A5FC1;
+  border-bottom: 2px solid  #EAD6CD;
 }
 .user-page-container{
     display: flex;
