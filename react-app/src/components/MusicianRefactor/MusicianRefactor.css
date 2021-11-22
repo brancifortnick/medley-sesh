@@ -1,28 +1,27 @@
-
-div#biography{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+div#biography {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.card-container{
+.card-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
-div.biography-div{
+div.biography-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 8px;
   padding: 10px;
-  background-color: #a5a58d; /*#FFF1E6;*/
+  background-color: #a5a58d; /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
   border-bottom: 2px solid black;
-  border-top: 4px solid #FFF1E6;
+  border-top: 4px solid #fff1e6;
   border-radius: 8px;
 }
-.audio-div audio{
+.audio-div audio {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -30,12 +29,12 @@ div.biography-div{
   padding: 10px;
 }
 
-.song-form{
+.song-form {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 2rem;
   margin: 8px;
- background-color: #FFF1E6;
- border-radius: 6px;
+  background-color: #fff1e6;
+  border-radius: 6px;
 }
