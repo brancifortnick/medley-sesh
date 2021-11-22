@@ -4,11 +4,15 @@
   justify-content: space-around;
   align-items: center;
   margin-left: 725px;
-  background-color: #a5a58d;
+  background-color: white;
   width: 450px;
   height: 550px;
   margin-top: 75px;
   border-radius: 10px;
+  background: linear-gradient(to right, transparent, rgb(93, 89, 88)),url('../../assets/philly_skyline.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 form {
@@ -41,7 +45,8 @@ button.sign-up {
   margin-left: 20px;
   border-radius: 10px;
   border: none;
-   background-color: #cb997e;
+  background-color:#5e6eb8;
+   /* #E5B9A8; */
   color: white;
   margin-top: 5px;
 }
@@ -49,6 +54,6 @@ button.sign-up {
 button.sign-up:hover {
   transition: all 0.4s ease 0s;
   background-color: white;
-  color:#a5a58d;
+  color:black;
   cursor: pointer;
 }

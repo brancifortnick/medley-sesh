@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color:rgb(46, 43, 43);
 }
 form {
   display: flex;
@@ -31,8 +31,13 @@ form input:focus {
   margin-left: 725px;
   width: 450px;
   height: 350px;
-  background-color: #a5a58d;
+  background-color: white;
   border-radius: 10px;
+  background: linear-gradient(to right, transparent, rgb(207, 187, 184)),url('../../assets/orangeandgreycityesk.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
 }
 
 button.login {
@@ -43,16 +48,21 @@ button.login {
   margin-left: 20px;
   border-radius: 10px;
   border: none;
-  background-color: #cb997e;
+  background-color: #5e6eb8;
   color: white;
   margin-top: 5px;
 }
 button.login:hover {
   transition: all 0.4s ease 0s;
   background-color: white;
-  color: #a5a58d;
+  color: black;
   cursor: pointer;
 }
+html{
+
+}
+
+
 .errors {
   width: 300px;
   color: red;

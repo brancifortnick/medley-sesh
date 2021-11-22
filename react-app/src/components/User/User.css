@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 40px 175px 0px;
+  padding: 25px 175px 2px;
+  color: #4A5FC1;
+  border-bottom: 2px solid  #EAD6CD;
 }
 .user-page-container{
     display: flex;
@@ -28,13 +30,13 @@ button#add-musician-btn{
     height: 35px;
     border-radius: 6px;
     border: none;
-    background-color: #a5a58d;
+    background-color: white;
 }
 button#add-musician-btn:hover{
   transition: all 0.4s ease 0s;
   background-color: #f0efeb;
   font-weight: 600;
-  color: #A5A58D;
+  color: black;
   border: none;
 }
 div#add-musicians-button{
