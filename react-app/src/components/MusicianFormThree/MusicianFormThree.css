@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 150px;
-    background-color: #a5a58b;
+
     color: #f0efeb;
     font-size: 30px;
 }
@@ -11,16 +11,17 @@ button#create_musician.submit{
   width: 75px;
   height: 30px;
   border-radius: 6px;
-  background-color: #a5a58d;
+  background-color: #F0EFEB;
   font-size: 15px;
   font-weight: 600;
-  color: #F0EFEB;
+  color: black;
   border: none;
+  margin: 2px;
 }
-button#create_musician.submit.submit:hover{
-      transition: all 0.4s ease 0s;
-  background-color: #f0efeb;
+button#create_musician.submit:hover{
+  transition: all 0.4s ease 0s;
+   background-color:black;
   font-weight: 600;
-  color: #A5A58D;
+  color: #f0efeb;
   border: none;
 }

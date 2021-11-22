@@ -2,9 +2,13 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  font-size: 18pt;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 500;
   text-decoration: none;
+  background-color: #E5B9A8; /*#CB997E;*/
+  /* color: #FFF1E6; */
+  padding: 20px;
+  margin:0;
 }
 .nav_container {
   display: flex;
@@ -13,7 +17,7 @@ nav {
   align-items: center;
   height: 25px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.383);
-  background-color: #CB997E;
+  background-color: #E5B9A8;
   backdrop-filter: blur(5px);
 }
 
@@ -26,25 +30,25 @@ button#musicians-list {
   margin-left: 20px;
   border-radius: 6px;
   border: none;
-  background-color: #a5a58d;
-  font-size: 17px;
+  /* background-color: #a5a58d; */
+  font-size: 16px;
   font-weight: 600;
-  color: #f0efeb;
+  color: black;
 }
 button#home:hover,
 button#user-page:hover,
 button#musicians-list:hover {
   transition: all 0.4s ease 0s;
-  background-color: #f0efeb;
+  /* background-color: #f0efeb; */
   font-weight: 600;
-  color: #a5a58d;
+  color: black;
 }
 button#musicians-form:hover {
   transition: all 0.4s ease 0s;
-  background-color: #f0efeb;
-  font-size: 17px;
+  /* background-color: #f0efeb; */
+  font-size: 16px;
   font-weight: 600;
-  color: #a5a58d;
+  /* color: #a5a58d; */
 }
 
 button#login_nav,
@@ -52,31 +56,31 @@ button#sign_up {
   width: 100px;
   height: 30px;
   border-radius: 6px;
-  background-color: #a5a58d;
+  /* background-color: #a5a58d; */
   font-size: 18px;
   border: none;
 }
 button#login_nav:hover,
 button#sign_up:hover {
   transition: all 0.4s ease 0s;
-  background-color: #f0efeb;
+  /* background-color: #f0efeb; */
   border: none;
 }
 button#demo-button {
   width: 100px;
   height: 30px;
   border-radius: 6px;
-  background-color: #a5a58d;
+  /* background-color: #a5a58d; */
   font-size: 18px;
   font-weight: 600;
-  color: #f0efeb;
+  /* color: #f0efeb; */
   border: none;
 }
 button#demo-button:hover {
   transition: all 0.4s ease 0s;
-  background-color: #f0efeb;
+  /* background-color: #f0efeb; */
   font-weight: 600;
-  color: #a5a58d;
+  /* color: #a5a58d; */
   cursor: pointer;
   border: none;
 }
@@ -89,17 +93,17 @@ button.log-out-button {
   width: 140px;
   height: 40px;
   border-radius: 6px;
-  background-color: #a5a58d;
-  font-size: 18px;
+  /* background-color: #a5a58d; */
+  font-size: 16px;
   font-weight: 600;
-  color: #f0efeb;
+  /* color: #f0efeb; */
   border: none;
 }
 button.log-out-button:hover {
   transition: all 0.4s ease 0s;
-  background-color: #f0efeb;
+  /* background-color: #f0efeb; */
   font-weight: 600;
-  color: #a5a58d;
+  /* color: #a5a58d; */
   border: none;
 }
 

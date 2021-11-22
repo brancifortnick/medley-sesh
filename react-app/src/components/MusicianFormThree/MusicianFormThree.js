@@ -54,7 +54,7 @@ const MusicianFormThree = () => {
             value={musician_name}
           />
         </div>
-        <label>Add Profile Picture</label>
+        <label id='add-profile-pic'>Add Profile Picture</label>
         <input
           type="file"
           accept="image/*"

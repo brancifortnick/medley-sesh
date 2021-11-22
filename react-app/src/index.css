@@ -15,41 +15,39 @@ ol{
 
 }
 label{
-  font-size: 18px;
-  font-weight: 500;
-  color: black;
-  padding: 2px;
+  font-size: 16px;
+  font-weight: 600;
+  /* background-color: black; */
+  color: white;
+  border-radius: 4px;
+  padding: 1.5px;
+  margin: 2px;
 }
 /* style={{display: "table-cell"}} */
-nav{
-  background-color: #CB997E;
-  color: #FFF1E6;
-  padding: 20px;
-  margin:0;
-}
+
 
 .card{
   border-radius: 6px;
   background-color: #F0EFEB;
   padding: 20 0 20px 0;
-  border: 8px solid #A5A58D;
+  border: 8px solid #E1FCFD;
 }
 
 .card p{
   padding-top: 20px;
   padding-left: 20px;
 }
-
+/*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
 a,a.active{
   font-weight: 600;
-  color: #F0EFEB;
+  color: rgb(34, 32, 32);
   border: none;
   text-decoration: none
 }
 
 a:hover,a.active:hover{
   font-weight: 600;
-  color: #A5A58D;
+  color: black;
   border: none;
   text-decoration: none;
 }
