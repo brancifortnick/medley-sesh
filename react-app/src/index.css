@@ -39,19 +39,7 @@ label{
   padding-left: 20px;
 }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
-a,a.active{
-  font-weight: 600;
-  color: rgb(34, 32, 32);
-  border: none;
-  text-decoration: none
-}
 
-a:hover,a.active:hover{
-  font-weight: 600;
-  color: black;
-  border: none;
-  text-decoration: none;
-}
 textarea{
   width: 50%;
   height: 150px;

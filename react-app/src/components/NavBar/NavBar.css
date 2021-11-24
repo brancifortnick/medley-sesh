@@ -13,9 +13,9 @@ nav {
 .nav_container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-  height: 25px;
+  height: 20px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.383);
   background-color: #4A5FC1;
   backdrop-filter: blur(5px);
@@ -25,30 +25,34 @@ button#home,
 button#user-page,
 button#musicians-form,
 button#musicians-list {
-  width: 140px;
+  width: 80px;
   height: 40px;
-  margin-left: 20px;
   border-radius: 6px;
   border: none;
-  /* background-color: #a5a58d; */
-  font-size: 16px;
-  font-weight: 600;
-  color: black;
+  background-color: #4A5FC1;
+  font-size: 15px;
+  font-weight: 500;
+
 }
 button#home:hover,
 button#user-page:hover,
-button#musicians-list:hover {
-  transition: all 0.4s ease 0s;
-  /* background-color: #f0efeb; */
-  font-weight: 600;
-  color: black;
-}
+button#musicians-list:hover,
 button#musicians-form:hover {
   transition: all 0.4s ease 0s;
-  /* background-color: #f0efeb; */
-  font-size: 16px;
-  font-weight: 600;
-  /* color: #a5a58d; */
+  cursor: pointer;
+}
+a,a.active{
+  font-weight: 500;
+  color:#9CF6FB;
+  border: none;
+  text-decoration: none
+}
+
+a:hover,a.active:hover{
+  font-weight: 500;
+  color: black;
+  border: none;
+  text-decoration: none;
 }
 
 button#login_nav,
@@ -56,8 +60,8 @@ button#sign_up {
   width: 100px;
   height: 30px;
   border-radius: 6px;
-  /* background-color: #a5a58d; */
-  font-size: 18px;
+  background-color: #f0efeb;
+  font-size: 16px;
   border: none;
 }
 button#login_nav:hover,
@@ -67,20 +71,17 @@ button#sign_up:hover {
   border: none;
 }
 button#demo-button {
-  width: 100px;
-  height: 30px;
+  width: 85px;
+  height: 40px;
   border-radius: 6px;
-  /* background-color: #a5a58d; */
-  font-size: 18px;
-  font-weight: 600;
-  /* color: #f0efeb; */
+  background-color: #4A5FC1;
+  font-size: 16px;
+  font-weight:550;
   border: none;
 }
 button#demo-button:hover {
   transition: all 0.4s ease 0s;
-  /* background-color: #f0efeb; */
-  font-weight: 600;
-  /* color: #a5a58d; */
+  background-color: #f0efeb;
   cursor: pointer;
   border: none;
 }
@@ -90,21 +91,18 @@ button#login_nav:focus {
 }
 
 button.log-out-button {
-  width: 140px;
-  height: 40px;
+  width: 100px;
+  height: 30px;
   border-radius: 6px;
   /* background-color: #a5a58d; */
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  /* color: #f0efeb; */
   border: none;
 }
 button.log-out-button:hover {
   transition: all 0.4s ease 0s;
-  /* background-color: #f0efeb; */
-  font-weight: 600;
-  /* color: #a5a58d; */
   border: none;
+  cursor: pointer;
 }
 
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/

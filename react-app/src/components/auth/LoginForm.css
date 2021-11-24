@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-color:rgb(221, 211, 211);
+  /* #EAD6CD */
 }
 form {
   display: flex;
@@ -43,7 +44,7 @@ form input:focus {
 button.login {
   width: 175px;
   height: 50px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   margin-left: 20px;
   border-radius: 10px;

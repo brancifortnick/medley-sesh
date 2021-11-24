@@ -4,7 +4,7 @@
   justify-content: space-around;
   padding: 25px 175px 2px;
   color: #4A5FC1;
-  border-bottom: 2px solid  #EAD6CD;
+  border-bottom: 2px solid  white;
 }
 .user-page-container{
     display: flex;
@@ -19,7 +19,7 @@
     justify-content:space-around;
 }
 #component{
-    font-weight: 400;
+    font-weight: 500;
 }
 button#add-musician-btn{
     display: flex;
@@ -29,16 +29,18 @@ button#add-musician-btn{
     align-items: center;
     height: 35px;
     border-radius: 6px;
+    font-weight: 600;
     border: none;
-    background-color: white;
+    /* background-color: white; */
 }
 button#add-musician-btn:hover{
   transition: all 0.4s ease 0s;
-  background-color: #f0efeb;
+  background-color: white;
   font-weight: 600;
   color: black;
   border: none;
 }
+
 div#add-musicians-button{
     display: flex;
     flex-direction: row;
@@ -46,4 +48,5 @@ div#add-musicians-button{
     align-content: center;
     padding: 4px;
 }
+
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/

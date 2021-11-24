@@ -32,7 +32,7 @@ function User () {
       <div id="add-musicians-button">
         <button activeClassName="active" type="button" id="add-musician-btn">
           <Link
-            style={{ textDecoration: "none" }}
+            style={{ textDecoration: "none", color: "black" }}
             to={`/users/${userId}/add-musician`}
           >
             Add your musician here
