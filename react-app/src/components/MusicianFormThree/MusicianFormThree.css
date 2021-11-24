@@ -24,5 +24,6 @@ button#create_musician.submit:hover{
   font-weight: 600;
   color: #f0efeb;
   border: none;
+  cursor: pointer;
 }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
