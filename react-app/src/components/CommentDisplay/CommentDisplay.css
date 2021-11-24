@@ -48,8 +48,7 @@ p.comment-text-p {
 }
 
 button#comment-edit {
-  /* display: flex; */
-  width: 80px;
+
 }
 button#delete-comment {
   width: 100px;

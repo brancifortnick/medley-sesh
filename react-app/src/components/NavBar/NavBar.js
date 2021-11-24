@@ -37,31 +37,39 @@ const NavBar = () => {
       ) : null}
       {!user ? (
         <div className="nav_bar_buttons">
-            <button id="login_nav">
-              <NavLink
-                to="/login"
-                exact={true}
-                className='nav-link'
-                activeClassName="active"
-                style={{ textDecoration: "none" }}
-              >
-                Login
-              </NavLink>
-            </button>
+          <button id="login_nav">
+            <NavLink
+              to="/login"
+              exact={true}
+              className="nav-link"
+              activeClassName="active"
+              style={{
+                textDecoration: "none",
+                color: "black",
+                fontSize: "17px",
+              }}
+            >
+              Login
+            </NavLink>
+          </button>
         </div>
       ) : null}
       {!user ? (
         <div className="nav_bar_buttons">
-            <button id="sign_up">
-              <NavLink
-                to="/sign-up"
-                exact={true}
-                activeClassName="active"
-                style={{ textDecoration: "none" }}
-              >
-                Sign Up
-              </NavLink>
-            </button>
+          <button id="sign_up">
+            <NavLink
+              to="/sign-up"
+              exact={true}
+              activeClassName="active"
+              style={{
+                textDecoration: "none",
+                color: "black",
+                fontSize: "17px",
+              }}
+            >
+              Sign Up
+            </NavLink>
+          </button>
         </div>
       ) : null}
       {!user ? (
@@ -77,7 +85,7 @@ const NavBar = () => {
             <NavLink
               to={`/users/${user.id}`}
               exact={true}
-              className='nav-link'
+              className="nav-link"
               activeClassName="active"
               style={{ textDecoration: "none" }}
             >
@@ -103,14 +111,14 @@ const NavBar = () => {
       {user ? (
         <div className="nav_bar_buttons">
           <button id="musicians-form">
-              <NavLink
-                to={`/users/${user.id}/add-musician`}
-                exact={true}
-                activeClassName="active"
-                style={{ textDecoration: "none" }}
-              >
-                Upload Musician
-              </NavLink>
+            <NavLink
+              to={`/users/${user.id}/add-musician`}
+              exact={true}
+              activeClassName="active"
+              style={{ textDecoration: "none" }}
+            >
+              Upload Musician
+            </NavLink>
           </button>
         </div>
       ) : null}

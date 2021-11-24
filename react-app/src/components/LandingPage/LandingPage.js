@@ -4,7 +4,6 @@ import "./LandingPage.css";
 const LandingPage = () => {
   return (
     <>
-      <div id="landing-page-div"></div>
       <h1 id="welcome-text">Welcome To Medley</h1>
     </>
   );

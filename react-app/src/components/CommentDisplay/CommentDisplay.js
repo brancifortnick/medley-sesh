@@ -19,7 +19,6 @@ const CommentDisplay = ({songId}) => {
 
   return (
     <div>
-
       <CommentCreate />
       <div className="comment-form-container">
         <div id="comment-div">
@@ -41,15 +40,16 @@ const CommentDisplay = ({songId}) => {
                     commentId={comment.id}
                   />
                 ) : null}
-
+                </div>
+                <div>
                 {currentUser.id === comment.user_id ? (
                   <CommentDelete
                     songId={comment.song_id}
                     commentId={comment.id}
                   />
                 ) : null}
+                </div>
               </div>
-            </div>
           ))}
         </div>
       </div>
