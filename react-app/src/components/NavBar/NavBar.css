@@ -61,7 +61,7 @@ a.active:hover {
 
 button#login_nav,
 button#sign_up {
-  width: 100px;
+  width: auto;
   height: 30px;
   border-radius: 6px;
   font-size: 16px;
@@ -84,8 +84,6 @@ button#demo-button {
 }
 button#demo-button:hover {
   transition: all 0.4s ease 0s;
-  background-color: black;
-  color:#E1FCFD;
   cursor: pointer;
   border: none;
 }
