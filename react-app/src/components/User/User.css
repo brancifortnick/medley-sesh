@@ -4,7 +4,9 @@
   justify-content: space-around;
   padding: 25px 175px 2px;
   color: #4A5FC1;
+  /* background-color: black; */
   border-bottom: 2px solid  white;
+  border-radius: 2px;
 }
 .user-page-container{
     display: flex;
@@ -12,11 +14,13 @@
     align-items: center;
     margin: 0;
     padding: 4px;
+
 }
 #usersMusicians-component{
     display: flex;
     flex-direction: row;
     justify-content:space-around;
+    background-color: black;
 }
 #component{
     font-weight: 500;
