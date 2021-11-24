@@ -6,7 +6,6 @@ import UpdateBiography from "../UpdateBiography/UpdateBiography";
 import DeleteMusician from '../DeleteMusician/DeleteMusician';
 import AllSongs from "../AllSongs/AllSongs";
 import UploadSong from "../UploadSong/UploadSong";
-// import ImageUpload from "./ImageUpload";
 import CommentCreate from "../CommentCreate/CommentCreate";
 import './MusicianRefactor.css'
 
@@ -43,11 +42,6 @@ const Musician = () => {
           alt="blank"
         ></img>
       )}
-      <div id="delete-component">
-        {currentUser.id === Number(musicians.user_id) ? (
-          <DeleteMusician musicianId={musicianId} />
-        ) : null}
-      </div>
       <div className="biography-div">
         <div id="bio">
           <strong>Biography</strong>
@@ -62,8 +56,12 @@ const Musician = () => {
           </div>
         ) : null}
       </div>
+      <div id="delete-component">
+        {currentUser.id === Number(musicians.user_id) ? (
+          <DeleteMusician musicianId={musicianId} />
+        ) : null}
+      </div>
       <div className="audio-div">
-        {" "}
         <AllSongs musicianId={musicianId} />
       </div>
       <div className="song-form">

@@ -16,7 +16,7 @@ div.biography-div {
   align-items: center;
   margin-top: 8px;
   padding: 10px;
-  background-color: #a5a58d; /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
+  background-color: #4A5FC1; /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
   border-bottom: 2px solid black;
   border-top: 4px solid #fff1e6;
   border-radius: 8px;
@@ -35,6 +35,5 @@ div.biography-div {
   align-items: center;
   padding: 2rem;
   margin: 8px;
-  background-color: #fff1e6;
   border-radius: 6px;
 }
