@@ -26,7 +26,7 @@ button#user-page,
 button#musicians-form,
 button#musicians-list {
   width: auto;
-  height: 40px;
+  height: 30px;
   border-radius: 6px;
   border: none;
   background-color: #4a5fc1;
@@ -37,7 +37,8 @@ button#user-page:hover,
 button#musicians-list:hover,
 button#musicians-form:hover {
   transition: all 0.4s ease 0s;
-  background-color: white;
+  background-color:black;
+  color: white;
   cursor: pointer;
 }
 a,
@@ -53,7 +54,7 @@ a:hover,
 a.active:hover {
   font-weight: 600;
   font-size: 16px;
-  color: black;
+  color: #9cf6fb;
   border: none;
   text-decoration: none;
 }
@@ -73,7 +74,7 @@ button#sign_up:hover {
 }
 button#demo-button {
   width: 85px;
-  height: 40px;
+  height: 20px;
   border-radius: 6px;
   background-color: #4a5fc1;
   font-size: 16px;
@@ -95,7 +96,7 @@ button.log-out-button {
   width: 100px;
   height: 30px;
   border-radius: 6px;
-  /* background-color: #a5a58d; */
+  background-color: white;
   font-size: 15px;
   font-weight: 600;
   border: none;
@@ -103,6 +104,8 @@ button.log-out-button {
 button.log-out-button:hover {
   transition: all 0.4s ease 0s;
   border: none;
+  background-color:black;
+  color: white;
   cursor: pointer;
 }
 
