@@ -1,28 +1,27 @@
-.song-form-container {
+/* .song-form-container {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
+  flex-direction: row;
   padding: 0;
   margin: 0;
-}
+} */
 div.form-container {
   flex-direction: column;
 }
-/* #add-musician-text h1{
-    font-weight: 400;
-    font-style: italic;
-    background-color: #FFF1E6;
-    color: rgba(144, 166, 255)
-} */
+
 button#create-song-btn {
-  width: 100px;
-  height: 50px;
+  width: 75px;
+  height:30px;
   border-radius: 6px;
   background-color: white;/*#a5a58d;*/
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: black;
   border: none;
   cursor: pointer;
-
+}
+button#create-song-btn:hover{
+background-color: black;
+color: white;
 }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
