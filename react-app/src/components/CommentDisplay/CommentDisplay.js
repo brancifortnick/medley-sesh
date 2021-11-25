@@ -27,7 +27,7 @@ const CommentDisplay = ({songId}) => {
               <div className="comment-create"></div>
 
               <p className="comment-text-p" type="text">
-                {comment?.comment}
+                {`- ${comment?.comment}`}
               </p>
               <div className="username">
                 <p id="username-p">{`comment by - ${comment?.username}`}</p>
