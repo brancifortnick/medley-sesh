@@ -4,15 +4,15 @@
   justify-content: center;
   align-items: center;
   color: black;
+  background-color: white;
 }
-/* .landing-container {
-  background: url("../../assets/philly_skyline.jpg");
+.landing-container {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%;
-  height: 100%;
-} */
+  overflow-x: hidden;
+  z-index: -1;
+}
 
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
