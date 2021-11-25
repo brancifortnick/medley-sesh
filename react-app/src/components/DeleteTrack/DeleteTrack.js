@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteTrack, getMusiciansTracks } from "../../store/song";
 import { getOneMusician } from "../../store/musician";
+import './DeleteTrack.css'
+
 
 const DeleteTrack = ({ musicianId, songId }) => {
   const history = useHistory();

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import { updateAComment, getAllComments } from "../../store/comment";
+import './CommentUpdate.css'
 // import { getOneMusician } from "../../store/musician";
 // import { getMusiciansTracks } from "../../store/song";
 
@@ -24,7 +25,6 @@ const UpdateComment = ({commentId}) => {
   return (
     <>
       <div id="edit-comment">
-        {" "}
         <button id="comment-edit" onClick={() => setModal(true)}>
           Edit your comment
         </button>

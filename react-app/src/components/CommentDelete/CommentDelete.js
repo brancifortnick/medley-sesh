@@ -2,6 +2,9 @@ import React, {useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { getAllComments, deleteAComment } from "../../store/comment";
 import { useHistory} from "react-router-dom";
+import './CommentDelete.css'
+
+
 const CommentDelete = ({commentId}) => {
 
   const dispatch = useDispatch();
@@ -9,10 +12,11 @@ const CommentDelete = ({commentId}) => {
   const history = useHistory();
   const musician = useSelector(state => state.musician);
   const user = useSelector(state => state.session.user);
+
   const commentDelete = async (e) => {
     e.preventDefault();
     dispatch(deleteAComment(commentId));
-    history.push(`/musicians`)
+    history.push(`/musicians/${musician.id}`)
   };
 
   // useEffect(() => {
@@ -22,7 +26,7 @@ const CommentDelete = ({commentId}) => {
   return (
     <form id='delete-form'>
 
-        <button id="delete-comment" type="submit" onClick={commentDelete}>
+        <button className="delete-comment" type="submit" onClick={commentDelete}>
           Delete Comment
         </button>
 

@@ -25,14 +25,13 @@ const CommentDisplay = ({songId}) => {
           {comments.map((comment) => (
             <div type="text" className="comment_body" key={comment?.id}>
               <div className="comment-create"></div>
-              <div className="username">
-                <p id="username-p">{comment?.username}</p>
-              </div>
 
               <p className="comment-text-p" type="text">
-                {comment?.comment}
+                {`- ${comment?.comment}`}
               </p>
-
+              <div className="username">
+                <p id="username-p">{`comment by - ${comment?.username}`}</p>
+              </div>
               <div className="content-delete">
                 {currentUser.id === comment.user_id ? (
                   <CommentUpdate
@@ -40,16 +39,16 @@ const CommentDisplay = ({songId}) => {
                     commentId={comment.id}
                   />
                 ) : null}
-                </div>
-                <div>
+              </div>
+              <div>
                 {currentUser.id === comment.user_id ? (
                   <CommentDelete
                     songId={comment.song_id}
                     commentId={comment.id}
                   />
                 ) : null}
-                </div>
               </div>
+            </div>
           ))}
         </div>
       </div>

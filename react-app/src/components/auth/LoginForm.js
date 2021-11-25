@@ -34,16 +34,16 @@ const LoginForm = () => {
 
   return (
     <form className='login-container' onSubmit={onLogin}>
-      <div>
+      <div className='errors'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <li key={ind}>{error}</li>
         ))}
       </div>
       <div>
         <label htmlFor='email'>Email</label>
         <input
           name='email'
-          type='text'
+          type='email'
           placeholder='Email'
           value={email}
           onChange={updateEmail}
