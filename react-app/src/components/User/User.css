@@ -1,56 +1,54 @@
-#your-musicians-container{
+#your-musicians-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   padding: 25px 175px 2px;
-  color: #4A5FC1;
+  color: #4a5fc1;
   /* background-color: black; */
-  border-bottom: 2px solid  white;
+  border-bottom: 2px solid white;
   border-radius: 2px;
 }
-.user-page-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 4px;
-
+.user-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 4px;
 }
-#usersMusicians-component{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-    background-color: black;
+#usersMusicians-component {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: black;
 }
-#component{
-    font-weight: 500;
+#component {
+  font-weight: 500;
 }
-button#add-musician-btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0 175px 20;
-    align-items: center;
-    height: 35px;
-    border-radius: 6px;
-    font-weight: 600;
-    border: none;
-    /* background-color: white; */
-}
-button#add-musician-btn:hover{
-  transition: all 0.4s ease 0s;
-  background-color: white;
+button#add-musician-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 175px 20;
+  align-items: center;
+  height: 35px;
+  border-radius: 6px;
   font-weight: 600;
-  color: black;
   border: none;
+  background-color: white;
+}
+button#add-musician-btn:hover {
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  background-color: #4a5fc1;
+  color: #9cf6fb;
 }
 
-div#add-musicians-button{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    padding: 4px;
+div#add-musicians-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  padding: 4px;
 }
 
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/

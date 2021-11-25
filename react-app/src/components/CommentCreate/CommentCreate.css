@@ -14,6 +14,7 @@ button.comment-button{
     background-color: white;
 }
 button.comment-button:hover{
+    transition: all 0.4s ease 0s;
     cursor: pointer;
     background-color:#4A5FC1;
     color: #9CF6FB;

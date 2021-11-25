@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getOneMusician, deleteOneMusician } from "../../store/musician";
+import './DeleteMusician.css'
+
 
 const DeleteMusician = ({ musicianId }) => {
   const history = useHistory();
@@ -19,7 +21,7 @@ const DeleteMusician = ({ musicianId }) => {
 
   return (
     <div id="delete-musician-div">
-      <button onClick={onSubmit} className="delete-btn">
+      <button onClick={onSubmit} id="delete-musician-btn">
         Delete Musician
       </button>
     </div>
