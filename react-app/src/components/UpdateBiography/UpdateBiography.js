@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { updateBiography, getOneMusician } from "../../store/musician";
 import { Modal } from "../../context/Modal";
 import {useHistory} from 'react-router-dom';
+import './UpdateBiography.css'
 
 const UpdateBiography = ({ musicianBiography, musicianId }) => {
   const dispatch = useDispatch();

@@ -1,7 +1,9 @@
 #comment-div div {
   display: flex;
   flex-direction: row;
-  width: 700px;
+  flex-wrap: wrap;
+  min-width: 800px;
+  max-width: 800px;
 }
 .comment-form-container {
 }
