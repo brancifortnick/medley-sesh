@@ -3,7 +3,7 @@
   text-align: center;
   width: auto;
   height: 35px;
-  border-radius: 3px;
+  border-radius: 6px;
   background-color: white;
 }
 #delete-musician-btn:hover {
@@ -11,4 +11,5 @@
   cursor: pointer;
   background-color: #4a5fc1;
   color: #9cf6fb;
+  border: 1px solid white;
 }
