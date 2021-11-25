@@ -24,7 +24,6 @@ const UpdateComment = ({commentId}) => {
   return (
     <>
       <div id="edit-comment">
-        {" "}
         <button id="comment-edit" onClick={() => setModal(true)}>
           Edit your comment
         </button>

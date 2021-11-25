@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createComment, getAllComments } from "../../store/comment";
 import { Modal } from "../../context/Modal";
+import './CommentCreate.css'
+
 
 const CommentCreate = () => {
   const dispatch = useDispatch();
@@ -37,7 +39,7 @@ const CommentCreate = () => {
   return (
     <div>
       <div id='comment-modal'>
-      <button onClick={() => setModal(true)}>Click here to comment</button>
+      <button className='comment-button' onClick={() => setModal(true)}>Click here to comment</button>
       </div>
       {showModal && (
         <Modal onClose={() => setModal(false)}>

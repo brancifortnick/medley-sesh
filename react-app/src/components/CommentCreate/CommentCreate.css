@@ -1,2 +1,20 @@
-#comment-modal{}
+#comment-modal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
+button.comment-button{
+    text-align: center;
+    width: auto;
+    height: 35px;
+    border-radius: 6px;
+    background-color: white;
+}
+button.comment-button:hover{
+    cursor: pointer;
+    background-color:#4A5FC1;
+    color: #9CF6FB;
+}

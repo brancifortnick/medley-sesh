@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color:rgb(221, 211, 211);
+  /* background-color:rgb(221, 211, 211); */
   /* #EAD6CD */
 }
 form {
@@ -32,7 +32,6 @@ form input:focus {
   margin-left: 725px;
   width: 450px;
   height: 350px;
-  background-color: white;
   border-radius: 10px;
   background: linear-gradient(to right, transparent, rgb(207, 187, 184)),url('../../assets/orangeandgreycityesk.jpg');
   background-size: cover;
@@ -59,15 +58,12 @@ button.login:hover {
   color: black;
   cursor: pointer;
 }
-html{
 
-}
 
 
 .errors {
   width: 300px;
   color: red;
-  background-color: #fff1e6;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;

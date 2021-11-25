@@ -15,7 +15,7 @@ const UpdateBiography = ({ musicianBiography, musicianId }) => {
     formData.append("biography", biography);
     dispatch(updateBiography(formData, musicianId));
     setModal(false);
-    history.push('/musicians')
+    history.push(`/musicians/${musicianId}`)
   };
 
   useEffect(() => {

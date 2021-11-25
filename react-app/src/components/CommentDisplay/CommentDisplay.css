@@ -14,10 +14,10 @@ div.username {
   color: black;
   background-color: white;
   font-style: italic;
-  font-weight: bolder;
-  border: 2px solid #394f8a;
+  font-weight: bold;
+  /* border: 2px solid #394f8a; */
   /* border-bottom: 2px solid black; */
-  border-radius: 3px;
+  /* border-radius: 3px; */
 }
 .comment_body {
   display: flex;
@@ -25,14 +25,15 @@ div.username {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: baseline;
-  background-color: #4a5fc1;
+  background-color: #EAD6CD;
+  border: 2px solid #394f8a;
+  border-radius: 6px;
   color: black;
   padding: 0;
   margin: 0;
   font-weight: 500;
   text-align: start;
-  /* border-bottom: 2px solid black; */
-  /* border-radius: 8px; */
+
 }
 #username-p {
 }
@@ -48,7 +49,6 @@ p.comment-text-p {
 }
 
 button#comment-edit {
-
 }
 button#delete-comment {
   width: 100px;
