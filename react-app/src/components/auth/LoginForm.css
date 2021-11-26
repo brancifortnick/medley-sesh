@@ -1,8 +1,3 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  /* background-color:rgb(221, 211, 211); */
-/* #EAD6CD */
 
 body {
   margin: 0px !important;
@@ -36,28 +31,35 @@ form input {
   font-size: 20px;
 }
 
-html {
+/* html {
   background: url("../../assets/blue-instruments.jpg");
-}
+} */
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
 form input:focus {
   outline: none;
 }
-div.login-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+
+.login-container{
+  display: grid;
+  grid-template-rows: fit-content(100%);
+  background: url(../../assets/blue-instruments.jpg);
+  padding-top: -10px;
+  text-align: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+form.login-container-form {
   align-items: center;
   margin-top: 175px;
   margin-left: 725px;
   width: 450px;
   height: 300px;
+  padding: 0px 0 20px 0;
   border-radius: 10px;
-  /* background: linear-gradient(to right,transparent, rgb(255, 255, 255)),url('../../assets/blue-instruments.jpg'); */
-  /* background: radial-gradient(ellipse at top, #4a5fc1, transparent),
-    radial-gradient(ellipse at bottom, #9cf6fb, transparent); */
-  /* background: radial-gradient(#4a5fc1, #9cf6fb); */
-  background: white;
+  background-color: white;
   background-size: contain;
   background-attachment: fixed;
   background-position: center;

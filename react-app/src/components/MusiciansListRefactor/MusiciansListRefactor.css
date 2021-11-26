@@ -1,9 +1,21 @@
 .musicians-list-components{
-  display: flex;
-  text-decoration: none;
-  flex-wrap: wrap;
+display: flex;
+flex-wrap: wrap;
+
 }
-.musician-div-container{
+
+.musicians-list-container{
+background-image: url(../../assets/jeremy-zero-oi62kgRUgT8-unsplash.jpg);
+background-size: cover;
+z-index: -1;
+background-attachment: scroll;
+}
+
+.musician-div-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
  padding: 28px;
 }
 .musicians-container{

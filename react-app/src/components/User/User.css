@@ -1,32 +1,31 @@
-#your-musicians-container {
+
+.user-page-container {
+  display: grid;
+  grid-template-rows: fit-content(100%);
+  flex-wrap: wrap;
+  background: url(../../assets/blueandpink.jpg);
+  padding-top: 20px;
+  text-align: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+#your-musicians-text{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 25px 175px 2px;
-
-  /* background-color: black; */
-  border-bottom: 2px solid white;
-  border-radius: 2px;
-  color: white;
-}
-.user-page-container {
-  display: flex;
-  flex-direction: column;
+  justify-self: center;
   align-items: center;
-  margin: 0;
-  padding: 4px;
+  color: white;
 }
 #usersMusicians-component {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  /* background-color: black; */
-  /* color: white; */
-
 }
-#component {
+/* #component {
   font-weight: 500;
-}
+} */
 button#add-musician-btn {
   display: flex;
   flex-direction: row;
@@ -42,14 +41,13 @@ button#add-musician-btn {
 #add-musician-btn:hover {
   cursor: pointer;
 }
-
-
-div#add-musicians-button {
+#add-musicians-button {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
   padding: 4px;
+  margin: 8px;
 }
 
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/

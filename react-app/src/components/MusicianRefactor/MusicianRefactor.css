@@ -9,7 +9,7 @@ div#biography {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-   background: url('../../assets/carsblur.jpg');
+  background-image: url(../../assets/carsblur.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -19,7 +19,7 @@ div.biography-div {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 10px;
   padding: 10px;
   background-color: white;
   /* background-color: #4A5FC1; #FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD */
