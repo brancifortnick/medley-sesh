@@ -9,7 +9,6 @@ div#biography {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* background: url('../../assets/carsblur.jpg'); */
    background: url('../../assets/carsblur.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -27,9 +26,9 @@ div.biography-div {
   /* border-bottom: 2px solid black;
   border-top: 4px solid black; */
   border-radius: 6px;
-  border: 3px solid black;
-  max-width: 700px;
-  min-width: 700px;
+  /* border: 3px solid black; */
+  max-width: 500px;
+  min-width: 500px;
 }
 .audio-div audio {
   display: flex;

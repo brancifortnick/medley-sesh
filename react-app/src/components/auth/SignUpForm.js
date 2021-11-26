@@ -54,7 +54,7 @@ const SignUpForm = () => {
       <div>
         <label>User Name</label>
         <input
-          type='text'
+          type='username'
           name='username'
           onChange={updateUsername}
           value={username}
@@ -63,7 +63,7 @@ const SignUpForm = () => {
       <div>
         <label>Email</label>
         <input
-          type='text'
+          type='email'
           name='email'
           onChange={updateEmail}
           value={email}
