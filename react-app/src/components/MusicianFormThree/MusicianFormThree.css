@@ -1,19 +1,8 @@
-#add-musician-text {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  /* padding: 20px 0 40px 0; */
-  margin: 0;
-  color: rgb(194, 184, 184);
-  border: none;
-  font-size: 30px;
-}
 .outer_card {
-   display: grid;
+  display: grid;
   grid-template-rows: fit-content(100%);
   background: url(../../assets/blueandpink.jpg);
-  padding-top: -10px;
+  padding-top: 40px;
   text-align: center;
   background-size: cover;
   width: 100%;
@@ -21,22 +10,47 @@
   /* color: white; */
   z-index: -1;
 }
+
+#add-musician-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20;
+  margin: 0;
+  color: white;
+  border: none;
+  font-size: 30px;
+}
+
 button#create_musician.submit {
   /* margin-bottom: 40px; */
   width: auto;
   height: 30px;
   border-radius: 6px;
-  background-color: white;
+  background-color: black;
   font-size: 15px;
   font-weight: 600;
-  color: black;
+  color: white;
   border: none;
   margin: 2px;
 }
 button#create_musician.submit:hover {
   transition: all 0.4s ease 0s;
   background-color: black;
-  color: white;
+  color: rgb(91, 173, 240);
   cursor: pointer;
 }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
+form.musician-form{
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+padding-bottom: 250px;
+
+}
+
+div.input_container{
+  padding: 20px;
+}

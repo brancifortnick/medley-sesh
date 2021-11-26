@@ -16,10 +16,9 @@ ol{
 label{
   font-size: 16px;
   font-weight: 600;
-  /* background-color: black; */
   color: black;
-  border-radius: 4px;
-  padding: 1.5px;
+  border-radius: 6px;
+  padding: 6px;
   margin: 2px;
 }
 /* style={{display: "table-cell"}} */
