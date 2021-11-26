@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getAllMusicians, postNewMusician } from "../../store/musician";
-import './MusicianFormThree.css'
-
+import "./MusicianFormThree.css";
 
 const MusicianFormThree = () => {
   const history = useHistory();
@@ -21,16 +20,15 @@ const MusicianFormThree = () => {
     const formData = new FormData();
     formData.append("profile_img", profile_img);
     //fetching from backend route
-    const res = await fetch('/api/musicians/new-picture', {
-        method :'POST',
-        body: formData,
+    const res = await fetch("/api/musicians/new-picture", {
+      method: "POST",
+      body: formData,
     });
-    if(res.ok){
-        let profile_img = await res.json()
-        dispatch(postNewMusician(profile_img, biography, user.id, musician_name));
-    }else{
-        console.log('post form on front end----------ERROR F>E')
-
+    if (res.ok) {
+      let profile_img = await res.json();
+      dispatch(postNewMusician(profile_img, biography, user.id, musician_name));
+    } else {
+      console.log("post form on front end----------ERROR F>E");
     }
     history.push(`/users/${user.id}`);
   };
@@ -39,7 +37,7 @@ const MusicianFormThree = () => {
     const file = e.target.files[0];
     setProfileImg(file);
   };
-//
+  //
   return (
     <div className="outer_card">
       <h1 id="add-musician-text">Add A Musician</h1>
@@ -54,7 +52,7 @@ const MusicianFormThree = () => {
             value={musician_name}
           />
         </div>
-        <label id='add-profile-pic'>Add Profile Picture</label>
+        <label id="add-profile-pic">Add Profile Picture</label>
         <input
           type="file"
           accept="image/*"
