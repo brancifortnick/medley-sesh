@@ -45,7 +45,7 @@ button#musicians-form:hover {
 a,
 a.active {
   font-weight: 600;
-  color: #9cf6fb;
+  color: white;
   border: none;
   font-size: 16px;
   text-decoration: none;
@@ -55,7 +55,7 @@ a:hover,
 a.active:hover {
   font-weight: 600;
   font-size: 16px;
-  color: #9cf6fb;
+  color: white;
   border: none;
   text-decoration: none;
 }
