@@ -23,17 +23,17 @@ function User () {
       <div>
         <ol>
           <strong
-            style={{ color: "black", fontWeight: "bolder", fontSize: "18px" }}
+            // style={{ color: "black", fontWeight: "bolder", fontSize: "18px" }}
           >
-            Username
+            Username |
           </strong>{" "}
           {usersInformation.username}
         </ol>
         <ol>
           <strong
-            style={{ color: "black", fontWeight: "bolder", fontSize: "18px" }}
+            // style={{ color: "black", fontWeight: "bolder", fontSize: "18px" }}
           >
-            Email
+            Email |
           </strong>{" "}
           {usersInformation.email}
         </ol>
