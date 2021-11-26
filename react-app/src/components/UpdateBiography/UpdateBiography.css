@@ -5,11 +5,12 @@ button#biography-edit {
   height: 35px;
   border-radius: 6px;
   background-color: white;
+  border: 1px solid white;
 }
 button#biography-edit:hover {
   transition: all 0.4s ease 0s;
+  background-color:black;
+  color: white;
   cursor: pointer;
-  background-color: #394F8A;
   border: 1px solid white;
-  color: #9cf6fb;
 }

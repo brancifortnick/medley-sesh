@@ -11,11 +11,11 @@ button.comment-button {
   height: 35px;
   border-radius: 6px;
   background-color: white;
+  border: none;
 }
 button.comment-button:hover {
   transition: all 0.4s ease 0s;
+  background-color:black;
+  color: white;
   cursor: pointer;
-  background-color: #4a5fc1;
-  color: #9cf6fb;
-  border: 1px solid white;
 }

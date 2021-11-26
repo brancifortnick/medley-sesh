@@ -4,11 +4,17 @@ button#delete-song-btn {
   height: 35px;
   border-radius: 6px;
   background-color: white;
+  border: none;
 }
 button#delete-song-btn:hover {
-  transition: all 0.4s ease 0s;
+  /* transition: all 0.4s ease 0s;
   cursor: pointer;
   background-color: #4a5fc1;
   color: #9cf6fb;
-  border: 1px solid white;
+  border: 1px solid white; */
+  transition: all 0.4s ease 0s;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: none;
 }

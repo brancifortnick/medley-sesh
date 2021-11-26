@@ -18,6 +18,7 @@ div.username {
   background-color: white;
   font-style: italic;
   font-weight: bold;
+  border: none;
   /* border: 2px solid #394f8a; */
   /* border-bottom: 2px solid black; */
   /* border-radius: 3px; */
@@ -28,7 +29,7 @@ div.username {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: baseline;
-  background-color: #EAD6CD;
+  background-color: white;
   border: 2px solid #394f8a;
   border-radius: 6px;
   color: black;
@@ -48,6 +49,7 @@ div.username {
   align-items: center;
 }
 p.comment-text-p {
+  font-weight: 550;
   padding: 2px;
 }
 
