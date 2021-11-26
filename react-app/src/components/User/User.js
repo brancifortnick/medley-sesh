@@ -21,10 +21,10 @@ function User () {
     <>
       <div className="user-page-container">
         <ol>
-          <strong>Username</strong> {usersInformation.username}
+          <strong style={{color: "black", fontWeight: "bolder", fontSize: "18px"}}>Username</strong> {usersInformation.username}
         </ol>
         <ol>
-          <strong>Email</strong> {usersInformation.email}
+          <strong style={{color: "black", fontWeight: "bolder", fontSize: "18px"}}>Email</strong> {usersInformation.email}
         </ol>
       </div>
 
