@@ -6,3 +6,10 @@
     padding: 10px;
     color: white;
 }
+.musician-container {
+    display: flex;
+    background: url('../../assets/blueandpink.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}

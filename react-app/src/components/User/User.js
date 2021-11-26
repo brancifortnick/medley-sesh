@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { getOneUser} from '../../store/user';
 import UsersMusicians from '../UsersMusicians/UsersMusicians';
+// import backdrop from "../../assets/blueandpink.jpg";
 import './User.css'
 
 
@@ -18,13 +19,23 @@ function User () {
   },[dispatch, userId])
 
   return (
-    <>
-      <div className="user-page-container">
+    <div className="user-page-container">
+      <div>
         <ol>
-          <strong style={{color: "black", fontWeight: "bolder", fontSize: "18px"}}>Username</strong> {usersInformation.username}
+          <strong
+            style={{ color: "black", fontWeight: "bolder", fontSize: "18px" }}
+          >
+            Username
+          </strong>{" "}
+          {usersInformation.username}
         </ol>
         <ol>
-          <strong style={{color: "black", fontWeight: "bolder", fontSize: "18px"}}>Email</strong> {usersInformation.email}
+          <strong
+            style={{ color: "black", fontWeight: "bolder", fontSize: "18px" }}
+          >
+            Email
+          </strong>{" "}
+          {usersInformation.email}
         </ol>
       </div>
 
@@ -35,7 +46,7 @@ function User () {
             style={{ textDecoration: "none", color: "black" }}
             to={`/users/${userId}/add-musician`}
           >
-            Add your musician here
+            Add New Musician
           </Link>
         </button>
       </div>
@@ -46,12 +57,10 @@ function User () {
       <div id="usersMusicians-component">
         <div id="component">
           <UsersMusicians />
+          {/* <img src={backdrop} alt="_blank"></img> */}
         </div>
       </div>
-      {/* <div>
-      <DeleteMusician />
-      </div> */}
-    </>
+    </div>
   );
 }
 export default User;
