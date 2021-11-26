@@ -9,7 +9,8 @@ div#biography {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: url('../../assets/jeremy-zero-oi62kgRUgT8-unsplash.jpg');
+  /* background: url('../../assets/carsblur.jpg'); */
+   background: url('../../assets/carsblur.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -21,10 +22,12 @@ div.biography-div {
   align-items: center;
   margin-top: 8px;
   padding: 10px;
-  background-color: #4A5FC1; /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
-  border-bottom: 2px solid black;
-  border-top: 4px solid #fff1e6;
-  border-radius: 8px;
+  background-color: white;
+  /* background-color: #4A5FC1; #FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD */
+  /* border-bottom: 2px solid black;
+  border-top: 4px solid black; */
+  border-radius: 6px;
+  border: 3px solid black;
   max-width: 700px;
   min-width: 700px;
 }

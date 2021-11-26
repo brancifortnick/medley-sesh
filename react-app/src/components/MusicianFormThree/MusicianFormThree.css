@@ -1,35 +1,38 @@
-#add-musician-text{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0 40px 0;
-    margin:0;
-    background-color: black;
-    color: #4A5FC1;
-    font-size: 30px;
+#add-musician-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding: 20px 0 40px 0; */
+  margin: 0;
+  color: rgb(194, 184, 184);
+  border: none;
+  font-size: 30px;
 }
-
 .outer_card {
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  background: url("../../assets/dj-playingjpg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
-button#create_musician.submit{
-  margin-bottom: 40px;
-  width: 75px;
+button#create_musician.submit {
+  /* margin-bottom: 40px; */
+  width: auto;
   height: 30px;
   border-radius: 6px;
-  background-color: #F0EFEB;
+  background-color: white;
   font-size: 15px;
   font-weight: 600;
   color: black;
   border: none;
   margin: 2px;
 }
-button#create_musician.submit:hover{
+button#create_musician.submit:hover {
   transition: all 0.4s ease 0s;
+  background-color: black;
+  color: white;
   cursor: pointer;
-  background-color: #4a5fc1;
-  color: #9cf6fb;
-  border: 1px solid white;
 }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
