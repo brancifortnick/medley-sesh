@@ -9,6 +9,10 @@ div#biography {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background: url('../../assets/jeremy-zero-oi62kgRUgT8-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 div.biography-div {
   display: flex;
@@ -21,8 +25,8 @@ div.biography-div {
   border-bottom: 2px solid black;
   border-top: 4px solid #fff1e6;
   border-radius: 8px;
-  max-width: 500px;
-  min-width: 500px;
+  max-width: 700px;
+  min-width: 700px;
 }
 .audio-div audio {
   display: flex;
