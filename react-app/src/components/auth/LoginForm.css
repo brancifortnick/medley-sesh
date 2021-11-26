@@ -1,8 +1,11 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   /* background-color:rgb(221, 211, 211); */
-  /* #EAD6CD */
+/* #EAD6CD */
+
+body {
+  margin: 0px !important;
 }
 form {
   display: flex;
@@ -11,55 +14,75 @@ form {
   align-items: center;
   text-align: center;
 }
+input[type="password"],
+input[type="email"],
+input[type="username"] {
+  width: 300px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 5px;
+  text-indent: 5px;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+}
 
 form input {
   width: 300px;
   height: 50px;
   margin: 10px;
-  border: none;
   border-radius: 5px;
   text-indent: 5px;
   font-size: 20px;
 }
 
+html {
+  background: url("../../assets/blue-instruments.jpg");
+}
+/*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
 form input:focus {
   outline: none;
 }
-.login-container {
+div.login-container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   margin-top: 175px;
   margin-left: 725px;
   width: 450px;
-  height: 350px;
+  height: 300px;
   border-radius: 10px;
-  background: linear-gradient(to right, transparent, rgb(207, 187, 184)),url('../../assets/orangeandgreycityesk.jpg');
-  background-size: cover;
+  /* background: linear-gradient(to right,transparent, rgb(255, 255, 255)),url('../../assets/blue-instruments.jpg'); */
+  /* background: radial-gradient(ellipse at top, #4a5fc1, transparent),
+    radial-gradient(ellipse at bottom, #9cf6fb, transparent); */
+  /* background: radial-gradient(#4a5fc1, #9cf6fb); */
+  background: white;
+  background-size: contain;
   background-attachment: fixed;
   background-position: center;
-
+  opacity: 0.85;
 }
 
 button.login {
-  width: 175px;
-  height: 50px;
+  width: 100px;
+  height: 35px;
   font-size: 15px;
   font-weight: 600;
   margin-left: 20px;
   border-radius: 10px;
   border: none;
-  background-color: #5e6eb8;
+  background-color: black;
   color: white;
   margin-top: 5px;
 }
+
 button.login:hover {
   transition: all 0.4s ease 0s;
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   cursor: pointer;
 }
-
-
 
 .errors {
   width: 300px;
