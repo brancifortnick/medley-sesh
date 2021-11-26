@@ -10,8 +10,9 @@ ol{
   padding: 6px;
   margin: 0px;
   display: inline-block;
-  color: black;
+  color: white;
 }
+
 label{
   font-size: 16px;
   font-weight: 600;
