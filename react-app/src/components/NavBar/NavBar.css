@@ -16,6 +16,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 20px;
+
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.383);
   background-color: #394F8A;
   backdrop-filter: blur(5px);

@@ -27,11 +27,9 @@ button#create_musician.submit{
 }
 button#create_musician.submit:hover{
   transition: all 0.4s ease 0s;
-   background-color:black;
-   border: 1px solid white;
-  font-weight: 600;
-  color: #9CF6FB;
-  /* border: none; */
   cursor: pointer;
+  background-color: #4a5fc1;
+  color: #9cf6fb;
+  border: 1px solid white;
 }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/

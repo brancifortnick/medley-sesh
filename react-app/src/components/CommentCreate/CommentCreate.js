@@ -10,6 +10,8 @@ const CommentCreate = () => {
 
   const user = useSelector((state) => state.session.user);
   const songs = useSelector((state) => Object.values(state.song));
+  // const comments = useSelector(state => Object.values(state.comment));
+
 
   const [comment, setComment] = useState("");
   const [showModal, setModal] = useState(false);
