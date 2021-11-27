@@ -1,38 +1,42 @@
-.musicians-list-components{
-display: flex;
-flex-wrap: wrap;
-
+.musicians-list-components {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.musicians-list-container{
-background-image: url(../../assets/jeremy-zero-oi62kgRUgT8-unsplash.jpg);
-background-size: cover;
-z-index: -1;
-background-attachment: scroll;
+.musicians-list-container {
+  display: grid;
+  grid-template-rows: fit-content(100%);
+  background: url(../../assets/jeremy-zero-oi62kgRUgT8-unsplash.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100% ;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
 
 .musician-div-container {
-  display: flex;
+
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
- padding: 28px;
+  padding: 28px;
 }
-.musicians-container{
-flex-basis: 5%;
-padding: 5px;
+
+.musicians-container {
+  flex-basis: 5%;
+  padding: 5px;
 }
-.musician-name{
+.musician-name {
   box-sizing: border-box;
   padding: 4px;
   border-radius: 4px;
-  color:black;
-  background-color: #4A5FC1;
+  color: black;
+  background-color: #4a5fc1;
   text-align: center;
   text-decoration: none;
 }
-.musician-name:hover{
+.musician-name:hover {
   transition: 0.4s ease-in;
-  color:#9CF6FB;
+  color: #9cf6fb;
 }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
