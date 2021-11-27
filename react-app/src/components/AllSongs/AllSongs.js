@@ -14,7 +14,7 @@ const AllSongs = ({ musicianId }) => {
   const comments = useSelector((state) => Object.values(state.comment));
 
   let commentId = comments.map((comment) => {
-    return songs.id === comment.song_id;
+    return comment.song_id;
   });
 
   useEffect(() => {

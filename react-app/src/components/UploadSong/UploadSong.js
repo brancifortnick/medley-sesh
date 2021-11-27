@@ -51,11 +51,13 @@ const UploadSong = ({ musicianId }) => {
   }, [dispatch, musicianId]);
 
   return (
-    <div className='song-form-container'>
-      <h1>Add a song to your musician</h1>
+    <div className="song-form-container">
+      <h1 id='add-song-text'>Add a song to your musician</h1>
       <form onSubmit={onSubmit}>
         <div className="form-container">
-          <label id="title">Title:</label>
+          <label id="title" >
+            Title:
+          </label>
           <input
             type="text"
             name="title"
@@ -63,25 +65,31 @@ const UploadSong = ({ musicianId }) => {
             onChange={(e) => setTitle(e.target.value)}
             value={title}
           />
-          <label className="form-input">Song</label>
+          <label className="form-input">
+            Song
+          </label>
           <input
+            // style={{ color: "white" }}
             name="file_url"
             accept="audio/*"
             type="file"
             onChange={uploadTrack}
           />
-          <label className='form-input'>Song Picture</label>
+          <label className="form-input">
+            Song Picture
+          </label>
           <input
-            name='song_img'
-            accept='image/*'
-            type='file'
+            // style={{ color: "white" }}
+            name="song_img"
+            accept="image/*"
+            type="file"
             onChange={(e) => setSongImg(e.target.files[1])}
-            />
-            <div id='upload-song'>
-          <button type="submit" id="create-song-btn">
-            Upload
-          </button>
-        </div>
+          />
+          <div id="upload-song">
+            <button type="submit" id="create-song-btn">
+              Upload
+            </button>
+          </div>
         </div>
       </form>
     </div>
