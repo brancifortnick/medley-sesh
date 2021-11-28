@@ -6,7 +6,8 @@ import "./LandingPage.css";
 const LandingPage = () => {
   return (
     <div className="landing-container">
-      <img style={{width: "auto"}} alt ='_blank'className='background-image-landing'src={background}></img>
+      <h1 id='welcome-text'>Hello</h1>
+      <img alt ='_blank'className='background-image-landing'src={background}></img>
     </div>
   );
 };

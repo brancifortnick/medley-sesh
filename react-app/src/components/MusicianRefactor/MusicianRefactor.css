@@ -13,6 +13,7 @@ div#biography {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  height: 100%;
 }
 div.biography-div {
   display: flex;
