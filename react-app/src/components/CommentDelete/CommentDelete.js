@@ -16,7 +16,7 @@ const CommentDelete = ({commentId}) => {
   const commentDelete = async (e) => {
     e.preventDefault();
     dispatch(deleteAComment(commentId));
-    history.push(`/musicians`)
+    dispatch(getAllComments())
   };
 
   // useEffect(() => {

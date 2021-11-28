@@ -10,7 +10,7 @@ const CommentCreate = () => {
 
   const user = useSelector((state) => state.session.user);
   const songs = useSelector((state) => Object.values(state.song));
-  // const comments = useSelector(state => Object.values(state.comment));
+  const comments = useSelector(state => Object.values(state.comment));
 
 
   const [comment, setComment] = useState("");
@@ -26,8 +26,9 @@ const CommentCreate = () => {
     formData.append("comment", comment);
     formData.append("song_id", song_id);
     formData.append("user_id", user.id);
-
+    console.log('before comment created', comments )
     dispatch(createComment(formData));
+    console.log('after dispatch', comments, '<<<<<<<<')
     setModal(false);
     // setComment("");
   };

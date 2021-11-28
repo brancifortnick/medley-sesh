@@ -11,9 +11,10 @@ const CommentDisplay = ({songId}) => {
   const comments = useSelector((state) => Object.values(state.comment));
   const currentUser = useSelector((state) => state.session.user);
   // const song = useSelector((state) => state.song);
-
+  console.log(comments, '<<<<comments before useEffect')
 
   useEffect(() => {
+    console.log('inside of useEffect comment display component', comments)
     dispatch(getAllComments(songId));
   }, [dispatch, songId]);
 

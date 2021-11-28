@@ -37,13 +37,17 @@ export const getAllComments = (song_id) => async (dispatch) => {
 };
 
 export const createComment = (formData) => async (dispatch) => {
+
   const res = await fetch(`/api/comments/new`, {
     method: "POST",
     body: formData,
   });
   if (res.ok) {
+    console.log('hey before newcomment---redux')
     const newComment = await res.json();
+    console.log(newComment, 'we are in the redux store after newComment')
     dispatch(postComment(newComment));
+    console.log(newComment, ' after calling postComment')
     return newComment;
   } else {
     console.log("Error-coming from post thunk STORE*******");
@@ -88,8 +92,10 @@ export default function reducer(state = initialState, action) {
       });
       return newState;
     case ADD_COMMENT:
-      newState[action.payload.id] = action.payload;
-      return newState;
+      console.log(state, 'inside of reducer')
+      state[action.payload.id] = action.payload;
+      console.log(state, 'after add_comment>>>>> redux store reducer')
+      return state;
     case DELETE_COMMENT:
       const deleteState = {...state}
       delete deleteState[action.payload.id];

@@ -1,11 +1,6 @@
-/* #welcome-text {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  overflow-x: hidden;
-} */
+#welcome-text {
+position: absolute;
+}
 .landing-container {
  display: flex;
  overflow-x: hidden;
