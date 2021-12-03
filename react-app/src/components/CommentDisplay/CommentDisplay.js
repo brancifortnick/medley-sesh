@@ -14,7 +14,7 @@ const CommentDisplay = ({songId}) => {
   console.log(comments, '<<<<comments before useEffect')
 
   useEffect(() => {
-    console.log('inside of useEffect comment display component', comments)
+    console.log('inside of useEffect comment display component')
     dispatch(getAllComments(songId));
   }, [dispatch, songId]);
 
