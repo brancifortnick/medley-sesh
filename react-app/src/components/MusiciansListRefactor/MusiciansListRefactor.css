@@ -6,7 +6,8 @@
 .musicians-list-container {
   display: grid;
   grid-template-rows: fit-content(100%);
-  background: url(../../assets/jeremy-zero-oi62kgRUgT8-unsplash.jpg);
+  /* background: url(../../assets/jeremy-zero-oi62kgRUgT8-unsplash.jpg); */
+  background: #FFFEF6;
   background-size: cover;
   background-attachment: fixed;
   height: 100% ;
