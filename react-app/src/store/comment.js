@@ -93,9 +93,9 @@ export default function reducer(state = initialState, action) {
       return newState;
     case ADD_COMMENT:
       console.log(state, 'inside of reducer')
-      state[action.payload.id] = action.payload;
+      newState[action.payload.id] = action.payload;
       console.log(state, 'after add_comment>>>>> redux store reducer')
-      return state;
+      return newState;
     case DELETE_COMMENT:
       const deleteState = {...state}
       delete deleteState[action.payload.id];
