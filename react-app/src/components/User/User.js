@@ -42,7 +42,7 @@ function User () {
       {/* <div id="add-musician-link"> */}
       <div id="add-musicians-button">
 
-        <button activeClassName="active" type="button" id="add-musician-btn">
+        <button className="active" type="button" id="add-musician-btn">
 
           <Link
             style={{ textDecoration: "none", color: "black" }}

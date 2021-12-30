@@ -1,6 +1,7 @@
 import React, {useEffect } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
-import { useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import { getOneMusician} from "../../store/musician";
 import UpdateBiography from "../UpdateBiography/UpdateBiography";
 import DeleteMusician from '../DeleteMusician/DeleteMusician';
@@ -9,15 +10,18 @@ import UploadSong from "../UploadSong/UploadSong";
 import CommentCreate from "../CommentCreate/CommentCreate";
 import './MusicianRefactor.css'
 
-const Musician = () => {
+function Musician() {
+
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
   const { musicianId } = useParams();
+  const history = useHistory();
   // const musicians = useSelector((state) => Object.values(state.musician));
   const musicians = useSelector(state => state.musician);
+  const songs = useSelector(state => Object.values(state.song));
 
   useEffect(() => {
-    dispatch(getOneMusician(Number(musicianId)));
+    dispatch(getOneMusician(parseInt(musicianId)));
   }, [dispatch, musicianId]);
 
   return (
@@ -62,7 +66,7 @@ const Musician = () => {
         ) : null}
       </div>
       <div className="audio-div">
-        <AllSongs musicianId={musicianId} />
+        <AllSongs musicianId={musicianId} songId={songs.id}/>
       </div>
       <div className="song-form">
         {currentUser.id === Number(musicians.user_id) ? (

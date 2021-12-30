@@ -30,12 +30,12 @@ const CommentCreate = () => {
     dispatch(createComment(formData));
     console.log('after dispatch', comments, '<<<<<<<<')
     setModal(false);
-    // setComment("");
+    setComment("");
   };
 
-  // useEffect(() => {
-  //   dispatch(getAllComments());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllComments());
+  }, [dispatch]);
 
   const updateComment = (e) => setComment(e.target.value);
 

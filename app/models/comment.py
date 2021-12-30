@@ -27,5 +27,5 @@ class Comment(db.Model):
             'updated_at': self.updated_at,
             'user': self.users.to_dict(),
             'username': self.users.username,
-            'song': self.songs.to_dict()
+            # 'song': self.songs.to_dict()
         }

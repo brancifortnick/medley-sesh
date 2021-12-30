@@ -23,10 +23,10 @@ def get_song(id):
     return song.to_dict()
 
 
-@song_routes.route('/<int:id>/comments', methods=['GET'])
-def get_comments(id):
-    comments = Comment.query.filter(Comment.song_id == id).all()
-    return {'comments': [comment.to_dict for comment in comments]}
+# @song_routes.route('/<int:id>/comments', methods=['GET'])
+# def get_comments(id):
+#     comments = Comment.query.filter(Comment.song_id == id).all()
+#     return {'comments': [comment.to_dict for comment in comments]}
 
 
 

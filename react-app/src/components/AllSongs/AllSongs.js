@@ -32,7 +32,7 @@ const AllSongs = ({ musicianId }) => {
             <div id="audio-player">
               <audio src={song.file_url} controls></audio>
               {user.id === Number(song.musician_id) ? (
-                <DeleteTrack musicianId={musicianId} songId={song.id} />
+                <DeleteTrack musicianId={song.musician_id} songId={song.id} />
               ) : null}
             </div>
             <div id="comment-display-component">

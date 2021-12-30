@@ -19,9 +19,9 @@ const CommentDelete = ({commentId}) => {
     dispatch(getAllComments())
   };
 
-  // useEffect(() => {
-  //   dispatch(getAllComments());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllComments());
+  }, [dispatch]);
 
   return (
     <form id='delete-form'>

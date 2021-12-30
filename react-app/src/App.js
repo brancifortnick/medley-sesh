@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { authenticate } from "./store/session";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -11,10 +11,8 @@ import User from "./components/User/User";
 import MusicianRefactor from "./components/MusicianRefactor/MusicianRefactor";
 import MusiciansListRefactor from "./components/MusiciansListRefactor/MusiciansListRefactor";
 import MusicianFormThree from "./components/MusicianFormThree/MusicianFormThree";
-import LandingPage from './components/LandingPage/LandingPage';
+import LandingPage from "./components/LandingPage/LandingPage";
 import CommentCreate from "./components/CommentCreate/CommentCreate";
-
-
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -63,7 +61,9 @@ function App() {
         <ProtectedRoute path="/musicians/:musicianId" exact={true}>
           <MusicianRefactor />
           {/* <CommentCreate /> */}
+
         </ProtectedRoute>
+
 
         <ProtectedRoute path="/" exact={true}>
           <LandingPage />

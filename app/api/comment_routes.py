@@ -7,15 +7,15 @@ from flask_login import current_user, login_required
 
 comment_routes = Blueprint('comments', __name__)
 
-# @comment_routes.route('/')
-# def get_all():
-#     comments = Comment.query.all()
-#     return {'comments': [comment.to_dict() for comment in comments]}
+@comment_routes.route('/')
+def get_all():
+    comments = Comment.query.all()
+    return {'comments': [comment.to_dict() for comment in comments]}
 
-# @comment_routes.route('/<int:id>/')
-# def get_by_id(id):
-#     comments = Comment.query.get(id)
-#     return comments.to_dict()
+@comment_routes.route('/<int:id>')
+def get_by_id(id):
+    comments = Comment.query.get(id)
+    return comments.to_dict()
 
 @comment_routes.route('/<int:song_id>', methods=['GET'])
 def get_song_comments(song_id):

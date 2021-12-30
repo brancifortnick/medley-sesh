@@ -13,7 +13,8 @@ div#biography {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 100%;
+  height: fit-content;
+  width: auto;
 }
 div.biography-div {
   display: flex;

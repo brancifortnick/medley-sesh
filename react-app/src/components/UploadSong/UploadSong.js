@@ -13,7 +13,7 @@ const UploadSong = ({ musicianId }) => {
   const user = useSelector(state => state.session.user);
 
   const [title, setTitle] = useState("");
-  const [file_url, setSong] = useState(null);
+  const [file_url, setSong] = useState('');
   const [song_img, setSongImg] = useState(null);
 
   const onSubmit = async (e) => {
@@ -33,7 +33,7 @@ const UploadSong = ({ musicianId }) => {
         "error - song not uploaded"
       );
     }
-      history.push(`/users/${user.id}`)
+      history.push(`/musicians/${musicianId}`)
   };
 
   const uploadTrack = async (e) => {
@@ -75,7 +75,7 @@ const UploadSong = ({ musicianId }) => {
             type="file"
             onChange={uploadTrack}
           />
-          <label className="form-input">
+          {/* <label className="form-input">
             Song Picture
           </label>
           <input
@@ -84,7 +84,7 @@ const UploadSong = ({ musicianId }) => {
             accept="image/*"
             type="file"
             onChange={(e) => setSongImg(e.target.files[1])}
-          />
+          /> */}
           <div id="upload-song">
             <button type="submit" id="create-song-btn">
               Upload

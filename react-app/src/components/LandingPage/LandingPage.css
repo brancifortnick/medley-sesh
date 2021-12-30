@@ -1,5 +1,11 @@
 #welcome-text {
 position: absolute;
+padding: 25px;
+margin-top: 85px;
+text-align: center;
+color: white;
+background-color: rgb(39, 37, 37);
+opacity: .8;
 }
 .landing-container {
  display: flex;
