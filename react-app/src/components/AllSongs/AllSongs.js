@@ -5,6 +5,7 @@ import DeleteTrack from "../DeleteTrack/DeleteTrack";
 import CommentDisplay from "../CommentDisplay/CommentDisplay";
 import "./AllSongs.css";
 import { getOneMusician } from "../../store/musician";
+import { getMusiciansTracks } from "../../store/song";
 import "./AllSongs.css";
 
 const AllSongs = ({ musicianId }) => {
@@ -19,7 +20,7 @@ const AllSongs = ({ musicianId }) => {
 
   useEffect(() => {
     dispatch(getOneMusician(parseInt(musicianId)));
-    //should this be parseInt =<><> not sure <><>=
+    dispatch(getMusiciansTracks(parseInt(musicianId)))
   }, [dispatch, musicianId]);
 
   return (

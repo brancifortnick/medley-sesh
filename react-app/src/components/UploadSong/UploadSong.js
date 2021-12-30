@@ -75,7 +75,7 @@ const UploadSong = ({ musicianId }) => {
             type="file"
             onChange={uploadTrack}
           />
-          <label className="form-input">
+          {/* <label className="form-input">
             Song Picture
           </label>
           <input
@@ -84,7 +84,7 @@ const UploadSong = ({ musicianId }) => {
             accept="image/*"
             type="file"
             onChange={(e) => setSongImg(e.target.files[1])}
-          />
+          /> */}
           <div id="upload-song">
             <button type="submit" id="create-song-btn">
               Upload

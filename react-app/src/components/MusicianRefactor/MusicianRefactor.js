@@ -9,15 +9,17 @@ import UploadSong from "../UploadSong/UploadSong";
 import CommentCreate from "../CommentCreate/CommentCreate";
 import './MusicianRefactor.css'
 
-const Musician = () => {
+function Musician() {
+
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
   const { musicianId } = useParams();
   // const musicians = useSelector((state) => Object.values(state.musician));
   const musicians = useSelector(state => state.musician);
+  const song = useSelector(state => state.song);
 
   useEffect(() => {
-    dispatch(getOneMusician(Number(musicianId)));
+    dispatch(getOneMusician(parseInt(musicianId)));
   }, [dispatch, musicianId]);
 
   return (
@@ -62,7 +64,7 @@ const Musician = () => {
         ) : null}
       </div>
       <div className="audio-div">
-        <AllSongs musicianId={musicianId} />
+        <AllSongs musicianId={musicianId} songId={song.id}/>
       </div>
       <div className="song-form">
         {currentUser.id === Number(musicians.user_id) ? (

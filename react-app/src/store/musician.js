@@ -25,19 +25,16 @@ const deleteMusician = (musician) => ({
   payload: musician,
 });
 
-
 const updateBio = (musician) => ({
   type: UPDATE_BIOGRAPHY,
   payload: musician,
 });
-
 
 // const addImage = (musician) => ({
 //   type: ADD_IMAGE,
 //   payload: musician,
 // });
 //---put route
-
 
 export const getAllMusicians = () => async (dispatch) => {
   const res = await fetch(`/api/musicians/`);
@@ -71,7 +68,7 @@ export const getOneMusician = (id) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(getOne(data));
-  }//
+  } //
 };
 
 export const deleteOneMusician = (id) => async (dispatch) => {
@@ -84,7 +81,6 @@ export const deleteOneMusician = (id) => async (dispatch) => {
     console.log("Musician Can't be deleted");
   }
 };
-
 
 export const updateBiography = (formData, musicianId) => async (dispatch) => {
   const response = await fetch(`/api/musicians/${musicianId}/biography`, {
@@ -118,9 +114,9 @@ export const updateBiography = (formData, musicianId) => async (dispatch) => {
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
-  let newState = {};
   switch (action.type) {
     case GET_MUSICIANS:
+      let newState = {};
       action.payload.forEach((musician) => {
         newState[musician.id] = musician;
       });
@@ -134,20 +130,11 @@ export default function reducer(state = initialState, action) {
       return { ...action.payload };
     case DELETE_MUSICIAN:
       const currentState = { ...state };
-      delete currentState[action.payload.id]; ///put route will need new ID remember
+      delete currentState[action.payload.id];
       return currentState;
     case UPDATE_BIOGRAPHY:
-      const updateState = {...state}
-      updateState[action.payload] = action.payload;
-      return updateState;
+      return { ...action.payload };
     default:
       return state;
   }
-};
-
-
-//-put case for updating musician image
-    /* case ADD_IMAGE:
-    //   return {...action.payload}  error is def comming from here for update-needs id
-    //   newState[action.payload.id] = action.payload;
-      return newState;*/
+}
