@@ -1,6 +1,6 @@
 const GET_TRACKS = "song/GET_TRACKS";
 const ADD_TRACK = "song/ADD_TRACK";
-// const UPDATE_TRACK = "song/UPDATE_TRACK";
+const GET_ONE_TRACK = "song/GET_ONE_TRACK";
 const DELETE_TRACK = "song/DELETE_TRACK";
 
 const getAllSongs = (songs) => ({
@@ -13,10 +13,10 @@ const addOneSong = (song) => ({
   payload: song,
 });
 
-// const updateTrack = (song) => ({
-//   type: UPDATE_TRACK,
-//   payload: song,
-// });
+const grabOneSong = (song) => ({
+  type: GET_ONE_TRACK,
+  payload: song,
+});
 
 const deleteATrack = (song) => ({
   type: DELETE_TRACK,
@@ -50,13 +50,24 @@ export const createNewSong =
         "newSong value from createNewSOng thunk in song.store"
       );
       dispatch(addOneSong(newSong));
-      // return newSong;
+      return newSong;
     } else {
       console.log(
         "erroring out in musician thunk---> createNewSong---> STORE ***SONG**"
       );
     }
   };
+
+export const getOneSingleSong = (id) => async (dispatch) => {
+  const response = await fetch(`/api/musicians/songs/${id}`);
+  if (response.ok) {
+    const singleSong = await response.json();
+    dispatch(grabOneSong(singleSong));
+    return singleSong;
+  }else{
+    console.log('error coming from store => getting single song in SONGSTORE')
+  }
+};
 
 export const deleteTrack = (id) => async (dispatch) => {
   const response = await fetch(`/api/songs/${id}`, {
@@ -81,6 +92,8 @@ export default function reducer(state = initialState, action) {
       const newNew = { ...state };
       newNew[action.payload.id] = action.payload;
       return newNew;
+    case GET_ONE_TRACK:
+      return {...action.payload}
     case DELETE_TRACK:
       const currentState = { ...state };
       delete currentState[action.payload]; // maybe this should be action.payload.id-not sure

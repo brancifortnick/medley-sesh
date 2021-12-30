@@ -1,15 +1,38 @@
+/* #welcome-text {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 700px;
+  max-width: 700px;
+  margin: 0;
+  padding: 25px;
+  margin-top: 85px;
+  text-align: center;
+  color: white;
+  background-color: rgb(39, 37, 37);
+  opacity: 0.8;
+} */
 #welcome-text {
-position: absolute;
-padding: 25px;
-margin-top: 85px;
-text-align: center;
-color: white;
-background-color: rgb(39, 37, 37);
-opacity: .8;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  background-color: #fffef6;
+  border: .5px solid black;
+  /* border-radius: 6px; */
+  color: black;
+  padding: 25px;
+  margin: 0;
+  font-weight: 500;
+  text-align: start;
 }
 .landing-container {
- display: flex;
- overflow-x: hidden;
+  display: flex;
+  overflow-x: hidden;
+  align-items: flex-end;
+  flex-direction: row;
 }
 img.background-image-landing {
   background-size: cover;
