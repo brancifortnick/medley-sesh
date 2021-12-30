@@ -93,7 +93,7 @@ const initialState = {};
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_COMMENTS:
-      let newComState = { ...state };
+      let newComState = {};
       action.payload.forEach((comment) => {
         newComState[comment.id] = comment;
       });
@@ -111,7 +111,9 @@ export default function reducer(state = initialState, action) {
       delete deleteState[action.payload];
       return deleteState;
     case EDIT_COMMENT:
-      return { ...action.payload };
+      const editState = {...state}
+      editState[action.payload.id] = action.payload
+      return editState;
     default:
       return state;
   }

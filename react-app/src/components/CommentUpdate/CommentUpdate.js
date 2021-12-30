@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import { updateAComment, getAllComments } from "../../store/comment";
-import './CommentUpdate.css'
+import "./CommentUpdate.css";
 // import { getOneMusician } from "../../store/musician";
 // import { getMusiciansTracks } from "../../store/song";
 
-const UpdateComment = ({commentId}) => {
+const UpdateComment = ({ commentId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { musicianId } = useParams();
   const [comment, setComment] = useState("");
   const [showModal, setModal] = useState(false);
 
@@ -18,9 +19,11 @@ const UpdateComment = ({commentId}) => {
     formData.append("comment", comment);
     dispatch(updateAComment(formData, commentId));
     setModal(false);
-    setComment("")
+    history.push(`/musicians/${musicianId}`);
   };
-
+  useEffect(() => {
+    dispatch(getAllComments(parseInt(commentId)));
+  }, [dispatch, commentId]);
 
   return (
     <>
