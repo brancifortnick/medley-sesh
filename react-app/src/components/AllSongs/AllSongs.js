@@ -5,7 +5,6 @@ import DeleteTrack from "../DeleteTrack/DeleteTrack";
 import CommentDisplay from "../CommentDisplay/CommentDisplay";
 import "./AllSongs.css";
 import { getOneMusician } from "../../store/musician";
-import { getMusiciansTracks } from "../../store/song";
 import "./AllSongs.css";
 
 const AllSongs = ({ musicianId }) => {
@@ -20,7 +19,7 @@ const AllSongs = ({ musicianId }) => {
 
   useEffect(() => {
     dispatch(getOneMusician(parseInt(musicianId)));
-    dispatch(getMusiciansTracks(parseInt(musicianId)))
+    //should this be parseInt =<><> not sure <><>=
   }, [dispatch, musicianId]);
 
   return (
@@ -33,7 +32,7 @@ const AllSongs = ({ musicianId }) => {
             <div id="audio-player">
               <audio src={song.file_url} controls></audio>
               {user.id === Number(song.musician_id) ? (
-                <DeleteTrack musicianId={musicianId} songId={song.id} />
+                <DeleteTrack musicianId={song.musician_id} songId={song.id} />
               ) : null}
             </div>
             <div id="comment-display-component">

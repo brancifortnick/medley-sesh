@@ -9,7 +9,6 @@ import "./CommentDisplay.css";
 const CommentDisplay = ({songId}) => {
   const dispatch = useDispatch();
   const comments = useSelector((state) => Object.values(state.comment));
-  const comment = useSelector(state => state.comment)
   const currentUser = useSelector((state) => state.session.user);
   // const song = useSelector((state) => state.song);
   console.log(comments, '<<<<comments before useEffect')
@@ -21,7 +20,7 @@ const CommentDisplay = ({songId}) => {
 
   return (
     <div>
-      <CommentCreate songId={songId} commentId={comment.id}/>
+      <CommentCreate/>
       <div className="comment-form-container">
         <div id="comment-div">
           {comments.map((comment) => (

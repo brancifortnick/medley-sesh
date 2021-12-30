@@ -12,7 +12,7 @@ const MusicianFormThree = () => {
 
   // const [musicians, setMusicians] = useState([]);
   const [musician_name, setMusicianName] = useState("");
-  const [profile_img, setProfileImg] = useState(null);
+  const [profile_img, setProfileImg] = useState('');
   const [biography, setBiography] = useState("");
 
   const onSubmit = async (e) => {

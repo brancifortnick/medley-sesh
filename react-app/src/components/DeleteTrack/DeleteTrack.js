@@ -7,17 +7,17 @@ import './DeleteTrack.css'
 
 
 const DeleteTrack = ({ musicianId, songId }) => {
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
 
   const onSubmit = async (e) => {
     e.preventDefault();
     dispatch(deleteTrack(parseInt(songId)));
-    history.push("/");
+    // history.push("/");
   };
 
   useEffect(() => {
-    dispatch(getOneMusician(parseInt(musicianId)));
+    // dispatch(getOneMusician(parseInt(musicianId)));
     dispatch(getMusiciansTracks(parseInt(musicianId)));
   }, [dispatch, musicianId]);
 

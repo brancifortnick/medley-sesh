@@ -50,7 +50,7 @@ export const createNewSong =
         "newSong value from createNewSOng thunk in song.store"
       );
       dispatch(addOneSong(newSong));
-      return newSong;
+      // return newSong;
     } else {
       console.log(
         "erroring out in musician thunk---> createNewSong---> STORE ***SONG**"
@@ -83,7 +83,7 @@ export default function reducer(state = initialState, action) {
       return newNew;
     case DELETE_TRACK:
       const currentState = { ...state };
-      delete currentState[action.payload.id]; // maybe this should be action.payload.id-not sure
+      delete currentState[action.payload]; // maybe this should be action.payload.id-not sure
       return currentState;
     default:
       return state;

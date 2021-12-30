@@ -13,7 +13,7 @@ const UploadSong = ({ musicianId }) => {
   const user = useSelector(state => state.session.user);
 
   const [title, setTitle] = useState("");
-  const [file_url, setSong] = useState(null);
+  const [file_url, setSong] = useState('');
   const [song_img, setSongImg] = useState(null);
 
   const onSubmit = async (e) => {
@@ -33,7 +33,7 @@ const UploadSong = ({ musicianId }) => {
         "error - song not uploaded"
       );
     }
-      history.push(`/users/${user.id}`)
+      history.push(`/musicians/${musicianId}`)
   };
 
   const uploadTrack = async (e) => {
