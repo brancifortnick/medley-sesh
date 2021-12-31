@@ -20,7 +20,9 @@ const CommentDisplay = ({songId}) => {
 
   return (
     <div>
+      {currentUser ? (
       <CommentCreate/>
+      ): null }
       <div className="comment-form-container">
         <div id="comment-div">
           {comments.map((comment) => (

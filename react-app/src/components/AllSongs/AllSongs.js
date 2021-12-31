@@ -12,9 +12,10 @@ const AllSongs = ({ musicianId }) => {
   const user = useSelector((state) => state.session.user);
   const songs = useSelector((state) => Object.values(state.song));
   const comments = useSelector((state) => Object.values(state.comment));
+  const musicians = useSelector((state) => Object.values(state.musician));
 
   let commentId = comments.map((comment) => {
-    return comment.song_id;
+    return comment.id;
   });
 
   useEffect(() => {
@@ -24,11 +25,11 @@ const AllSongs = ({ musicianId }) => {
 
   return (
     <div>
+    {/* {musicians.id === songs.musician_id ?} */}
       <>
         {songs.map((song) => (
-          <div key={song.id} className="song-id">
+          <div key={song.id} songId={song.id}className="song-id">
             <p className="title-p">Title: {song.title} </p>
-
             <div id="audio-player">
               <audio src={song.file_url} controls></audio>
               {user.id === Number(song.musician_id) ? (
@@ -51,6 +52,7 @@ const AllSongs = ({ musicianId }) => {
           </div>
         ))}
       </>
+      {/* ): null} */}
     </div>
   );
 };
