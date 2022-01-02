@@ -31,7 +31,7 @@ const AllSongs = ({ musicianId }) => {
           <div key={song.id} songId={song.id}className="song-id">
             <p className="title-p">Title: {song.title} </p>
             <div id="audio-player">
-              <audio id='player'src={song.file_url} controls></audio>
+              <audio src={song.file_url} controls></audio>
               {user.id === Number(song.musician_id) ? (
                 <DeleteTrack musicianId={song.musician_id} songId={song.id} />
               ) : null}

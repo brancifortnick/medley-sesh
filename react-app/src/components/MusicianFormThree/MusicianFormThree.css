@@ -1,7 +1,8 @@
 .outer_card {
   display: grid;
   grid-template-rows: fit-content(100%);
-  background: url(../../assets/blueandpink.jpg);
+  /* background: url(../../assets/blueandpink.jpg); */
+  background: linear-gradient(92deg, rgb(67, 67, 95), rgb(216, 209, 210));
   padding-top: 40px;
   text-align: center;
   background-size: cover;

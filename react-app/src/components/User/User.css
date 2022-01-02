@@ -3,7 +3,7 @@
   display: grid;
   grid-template-rows: fit-content(100%);
   flex-wrap: wrap;
-  background: url(../../assets/microphone_img.jpg);
+  background: linear-gradient(2deg, rgb(63, 63, 78), rgb(216, 209, 210));
   padding-top: 50px;
   text-align: center;
   background: contain;
