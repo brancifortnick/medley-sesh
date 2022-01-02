@@ -27,7 +27,7 @@ const AllSongs = ({ musicianId }) => {
   // });
 
   useEffect(() => {
-    dispatch(getOneMusician((musicianId)));
+    dispatch(getOneMusician(parseInt(musicianId)));
   }, [dispatch, musicianId]);
 
   return (
@@ -38,7 +38,7 @@ const AllSongs = ({ musicianId }) => {
             <p className="title-p">Title: {song.title} </p>
             <div id="audio-player">
               <audio src={song.file_url} controls></audio>
-              {user.id === Number(musician.user_id) ? (
+              {user.id === Number(song.musician_id) ? (
                 <DeleteTrack musicianId={song.musician_id} songId={song.id} />
               ) : null}
             </div>

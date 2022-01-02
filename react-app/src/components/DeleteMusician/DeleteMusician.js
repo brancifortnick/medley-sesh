@@ -16,7 +16,7 @@ const DeleteMusician = ({ musicianId }) => {
   };
 
   useEffect(() => {
-    dispatch(getAllMusicians(Number(musicianId)));
+    dispatch(getOneMusician(Number(musicianId)));
   }, [dispatch, musicianId]);
 
   return (
