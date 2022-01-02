@@ -10,9 +10,8 @@ const MusicianFormThree = () => {
 
   const user = useSelector((state) => state.session.user);
 
-  // const [musicians, setMusicians] = useState([]);
   const [musician_name, setMusicianName] = useState("");
-  const [profile_img, setProfileImg] = useState('');
+  const [profile_img, setProfileImg] = useState("");
   const [biography, setBiography] = useState("");
 
   const onSubmit = async (e) => {
@@ -27,8 +26,7 @@ const MusicianFormThree = () => {
     if (res.ok) {
       let profile_img = await res.json();
       dispatch(postNewMusician(profile_img, biography, user.id, musician_name));
-    } else {
-      console.log("post form on front end----------ERROR F>E");
+      dispatch(getAllMusicians());
     }
     history.push(`/users/${user.id}`);
   };
@@ -37,7 +35,7 @@ const MusicianFormThree = () => {
     const file = e.target.files[0];
     setProfileImg(file);
   };
-  //
+
   return (
     <div className="outer_card">
       <h1 id="add-musician-text">Add A Musician</h1>
@@ -58,7 +56,7 @@ const MusicianFormThree = () => {
           Add Profile Picture
         </label>
         <input
-          style ={{color: "white", fontSize: "15px", fontWeight: "500"}}
+          style={{ color: "white", fontSize: "15px", fontWeight: "500" }}
           type="file"
           accept="image/*"
           name="profile_img"

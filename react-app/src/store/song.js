@@ -58,16 +58,16 @@ export const createNewSong =
     }
   };
 
-export const getOneSingleSong = (id) => async (dispatch) => {
-  const response = await fetch(`/api/musicians/songs/${id}`);
-  if (response.ok) {
-    const singleSong = await response.json();
-    dispatch(grabOneSong(singleSong));
-    return singleSong;
-  }else{
-    console.log('error coming from store => getting single song in SONGSTORE')
-  }
-};
+// export const getOneSingleSong = (id) => async (dispatch) => {
+//   const response = await fetch(`/api/musicians/songs/${id}`);
+//   if (response.ok) {
+//     const singleSong = await response.json();
+//     dispatch(grabOneSong(singleSong));
+//     return singleSong;
+//   } else {
+//     console.log("error coming from store => getting single song in SONGSTORE");
+//   }
+// };
 
 export const deleteTrack = (id) => async (dispatch) => {
   const response = await fetch(`/api/songs/${id}`, {
@@ -83,7 +83,7 @@ const initialState = {};
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_TRACKS:
-      const getState = { ...state };
+      const getState = {};
       action.payload.forEach((song) => {
         getState[song.id] = song;
       });
@@ -92,8 +92,8 @@ export default function reducer(state = initialState, action) {
       const newNew = { ...state };
       newNew[action.payload.id] = action.payload;
       return newNew;
-    case GET_ONE_TRACK:
-      return {...action.payload}
+    // case GET_ONE_TRACK:
+    //   return { ...action.payload };
     case DELETE_TRACK:
       const currentState = { ...state };
       delete currentState[action.payload]; // maybe this should be action.payload.id-not sure

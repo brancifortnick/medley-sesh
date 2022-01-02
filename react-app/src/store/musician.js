@@ -36,7 +36,7 @@ const updateBio = (musician) => ({
 // });
 //---put route
 
-export const getAllMusicians = () => async (dispatch) => {
+export const getAllMusicians = (id) => async (dispatch) => {
   const res = await fetch(`/api/musicians/`);
   if (res.ok) {
     const data = await res.json();
