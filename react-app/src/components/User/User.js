@@ -12,6 +12,7 @@ function User() {
   // const musicians = useSelector(state => state.musician);
   const usersInformation = useSelector((state) => state.usersReducer);
 
+  const user = useSelector(state => state.session.user)
   useEffect(() => {
     dispatch(getOneUser(Number(userId)));
   }, [dispatch, userId]);
@@ -35,13 +36,13 @@ function User() {
           </Link>
         </button>
       </div>
-      <div id="your-musicians-text">
+      {/* <div id="your-musicians-text">
         <strong> Your Musicians </strong>
-      </div>
+      </div> */}
 
       <div id="usersMusicians-component">
         <div id="component">
-          <UsersMusicians />
+          <UsersMusicians userId={user.id}/>
         </div>
       </div>
     </div>

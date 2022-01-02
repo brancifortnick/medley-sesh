@@ -27,8 +27,9 @@ label{
 .card{
   border-radius: 6px;
   background-color: #F0EFEB;
-  padding: 20 0 20px 0;
-  border: 3px solid white;
+  padding: 20 0;
+  /* border: 3px solid white; */
+  border: 1px solid black;
    /* #E1FCFD; */
 }
 
@@ -60,10 +61,12 @@ html{
 
 body {
   height: 100%;
+  /* width: auto; */
+
 }
 
 div#root {
   height: 100%;
   /* background:#FFFEF6; */
-
+  /* background-color: #F0EFEB; */
 }

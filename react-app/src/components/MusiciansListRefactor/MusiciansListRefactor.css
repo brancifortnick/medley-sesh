@@ -6,13 +6,22 @@
 .musicians-list-container {
   display: grid;
   grid-template-rows: fit-content(100%);
-  /* background: url(../../assets/jeremy-zero-oi62kgRUgT8-unsplash.jpg); */
-  background: #FFFEF6;
-  background-size: cover;
+  justify-items: center;
+  background: #fffef6;
+  background-image: url(../../assets/piano_img.jpg);
+  background: linear-gradient(
+      217deg,
+      rgba(58, 139, 245, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(0, 60, 255, 0.8), rgba(12, 12, 12, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  background-size: contain;
   background-attachment: fixed;
-  height: 100% ;
+  height: 100%;
   background-repeat: no-repeat;
   z-index: -1;
+  padding-top: 80px;
 }
 
 .musician-div-container {
@@ -20,23 +29,26 @@
   justify-content: space-around;
   align-items: center;
   padding: 28px;
+  font-weight: 500;
+  border-top: 2px solid black;
+  border-radius: 22px;
 }
-
 .musicians-container {
   flex-basis: 5%;
   padding: 5px;
 }
 .musician-name {
-  box-sizing: border-box;
+  border-radius: 3px solid black;
   padding: 4px;
-  border-radius: 4px;
+  height: 35px;
   color: black;
-  background-color: #4a5fc1;
+  font-size: 14pt;
+  /* text-decoration: cadetblue; */
   text-align: center;
   text-decoration: none;
 }
 .musician-name:hover {
   transition: 0.4s ease-in;
-  color: #9cf6fb;
+  color: #000000;
 }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/

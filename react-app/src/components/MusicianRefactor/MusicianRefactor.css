@@ -14,7 +14,7 @@ div#biography {
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: fit-content;
-  width: auto;
+  /* width: auto; */
 }
 div.biography-div {
   display: flex;

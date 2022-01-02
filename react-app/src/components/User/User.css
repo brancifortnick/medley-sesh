@@ -3,26 +3,21 @@
   display: grid;
   grid-template-rows: fit-content(100%);
   flex-wrap: wrap;
-  background: url(../../assets/blueandpink.jpg);
-  padding-top: 20px;
+  background: linear-gradient(2deg, rgb(63, 63, 78), rgb(216, 209, 210));
+  padding-top: 50px;
   text-align: center;
-  background-size: contain;
-  background-repeat: repeat;
+  background: contain;
+  background-repeat: repeat-x;
   width: 100%;
   height: 100%;
+  font-size: 16pt;
   z-index: -1;
-}
-#your-musicians-text{
-  display: flex;
-  flex-direction: row;
-  justify-self: center;
-  align-items: center;
-  color: white;
 }
 #usersMusicians-component {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  background:repeat-x;
 }
 /* #component {
   font-weight: 500;
@@ -52,3 +47,11 @@ button#add-musician-btn {
 }
 
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
+
+/* #your-musicians-text{
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  align-items: center;
+  color: white;
+} */
