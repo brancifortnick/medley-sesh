@@ -10,6 +10,7 @@ button.comment-button {
   width: auto;
   height: 35px;
   border-radius: 6px;
+  margin: 8px;
   background-color: white;
   border: none;
 }

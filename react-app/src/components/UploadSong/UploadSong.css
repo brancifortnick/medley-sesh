@@ -7,6 +7,9 @@
 } */
 
 #add-song-text{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   color: white;
 }
 div.form-container {
@@ -17,6 +20,7 @@ div.form-container {
   background-color:  rgb(72, 129, 194);
   border-radius: 6px;
   padding: 20px;
+  opacity: .78;
 }
 
 button#create-song-btn {

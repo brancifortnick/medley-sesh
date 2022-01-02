@@ -6,7 +6,7 @@
   border-radius: 6px;
   background-color: white;
   border: none;
-  margin: 2px;
+  margin: 8px;
 }
 #delete-musician-btn:hover {
   transition: all 0.4s ease 0s;

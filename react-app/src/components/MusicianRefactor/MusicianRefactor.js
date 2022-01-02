@@ -41,7 +41,7 @@ function Musician() {
       ) : (
         <img
           className="card"
-          style={{ height: "300px", width: "150px" }}
+          // style={{ height: "300px", width: "150px" }}
           src="https://via.placeholder.com/350x150"
           alt="blank"
         ></img>
