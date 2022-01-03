@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getOneMusician, deleteOneMusician } from "../../store/musician";
+import { getOneMusician, deleteOneMusician, getAllMusicians } from "../../store/musician";
 import './DeleteMusician.css'
 
 

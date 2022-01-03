@@ -17,21 +17,18 @@
 
 //   useEffect(() => {
 //     dispatch(getOneSingleSong(Number(id)));
-//   }, [dispatch]);
+//   }, [dispatch, id]);
 
-//   useEffect(() => {
-//     dispatch(getOneUser());
-//   }, [dispatch]);
 //   return (
 //     <div className="audio_outer_div">
 //       <div id="single-song">
 //         <h2 className="song-title">{song?.title}</h2>
 //       </div>
 //       <div className="create_comment">
-//         <CommentCreate />
+//         <CommentCreate songId={song.id}/>
 //       </div>
 //       <div className="comment_component_container">
-//         <CommentDisplay  />
+//         <CommentDisplay songId={song.id} />
 //       </div>
 //     </div>
 //   );

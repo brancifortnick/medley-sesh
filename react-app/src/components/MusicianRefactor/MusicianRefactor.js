@@ -1,27 +1,25 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import {useHistory, useParams} from "react-router-dom";
-import { getOneMusician} from "../../store/musician";
+import { useParams } from "react-router-dom";
+import { getOneMusician } from "../../store/musician";
 import UpdateBiography from "../UpdateBiography/UpdateBiography";
-import DeleteMusician from '../DeleteMusician/DeleteMusician';
+import DeleteMusician from "../DeleteMusician/DeleteMusician";
 import AllSongs from "../AllSongs/AllSongs";
 import UploadSong from "../UploadSong/UploadSong";
 import CommentCreate from "../CommentCreate/CommentCreate";
-import './MusicianRefactor.css'
+import "./MusicianRefactor.css";
 
 function Musician() {
-
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
   const { musicianId } = useParams();
-  const history = useHistory();
-  // const musicians = useSelector((state) => Object.values(state.musician));
-  const musicians = useSelector(state => state.musician);
-  const songs = useSelector(state => Object.values(state.song));
+
+  const musicians = useSelector((state) => state.musician);
+  const songs = useSelector((state) => Object.values(state.song));
 
   useEffect(() => {
-    dispatch(getOneMusician(parseInt(musicianId)));
+    dispatch(getOneMusician(Number(musicianId)));
   }, [dispatch, musicianId]);
 
   return (
@@ -35,7 +33,7 @@ function Musician() {
             paddingTop: "0px",
             marginTop: "20px",
           }}
-          src={musicians?.profile_img}
+          src={musicians.profile_img}
           alt="profile_img"
         ></img>
       ) : (
@@ -46,32 +44,34 @@ function Musician() {
           alt="blank"
         ></img>
       )}
+
       <div className="biography-div">
         <div id="bio">
           <strong>Biography</strong>
         </div>
         <p id="bio">{musicians.biography}</p>
-        {currentUser.id === Number(musicians.user_id) ? (
-          <div id="update-biography">
+        <div id="update-biography">
+          {currentUser.id === Number(musicians.user_id) ? (
             <UpdateBiography
               musicianBiography={musicians.biography}
               musicianId={musicianId}
             />
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </div>
       <div id="delete-component">
         {currentUser.id === Number(musicians.user_id) ? (
           <DeleteMusician musicianId={musicianId} />
         ) : null}
       </div>
-      <div className="audio-div">
-        <AllSongs musicianId={musicianId} songId={songs.id}/>
-      </div>
+
       <div className="song-form">
         {currentUser.id === Number(musicians.user_id) ? (
           <UploadSong musicianId={musicianId} />
         ) : null}
+      </div>
+      <div className="audio-div">
+        <AllSongs musicianId={musicianId} />
       </div>
     </div>
   );
