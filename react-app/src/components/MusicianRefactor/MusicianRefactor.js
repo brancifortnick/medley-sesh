@@ -73,6 +73,7 @@ function Musician() {
       <div className="audio-div">
         <AllSongs musicianId={musicianId} />
       </div>
+
     </div>
   );
 }

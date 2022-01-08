@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllComments } from "../../store/comment";
+import { getSongsComments } from "../../store/comment";
 import CommentCreate from "../CommentCreate/CommentCreate";
 import CommentDelete from "../CommentDelete/CommentDelete";
 import CommentUpdate from "../CommentUpdate/CommentUpdate";
 import "./CommentDisplay.css";
 
-const CommentDisplay = ({songId}) => {
+const CommentDisplay = ({ songId }) => {
   const dispatch = useDispatch();
   const comments = useSelector((state) => Object.values(state.comment));
   const currentUser = useSelector((state) => state.session.user);
   // const song = useSelector((state) => state.song);
-  console.log(comments, '<<<<comments before useEffect')
+  console.log(comments, "<<<<comments before useEffect", songId, "songId>>>>");
 
   useEffect(() => {
-    console.log('inside of useEffect comment display component')
-    dispatch(getAllComments(songId));
+    console.log("inside of useEffect comment display component");
+    dispatch(getSongsComments(songId));
   }, [dispatch, songId]);
 
   return (
     <div>
-      <CommentCreate/>
+      <CommentCreate songId={songId}/>
       <div className="comment-form-container">
         <div id="comment-div">
           {comments.map((comment) => (

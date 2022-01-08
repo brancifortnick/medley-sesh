@@ -1,10 +1,17 @@
 const GET_COMMENTS = "comment/GET_COMMENTS";
+const GET_SONG_COMMENTS = 'comments/GET_SONG_COMMENTS';
 const ADD_COMMENT = "comment/ADD_COMMENT";
 const GET_ONE_COMMENT = "comment/GET_ONE_COMMENT";
 const DELETE_COMMENT = "comment/DELETE_COMMENT";
 const EDIT_COMMENT = "comment/EDIT_COMMENT";
 
 const getComments = (comments) => ({
+  type: GET_COMMENTS,
+  payload: comments,
+});
+
+
+const getSongComments = (comments) => ({
   type: GET_COMMENTS,
   payload: comments,
 });
@@ -37,6 +44,14 @@ export const getAllComments = () => async (dispatch) => {
   }
 };
 
+export const getSongsComments = (song_id) => async (dispatch) => {
+  const res = await fetch(`/api/songs/${song_id}/comments`)
+  if(res.ok){
+    const comments = await res.json();
+    dispatch(getSongComments(comments));
+  }
+}
+
 export const createComment = (formData) => async (dispatch) => {
   const res = await fetch(`/api/comments/new`, {
     method: "POST",
@@ -54,15 +69,15 @@ export const createComment = (formData) => async (dispatch) => {
   }
 };
 
-export const getOneComment = (id) => async (dispatch) => {
-  const response = await fetch(`/api/comments/${id}`);
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(getOne(data));
-  } else {
-    console.log("Can't fetch comments");
-  }
-};
+// export const getOneComment = (id) => async (dispatch) => {
+//   const response = await fetch(`/api/comments/${id}`);
+//   if (response.ok) {
+//     const data = await response.json();
+//     dispatch(getOne(data));
+//   } else {
+//     console.log("Can't fetch comments");
+//   }
+// };
 
 export const deleteAComment = (id) => async (dispatch) => {
   const res = await fetch(`/api/comments/delete/${id}`, {
@@ -92,7 +107,7 @@ const initialState = {};
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case GET_COMMENTS:
+    case GET_SONG_COMMENTS:
       let newComState = {};
       action.payload.forEach((comment) => {
         newComState[comment.id] = comment;

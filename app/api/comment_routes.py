@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import Comment, db
+from app.models import Comment, db, Song
 from flask_login import current_user, login_required
 
 

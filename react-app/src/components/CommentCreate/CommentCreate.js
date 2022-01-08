@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { createComment, getAllComments } from "../../store/comment";
 import { Modal } from "../../context/Modal";
 import './CommentCreate.css'
+import { useParams } from "react-router-dom";
+import { getSongsComments } from "../../store/comment";
 
-
-const CommentCreate = () => {
+const CommentCreate = ({songId}) => {
   const dispatch = useDispatch();
 
+  // let song_id = songId
   const user = useSelector((state) => state.session.user);
   const songs = useSelector((state) => Object.values(state.song));
   const comments = useSelector(state => Object.values(state.comment));
@@ -16,26 +18,26 @@ const CommentCreate = () => {
   const [comment, setComment] = useState("");
   const [showModal, setModal] = useState(false);
 
-  let song_id = songs.map((song) => {
-    return song.id
-  });
+  // let song_id = songs.map((song) => {
+  //   return song.id
+  // });
 
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("comment", comment);
-    formData.append("song_id", song_id);
+    formData.append("song_id", Number(songId));
     formData.append("user_id", user.id);
     console.log('before comment created', comments )
     dispatch(createComment(formData));
     console.log('after dispatch', comments, '<<<<<<<<')
     setModal(false);
-    setComment("");
+    // setComment("");
   };
 
-  useEffect(() => {
-    dispatch(getAllComments());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getSongsComments())
+  // }, [dispatch]);
 
   const updateComment = (e) => setComment(e.target.value);
 
