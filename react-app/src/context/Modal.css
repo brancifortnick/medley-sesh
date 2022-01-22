@@ -19,6 +19,12 @@
   }
 
   #modal-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
     position: absolute;
+    text-align: center;
     background-color:white;
+     border-radius: 6px;
+
   }

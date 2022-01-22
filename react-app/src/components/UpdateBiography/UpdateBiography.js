@@ -41,7 +41,7 @@ const UpdateBiography = ({ musicianBiography, musicianId }) => {
               />
             </label>
             <button type="submit" id="update-biography-submit">
-              Submit your new biography
+              Submit new biography
             </button>
           </form>
         </Modal>

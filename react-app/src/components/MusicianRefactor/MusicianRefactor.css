@@ -24,7 +24,7 @@ img.background-image-musicians{
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 100%;
+  min-height: 100%;
   width: auto;
   z-index: -1;
 }
