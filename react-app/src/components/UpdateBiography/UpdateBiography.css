@@ -9,8 +9,15 @@ button#biography-edit {
 }
 button#biography-edit:hover {
   transition: all 0.4s ease 0s;
-  background-color:black;
+  background-color: black;
   color: white;
   cursor: pointer;
   border: 1px solid white;
+}
+label#biography-form  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
 }

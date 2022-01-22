@@ -46,10 +46,9 @@ const UploadSong = ({ musicianId }) => {
     <div className="song-form-container">
       <button
         id="add-song-text"
-        id="add-song-text"
         onClick={() => setModal(true)}
       >
-        Add a song to your musician
+        Add a song
       </button>
       {showModal && (
         <Modal onClose={() => setModal(false)}>
