@@ -28,7 +28,7 @@ const UploadSong = ({ musicianId }) => {
     });
     if (res.ok) {
       let file_url = await res.json();
-      dispatch(createNewSong(title, file_url, song_img, user.id));
+      dispatch(createNewSong(title, file_url, song_img, Number(musicianId)));
     }
     history.push(`/musicians/${musicianId}`);
   };

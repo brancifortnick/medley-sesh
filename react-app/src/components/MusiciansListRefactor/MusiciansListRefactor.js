@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getAllMusicians } from "../../store/musician";
 import "./MusiciansListRefactor.css";
-// import { Card } from "antd";
 
 function MusiciansListRefactor() {
   const dispatch = useDispatch();

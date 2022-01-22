@@ -4,18 +4,31 @@ div#biography {
   flex-wrap: wrap;
   justify-content: center;
 }
+/*
+img.background-image-musicians{
+    background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  overflow-x: hidden;
+  overflow-y: hidden;
+} */
+
 .card-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   background-image: url(../../assets/space-wallpaper.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: fit-content;
-  /* width: auto; */
+  height: 100%;
+  width: auto;
+  z-index: -1;
 }
+
 div.biography-div {
   display: flex;
   flex-direction: column;

@@ -12,12 +12,13 @@ const DeleteTrack = ({ musicianId, songId }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     dispatch(deleteTrack(parseInt(songId)));
     // history.push("/");
   };
 
   useEffect(() => {
-    // dispatch(getOneMusician(parseInt(musicianId)));
+    dispatch(getOneMusician(parseInt(musicianId)));
     dispatch(getMusiciansTracks(parseInt(musicianId)));
   }, [dispatch, musicianId]);
 
