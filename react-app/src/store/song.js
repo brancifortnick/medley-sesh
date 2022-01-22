@@ -92,8 +92,8 @@ export default function reducer(state = initialState, action) {
       const newNew = { ...state };
       newNew[action.payload.id] = action.payload;
       return newNew;
-    // case GET_ONE_TRACK:
-    //   return { ...action.payload };
+    case GET_ONE_TRACK:
+      return { ...action.payload };
     case DELETE_TRACK:
       const currentState = { ...state };
       delete currentState[action.payload]; // maybe this should be action.payload.id-not sure

@@ -24,8 +24,8 @@ def get_song(id):
 
 
 @song_routes.route('/<int:song_id>/comments', methods=['GET'])
-def get_comments(id):
-    comments = Comment.query.filter(Comment.song_id == id).all()
+def get_comments(song_id):
+    comments = Comment.query.filter(Comment.song_id == song_id).all()
     return {'comments': [comment.to_dict for comment in comments]}
 
 

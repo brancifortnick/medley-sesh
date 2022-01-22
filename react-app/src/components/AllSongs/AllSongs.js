@@ -2,13 +2,15 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteTrack from "../DeleteTrack/DeleteTrack";
-import CommentDisplay from "../CommentDisplay/CommentDisplay";
+
 import "./AllSongs.css";
 import { getOneMusician } from "../../store/musician";
 import { getMusiciansTracks } from "../../store/song";
 
 import "./AllSongs.css";
-import { getSongsComments } from "../../store/comment";
+// import { getSongsComments } from "../../store/comment";
+// import CommentDisplay from "../CommentDisplay/CommentDisplay";
+
 
 const AllSongs = ({ musicianId }) => {
   const dispatch = useDispatch();
@@ -20,8 +22,8 @@ const AllSongs = ({ musicianId }) => {
 
   const musicians = useSelector((state) => Object.values(state.musician));
 
-  const comment = useSelector((state) => state.comment);
-  console.log(comment, "<<<<comment");
+  // const comment = useSelector((state) => state.comment);
+  // console.log(comment, "<<<<comment");
 
   // const musician = useSelector((state) =>state.musician);
 
@@ -42,17 +44,17 @@ const AllSongs = ({ musicianId }) => {
             <p className="title-p">Title: {song.title} </p>
             <div id="audio-player">
               <audio src={song.file_url} controls></audio>
-              {user.id == (song.musician_id) ? (
+              {user.id === Number(song.musician_id) ? (
                 <DeleteTrack musicianId={song.musician_id} songId={song.id} />
               ) : null}
             </div>
-            <div id="comment-display-component">
+            {/* <div id="comment-display-component">
               <CommentDisplay
                 // commentId={comment.id}
                 musicianId={musicianId}
                 songId={song.id}
               />
-            </div>
+            </div> */}
 
             {/* {user.id === Number(song.musician_id) ? (
               <CommentUpdate commentId={commentId} musicianId={musicianId} songId={song.id} />

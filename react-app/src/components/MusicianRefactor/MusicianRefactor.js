@@ -9,6 +9,7 @@ import AllSongs from "../AllSongs/AllSongs";
 import UploadSong from "../UploadSong/UploadSong";
 import CommentCreate from "../CommentCreate/CommentCreate";
 import "./MusicianRefactor.css";
+import { getMusiciansTracks } from "../../store/song";
 
 function Musician() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function Musician() {
 
   useEffect(() => {
     dispatch(getOneMusician(Number(musicianId)));
+    dispatch(getMusiciansTracks(musicianId))
   }, [dispatch, musicianId]);
 
   return (
