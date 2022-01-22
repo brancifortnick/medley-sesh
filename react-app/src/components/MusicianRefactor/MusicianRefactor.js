@@ -7,9 +7,10 @@ import UpdateBiography from "../UpdateBiography/UpdateBiography";
 import DeleteMusician from "../DeleteMusician/DeleteMusician";
 import AllSongs from "../AllSongs/AllSongs";
 import UploadSong from "../UploadSong/UploadSong";
-import CommentCreate from "../CommentCreate/CommentCreate";
 import "./MusicianRefactor.css";
 import { getMusiciansTracks } from "../../store/song";
+// import CommentCreate from "../CommentCreate/CommentCreate";
+// import picture from '../../assets/space-wallpaper.jpg'
 
 function Musician() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function Musician() {
   const { musicianId } = useParams();
 
   const musicians = useSelector((state) => state.musician);
-  const songs = useSelector((state) => Object.values(state.song));
+  const song = useSelector((state) => (state.song));
 
   useEffect(() => {
     dispatch(getOneMusician(Number(musicianId)));
@@ -73,7 +74,7 @@ function Musician() {
         ) : null}
       </div>
       <div className="audio-div">
-        <AllSongs musicianId={musicianId} />
+        <AllSongs musicianId={musicianId} songId={song.id} />
       </div>
 
     </div>
