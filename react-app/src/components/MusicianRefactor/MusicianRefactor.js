@@ -22,7 +22,7 @@ function Musician() {
 
   useEffect(() => {
     dispatch(getOneMusician(Number(musicianId)));
-    dispatch(getMusiciansTracks(musicianId))
+    // dispatch(getMusiciansTracks(musicianId))
   }, [dispatch, musicianId]);
 
   return (

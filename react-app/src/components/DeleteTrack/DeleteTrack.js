@@ -18,7 +18,7 @@ const DeleteTrack = ({ musicianId, songId }) => {
   };
 
   useEffect(() => {
-    // dispatch(getOneMusician(parseInt(musicianId)));
+    dispatch(getOneMusician(parseInt(musicianId)));
     dispatch(getMusiciansTracks(parseInt(musicianId)));
   }, [dispatch, musicianId]);
 
