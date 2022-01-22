@@ -18,7 +18,7 @@ function Musician() {
   const { musicianId } = useParams();
 
   const musicians = useSelector((state) => state.musician);
-  const song = useSelector((state) => (state.song));
+  // const song = useSelector((state) => (state.song));
 
   useEffect(() => {
     dispatch(getOneMusician(Number(musicianId)));
@@ -74,7 +74,7 @@ function Musician() {
         ) : null}
       </div>
       <div className="audio-div">
-        <AllSongs musicianId={musicianId} songId={song.id} />
+        <AllSongs musicianId={musicianId} />
       </div>
 
     </div>

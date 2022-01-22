@@ -12,6 +12,7 @@ const DeleteTrack = ({ musicianId, songId }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     dispatch(deleteTrack(parseInt(songId)));
     // history.push("/");
   };
