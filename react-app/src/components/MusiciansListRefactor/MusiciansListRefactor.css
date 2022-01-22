@@ -31,7 +31,7 @@
   padding: 28px;
   font-weight: 500;
   border-top: 2px solid black;
-  border-radius: 22px;
+  /* border-radius: 22px; */
 }
 .musicians-container {
   flex-basis: 5%;
