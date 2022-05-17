@@ -5,7 +5,7 @@
 #    pipenv lock --requirements
 #
 
--i https://pypi.org/simple
+-i https://pypi.org/simple/
 alembic==1.6.5
 boto3==1.17.104
 botocore==1.20.104
@@ -27,6 +27,7 @@ python-dateutil==2.8.1
 python-dotenv==0.14.0
 python-editor==1.0.4
 s3transfer==0.4.2
+setuptools==62.3.1; python_version >= '3.7'
 six==1.15.0
 sqlalchemy==1.4.19
 urllib3==1.26.6
