@@ -2,10 +2,12 @@
 # [Medley](https://medley-aa.herokuapp.com)
 
 ### Splash 
-![Login]
+![Login](https://user-images.githubusercontent.com/65651149/208391912-61a847d5-dd76-4f22-918e-8b8d49e3af72.png)
+
 
 ### Landing
-![LandingPage]
+![LandingPage](https://user-images.githubusercontent.com/65651149/208391980-d0b1788f-26f6-4086-855f-274204a33ef2.png)
+
 
 ### Users Songs
 ![User's uploads]()
