@@ -3,17 +3,17 @@
   margin: 0px;
 } */
 
-li{
-    list-style-type: none;
+li {
+  list-style-type: none;
 }
-ol{
+ol {
   padding: 6px;
   margin: 0px;
   display: inline-block;
   color: white;
 }
 
-label{
+label {
   font-size: 16px;
   font-weight: 600;
   color: black;
@@ -23,23 +23,22 @@ label{
 }
 /* style={{display: "table-cell"}} */
 
-
-.card{
+.card {
   border-radius: 6px;
-  background-color: #F0EFEB;
+  background-color: #f0efeb;
   padding: 20 0;
   /* border: 3px solid white; */
   border: 1px solid black;
-   /* #E1FCFD; */
+  /* #E1FCFD; */
 }
 
-.card p{
+.card p {
   padding-top: 20px;
   padding-left: 20px;
 }
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
 
-textarea{
+textarea {
   width: 50%;
   height: 150px;
   padding: 12px 20px;
@@ -50,27 +49,38 @@ textarea{
   font-size: 16px;
   resize: none;
 }
-*{
+* {
   text-decoration: none;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html{
+html {
   height: 100%;
 }
 
 body {
   height: 100%;
-  /* width: auto; */
-
+  width: auto;
 }
 
 div#root {
   height: 100%;
   /* background:#FFFEF6; */
-  background-color: #F0EFEB;
+  background-color: #f0efeb;
 }
 
 /*adding pull request */
 /*adding pull request */
 /*adding pull request */
+@media (min-width: 480px) {
+  #root {
+    flex-direction: row-reverse;
+  }
+
+  @media (max-width: 1200px) {
+    #root {
+      display: inline-block;
+      align-items: center;
+    }
+  }
+}
