@@ -1,40 +1,39 @@
 .sign-up-container {
-  display: grid;
+  /* display: grid;
   grid-template-rows: fit-content(100%);
-  background: url(../../assets/blue-instruments.jpg);
+  background: url(../../assets/blue-instruments.jpg); */
   padding-top: -10px;
   text-align: center;
   /* background-size: cover; */
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   background-repeat: repeat;
   /* color: white; */
   z-index: -1;
 }
 
 form.sign-up{
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-left: 725px;
+  /* margin-left: 725px; */
   background-color: white;
   width: 450px;
   height: 550px;
   margin-top: 75px;
   border-radius: 10px;
-  /* background: linear-gradient(to right, transparent, rgb(93, 89, 88)),url('../../assets/philly_skyline.jpg'); */
   background: white;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  opacity: 0.85;
+  opacity: 0.83;
 }
-
+/*!!  /* background: linear-gradient(to right, transparent, rgb(93, 89, 88)),url('../../assets/philly_skyline.jpg'); */
 
 form {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   /* align-items: center; */
 }
@@ -43,9 +42,9 @@ form input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  /* width: 300px;
   height: 50px;
-  margin: 10px;
+  margin: 10px; */
   border: none;
   border-radius: 5px;
   text-indent: 5px;

@@ -11,6 +11,7 @@ const LandingPage = () => {
         Easily access all of your musicians by navigating to your profile page and choosing your desired artist.
       </h1>
       <img
+      style={{minWidth: 400, maxWidth:725}}
         alt="_blank"
         className="background-image-landing"
         src={background}

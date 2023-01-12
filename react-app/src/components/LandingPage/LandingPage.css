@@ -34,7 +34,7 @@
   flex-direction: row;
   background-color: black;
 }
-img.background-image-landing {
+/* img.background-image-landing {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -42,5 +42,5 @@ img.background-image-landing {
   z-index: 0;
   overflow-x: hidden;
   overflow-y: hidden;
-}
+} */
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/

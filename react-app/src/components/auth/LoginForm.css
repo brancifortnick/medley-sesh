@@ -1,4 +1,3 @@
-
 body {
   margin: 0px !important;
 }
@@ -39,16 +38,16 @@ form input:focus {
   outline: none;
 }
 
-.login-container{
-  display: grid;
-  grid-template-rows: fit-content(100%);
-  background: url(../../assets/blue-instruments.jpg);
+.login-container {
+  /* display: grid; */
+  /* grid-template-rows: fit-content(100%); */
+  /* background: url(../../assets/blue-instruments.jpg); */
   padding-top: -10px;
   text-align: center;
   padding-right: 20px;
   /* background-size: cover; */
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   background-repeat: repeat;
   z-index: -1;
 }
@@ -56,16 +55,16 @@ form input:focus {
 form.login-container-form {
   align-items: center;
   margin-top: 175px;
-  margin-left: 725px;
+  /*  margin-left: 725px; */
   width: 450px;
   height: 300px;
   padding: 0px 0 20px 0;
-  border-radius: 10px;
+  border-radius: 8px;
   background-color: white;
   background-size: contain;
   background-attachment: fixed;
   background-position: center;
-  opacity: 0.85;
+  opacity: 0.83;
 }
 
 button.login {

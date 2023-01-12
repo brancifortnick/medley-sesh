@@ -4,16 +4,16 @@ div#biography {
   flex-wrap: wrap;
   justify-content: center;
 }
-/*
+
 img.background-image-musicians{
-    background-size: cover;
+  background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
   z-index: -1;
   overflow-x: hidden;
   overflow-y: hidden;
-} */
+}
 
 .card-container {
   display: flex;
