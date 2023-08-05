@@ -13,7 +13,7 @@
 
 
 ### Review and Comment
-![MedleyOverview]
+![MedleyOverview]Upload a musician write a short bio about that artist or yourself and upload music. Finally, dunk it in the AWS bucket.
 
  ### Technologies Used
  * Python
