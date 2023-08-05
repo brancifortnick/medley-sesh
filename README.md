@@ -9,11 +9,8 @@
 ![LandingPage](https://user-images.githubusercontent.com/65651149/208391980-d0b1788f-26f6-4086-855f-274204a33ef2.png)
 
 
-### Users Songs
-
-
-### Review and Comment
-![MedleyOverview]Upload a musician write a short bio about that artist or yourself and upload music. Finally, dunk it in the AWS bucket.
+### Store your favorite music
+#### Upload a musician write a short bio about that artist or yourself and upload music. Finally, dunk it in the AWS bucket.
 
  ### Technologies Used
  * Python
